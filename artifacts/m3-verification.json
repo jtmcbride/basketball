@@ -1,0 +1,36 @@
+{
+  "origin": "http://127.0.0.1:5178",
+  "environment": {
+    "node": "v24.18.0",
+    "browser": "156.0.8078.4",
+    "platform": "darwin"
+  },
+  "checks": [
+    "Real Batum/Harris alignment, 20 observed players, shared stepping/chart cursors, confidence and reviewer provenance",
+    "Changing focused player preserves the annotation participant and provenance",
+    "Real Williams reference frame 333 has no ball; the ball and its separation value remain unavailable",
+    "390px comparison controls, focused courts and direction/separation charts have no document overflow"
+  ],
+  "pageErrors": [],
+  "numerical": {
+    "referenceCases": 54,
+    "sampleMatches": 54,
+    "numericComparisons": 142,
+    "availabilityChecks": 162,
+    "maxError": {
+      "opponent": 1.7763568394002505e-15,
+      "ball": 7.105427357601002e-15,
+      "heading": 6.934897101018578e-12
+    },
+    "tolerance": 1e-8
+  },
+  "sourceFingerprint": "26eed7665e97b79d3e8aaa5738e49a771bb8556bb745e8f7e235f6d984052761",
+  "annotationRevision": 1,
+  "files": {
+    "../../annotations/curated-v1.json": "a64e31c7aef95c25a95b4b97f522a985ac267648b23ccbb2fa63354dae0c6796",
+    "src/offball/analysis.ts": "243013f65b9bd16fa945a5784316dc24721a7c8af35a4294f5ffc4c3d4d1ce94",
+    "src/offball/model.ts": "cfaf305e2fadcd37bab7fe5dd029a5861b3ea1d1609cd3a29242f6bda8fa404d",
+    "package-lock.json": "ceaabc49bccb7cb98f2e405f758ca864a03f779a1e68427ec221c58958616d2d"
+  },
+  "passed": true
+}

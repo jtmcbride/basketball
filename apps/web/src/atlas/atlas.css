@@ -1,0 +1,461 @@
+.mode-tabs {
+  display: flex;
+  gap: 8px;
+  margin: 0 0 26px;
+}
+.mode-tabs button {
+  padding: 11px 24px;
+  border: 1px solid #9aadb8;
+  background: transparent;
+  border-radius: 5px;
+  font-weight: 700;
+}
+.mode-tabs button[aria-pressed="true"] {
+  background: #203647;
+  color: #fff;
+}
+.atlas-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin: 20px 0 28px;
+  gap: 24px;
+}
+.atlas-title h2 {
+  font-size: clamp(32px, 4vw, 54px);
+  line-height: 1;
+  margin: 8px 0;
+  font-family: "Avenir Next Condensed", "Arial Narrow", sans-serif;
+}
+.atlas-title > p {
+  max-width: 420px;
+  color: #536777;
+}
+.atlas select {
+  width: 100%;
+  min-width: 0;
+  padding: 8px 6px;
+  background: #fff;
+  border: 1px solid #a6b6bf;
+  border-radius: 4px;
+  color: #203647;
+  font: inherit;
+}
+.atlas label {
+  display: grid;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  min-width: 0;
+}
+.atlas-shared {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr auto;
+  align-items: end;
+  gap: 14px;
+  border-top: 1px solid #bac8d0;
+  padding: 18px 0;
+}
+.atlas button {
+  cursor: pointer;
+  font: inherit;
+  color: #203647;
+}
+.atlas-shared button,
+.region-controls button,
+.pagination button,
+.region-attempts li button {
+  background: #fff;
+  border: 1px solid #9aadb8;
+  border-radius: 4px;
+  padding: 8px 12px;
+}
+.metric-tabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #a9bbc5;
+  margin: 10px 0 12px;
+}
+.metric-tabs button {
+  padding: 12px 18px;
+  background: transparent;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  font-weight: 600;
+}
+.metric-tabs button[aria-pressed="true"] {
+  border-bottom-color: #206483;
+  background: #e0eaef;
+}
+.atlas-legend {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 18px 0;
+  font-size: 12px;
+}
+.atlas-legend small {
+  margin-left: auto;
+}
+.color-scale {
+  width: 130px;
+  height: 9px;
+  background: linear-gradient(90deg, #e0eaec, #206483);
+}
+.color-scale.divergent {
+  background: linear-gradient(90deg, #b55136, #edefe8, #206483);
+}
+.comparison-courts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.cohort {
+  background: #f7f9fa;
+  border: 1px solid #c0cdd5;
+  border-radius: 7px;
+  min-width: 0;
+  padding: 18px 22px;
+}
+.cohort-heading {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) 105px;
+  gap: 12px;
+  align-items: end;
+}
+.cohort-letter {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 32px;
+  color: #fff;
+  font-weight: 800;
+  border-radius: 3px;
+}
+.cohort-letter.a,
+.swatch.a {
+  background: #206483;
+}
+.cohort-letter.b,
+.swatch.b {
+  background: #b55136;
+}
+.cohort-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 20px 0 12px;
+}
+.cohort-summary strong {
+  font-size: 24px;
+}
+.cohort-summary small {
+  font-size: 11px;
+  font-weight: 500;
+}
+.cohort-summary > span {
+  font-size: 12px;
+}
+.hex-court {
+  width: 100%;
+  display: block;
+  max-height: 540px;
+}
+.hex-court polygon[role="button"] {
+  cursor: pointer;
+}
+.hex-court polygon[role="button"]:hover,
+.hex-court polygon:focus {
+  stroke: #102f40;
+  stroke-width: 0.4;
+  outline: none;
+}
+.map-caption,
+.baseline-caption {
+  font-size: 11px;
+  line-height: 1.5;
+  margin: 9px 0;
+  color: #536777;
+}
+.atlas-method {
+  max-width: none;
+  margin: 20px 0 28px;
+}
+.region-controls {
+  display: flex;
+  gap: 16px;
+  align-items: end;
+  flex-wrap: wrap;
+  border-top: 1px solid #bac8d0;
+  padding: 22px 0;
+}
+.region-controls label:first-child {
+  width: 210px;
+}
+.region-controls p {
+  flex-basis: 100%;
+  margin: 0;
+  font-size: 13px;
+}
+.distance-chart {
+  background: #e2eaf0;
+  border-radius: 6px;
+  padding: 20px 24px;
+}
+.distance-chart .panel-heading {
+  margin: 0;
+}
+.distance-chart h3 {
+  margin: 5px 0;
+}
+.distance-chart .panel-heading > span {
+  font-size: 12px;
+}
+.distance-chart svg {
+  width: 100%;
+  max-height: 190px;
+}
+.distance-chart text {
+  font-size: 10px;
+  fill: #415b6b;
+}
+.swatch {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+}
+.season-evolution {
+  margin: 30px 0;
+}
+.season-evolution h3 {
+  margin: 5px 0 16px;
+}
+.season-maps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+.season-maps button {
+  background: #f7f9fa;
+  border: 1px solid #b7c6ce;
+  border-radius: 5px;
+  padding: 10px;
+}
+.season-maps button[aria-pressed="true"] {
+  border: 2px solid #206483;
+  padding: 9px;
+}
+.season-maps strong,
+.season-maps span {
+  display: block;
+  text-align: left;
+  font-size: 12px;
+  margin: 3px 0 8px;
+}
+.season-maps span {
+  margin: 10px 0 0;
+  color: #536777;
+}
+.region-attempts {
+  border-top: 1px solid #bac8d0;
+  padding-top: 20px;
+}
+.region-attempts > p {
+  font-size: 13px;
+  color: #536777;
+}
+.region-attempts ol {
+  padding: 0;
+  list-style: none;
+}
+.region-attempts li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  border-bottom: 1px solid #d0dbe1;
+  padding: 13px 0;
+  font-size: 12px;
+}
+.region-attempts li div {
+  display: grid;
+  gap: 3px;
+}
+.region-attempts li small {
+  color: #536777;
+}
+.tracking-unavailable {
+  max-width: 260px;
+  text-align: right;
+}
+.tracking-unavailable span {
+  display: block;
+  font-size: 10px;
+}
+.pagination {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  font-size: 12px;
+}
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.atlas-coverage {
+  margin: 35px 0;
+  font-size: 13px;
+}
+.atlas-coverage summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+.atlas-coverage article {
+  border-top: 1px solid #c0cdd5;
+  padding: 14px 0;
+}
+.atlas-coverage li {
+  margin: 8px 0;
+}
+.atlas-coverage code {
+  display: block;
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
+.atlas [role="alert"] {
+  color: #92412e;
+}
+.map-loading {
+  min-height: 300px;
+}
+.atlas button:focus-visible {
+  outline: 3px solid #206483;
+  outline-offset: 3px;
+}
+@media (max-width: 800px) {
+  .atlas-shared {
+    grid-template-columns: 1fr 1fr;
+  }
+  .atlas-shared button {
+    grid-column: span 2;
+  }
+  .comparison-courts {
+    gap: 12px;
+  }
+  .cohort {
+    padding: 12px;
+  }
+  .cohort-heading {
+    grid-template-columns: 24px minmax(0, 1fr);
+  }
+  .cohort-heading label:last-child {
+    grid-column: 2;
+  }
+  .atlas-title {
+    align-items: start;
+    flex-direction: column;
+    gap: 0;
+  }
+  .atlas-title > p {
+    margin: 5px 0;
+  }
+  .atlas-legend small {
+    margin-left: 0;
+  }
+  .season-maps {
+    grid-template-columns: 1fr 1fr;
+  }
+  .metric-tabs button {
+    flex: 1 0 40%;
+    padding: 10px;
+    font-size: 12px;
+  }
+  .atlas-legend {
+    gap: 8px;
+  }
+  .atlas-legend strong {
+    flex-basis: 100%;
+  }
+  .cohort-summary {
+    gap: 5px;
+  }
+  .distance-chart {
+    padding: 15px;
+  }
+  .distance-chart .panel-heading {
+    display: block;
+  }
+  .distance-chart .panel-heading > span {
+    display: block;
+    margin: 10px 0;
+  }
+  .region-attempts li {
+    align-items: start;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .tracking-unavailable {
+    text-align: left;
+    max-width: none;
+  }
+  .pagination {
+    gap: 7px;
+  }
+  .pagination button {
+    padding: 8px;
+  }
+  .pagination span {
+    flex: 1;
+    text-align: center;
+  }
+  .mode-tabs button {
+    flex: 1;
+    padding: 10px 12px;
+  }
+}
+@media (max-width: 540px) {
+  .comparison-courts {
+    grid-template-columns: 1fr;
+  }
+  .cohort-heading {
+    grid-template-columns: 25px minmax(0, 1fr) 96px;
+  }
+  .cohort-heading label:last-child {
+    grid-column: auto;
+  }
+  .cohort-summary strong {
+    font-size: 22px;
+  }
+  .region-controls {
+    gap: 12px;
+  }
+  .region-controls label:first-child {
+    width: 175px;
+  }
+  .map-loading {
+    min-height: 180px;
+  }
+}
+
+.region-attempts ol {
+  max-height: 440px;
+  overflow-y: auto;
+  padding-right: 12px;
+}
+.region-attempts ol:focus-visible {
+  outline: 2px solid #206483;
+  outline-offset: 4px;
+}
+
+@media (max-width: 540px) {
+  .distance-chart text.distance-tick {
+    font-size: 20px;
+  }
+  .distance-chart text.distance-tick.minor {
+    display: none;
+  }
+}

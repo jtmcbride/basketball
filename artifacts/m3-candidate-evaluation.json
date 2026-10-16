@@ -1,0 +1,36 @@
+{
+  "definition": {
+    "version": "ball-approach-proposal-v1",
+    "near_ft": 3,
+    "prior_far_ft": 5,
+    "max_height_ft": 8,
+    "confirmation_observations": 3,
+    "history_observations": 6,
+    "confirmation_latency_s": 0.08,
+    "matching_tolerance_s": 0.2,
+    "interpretation": "Planar ball approach, not a validated catch detector; dribbles can qualify."
+  },
+  "dataset_kind": "historical",
+  "collection_id": "historical-tracking-review",
+  "revision": 1,
+  "source_fingerprint": "26eed7665e97b79d3e8aaa5738e49a771bb8556bb745e8f7e235f6d984052761",
+  "eligible_held_out_sequences": 0,
+  "held_out": [
+    {
+      "sequence_id": "harris-middle",
+      "candidates": 1,
+      "eligible": false,
+      "reason": "Incomplete or provisional labels cannot establish TP, FP or FN."
+    }
+  ],
+  "precision": null,
+  "recall": null,
+  "true_positives": null,
+  "false_positives": null,
+  "false_negatives": null,
+  "status": "insufficient_ground_truth",
+  "automatic_labels_shipped": false,
+  "limitation": "Tracking-only proximity is not possession truth. Synthetic metrics, if any, only validate the evaluation harness.",
+  "annotation_sha256": "a64e31c7aef95c25a95b4b97f522a985ac267648b23ccbb2fa63354dae0c6796",
+  "candidate_code_sha256": "8b684973df8c94d60bdf65f51dda7448a86c091a18c51a94f1ace6e2267dd46c"
+}

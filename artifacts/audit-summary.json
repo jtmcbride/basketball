@@ -1,0 +1,904 @@
+{
+  "schema_version": "basketball-audit-v1",
+  "source_fingerprint": "26eed7665e97b79d3e8aaa5738e49a771bb8556bb745e8f7e235f6d984052761",
+  "pipeline_fingerprint": "53a8a8fbc02c836153616e8f31ef0cc5e96c7fc05f6dad37dffe0a74c8111553",
+  "software": {
+    "python": "3.13.14",
+    "duckdb": "1.5.6",
+    "py7zr": "1.1.4",
+    "pydantic": "2.14.1"
+  },
+  "sources": [
+    {
+      "id": "sportvu-cha-tor",
+      "kind": "tracking",
+      "url": "https://raw.githubusercontent.com/linouk23/NBA-Player-Movements/f7d4cf2c7e607029abfd5715a0d4073bedae328e/data/2016.NBA.Raw.SportVU.Game.Logs/01.01.2016.CHA.at.TOR.7z",
+      "filename": "01.01.2016.CHA.at.TOR.7z",
+      "revision": "f7d4cf2c7e607029abfd5715a0d4073bedae328e",
+      "rights_note": "Public historical archive; underlying NBA data redistribution rights not established. Local audit only.",
+      "sha256": "48ab77ffdec6bd969cda460056faafed396aaa74f790c95a8dd0b5dc5c13ccf4",
+      "bytes": 5984493,
+      "acquired_at": "2026-10-16T03:30:02.189314+00:00"
+    },
+    {
+      "id": "sportvu-den-gsw",
+      "kind": "tracking",
+      "url": "https://raw.githubusercontent.com/linouk23/NBA-Player-Movements/f7d4cf2c7e607029abfd5715a0d4073bedae328e/data/2016.NBA.Raw.SportVU.Game.Logs/01.02.2016.DEN.at.GSW.7z",
+      "filename": "01.02.2016.DEN.at.GSW.7z",
+      "revision": "f7d4cf2c7e607029abfd5715a0d4073bedae328e",
+      "rights_note": "Public historical archive; underlying NBA data redistribution rights not established. Local audit only.",
+      "sha256": "73d4c45458f9f0af0eb3e896448e73782baa0de562136fdc4f7dad30d1450e87",
+      "bytes": 7036308,
+      "acquired_at": "2026-10-16T03:30:02.726289+00:00"
+    },
+    {
+      "id": "shots-2015",
+      "kind": "shots",
+      "url": "https://raw.githubusercontent.com/shufinskiy/nba_data/e829d4678be1e075f99e5d41a1c5f97089be446b/datasets/shotdetail_2015.tar.xz",
+      "filename": "shotdetail_2015.tar.xz",
+      "revision": "e829d4678be1e075f99e5d41a1c5f97089be446b",
+      "rights_note": "Repository code is Apache-2.0; underlying NBA data redistribution rights not established. Local audit only.",
+      "sha256": "ac48fad67cabf79f8a5a726aa55ea4a8c793a85eaa3835d38b46f2d0e37495a3",
+      "bytes": 2609520,
+      "acquired_at": "2026-10-16T03:30:03.219519+00:00"
+    },
+    {
+      "id": "pbp-2015",
+      "kind": "play_by_play",
+      "url": "https://raw.githubusercontent.com/shufinskiy/nba_data/e829d4678be1e075f99e5d41a1c5f97089be446b/datasets/nbastats_2015.tar.xz",
+      "filename": "nbastats_2015.tar.xz",
+      "revision": "e829d4678be1e075f99e5d41a1c5f97089be446b",
+      "rights_note": "Repository code is Apache-2.0; underlying NBA data redistribution rights not established. Local audit only.",
+      "sha256": "217087b27259e34ec9c82a596335a36ce6580e5f9129e186e6a1b4f0dc592ebf",
+      "bytes": 8307212,
+      "acquired_at": "2026-10-16T03:30:03.802370+00:00"
+    }
+  ],
+  "thresholds": {
+    "nominal_frame_interval_ms": 40,
+    "cadence_tolerance_ms": 5,
+    "event_clock_tolerance_s": 1,
+    "court_margin_ft": 2
+  },
+  "boundaries": {
+    "segment_kind": "source_event_window",
+    "possessions_reconstructed": false,
+    "attacking_direction": "unavailable",
+    "shot_release_timing": "unavailable",
+    "redistribution": "not_established"
+  },
+  "games": [
+    {
+      "game_id": "0021500492",
+      "game_date": "2016-01-01",
+      "home_team": "TOR",
+      "away_team": "CHA",
+      "home_team_id": "1610612761",
+      "away_team_id": "1610612766",
+      "source_event_windows": 452,
+      "unique_frames": 79963,
+      "continuous_windows": 236,
+      "partial_windows": 216,
+      "empty_windows": 37,
+      "periods": [
+        {
+          "period": 1,
+          "unique_frames": 19411,
+          "clock_min_s": 0.03,
+          "clock_max_s": 713.26
+        },
+        {
+          "period": 2,
+          "unique_frames": 20233,
+          "clock_min_s": 0.01,
+          "clock_max_s": 714.75
+        },
+        {
+          "period": 3,
+          "unique_frames": 20282,
+          "clock_min_s": 0.01,
+          "clock_max_s": 719.64
+        },
+        {
+          "period": 4,
+          "unique_frames": 20037,
+          "clock_min_s": 0.02,
+          "clock_max_s": 720.0
+        }
+      ],
+      "shots": 176,
+      "play_by_play_events": 448,
+      "joins": {
+        "shot_to_event": {
+          "matched": 176
+        },
+        "shot_to_tracking": {
+          "matched": 163,
+          "unmatched": 13
+        }
+      },
+      "tracking_source_id": "sportvu-cha-tor",
+      "findings": [
+        {
+          "code": "ball_count_not_one",
+          "count": 260,
+          "severity": "warning",
+          "description": "Observed frame does not have exactly one ball."
+        },
+        {
+          "code": "outside_court",
+          "count": 7303,
+          "severity": "warning",
+          "description": "At least one entity is outside court lines; may include ordinary play."
+        },
+        {
+          "code": "outside_court_margin",
+          "count": 1885,
+          "severity": "warning",
+          "description": "At least one entity is over two feet beyond court lines."
+        },
+        {
+          "code": "missing_shot_clock",
+          "count": 5912,
+          "severity": "warning",
+          "description": "Source shot clock is unavailable."
+        }
+      ],
+      "shot_results": {
+        "made": 70,
+        "missed": 106
+      },
+      "examples": [
+        {
+          "shot_id": "shotchart:0021500492:5",
+          "player": "Cody Zeller",
+          "made": true,
+          "period": 1,
+          "game_clock_s": 685,
+          "continuity": "continuous",
+          "segment_id": "sportvu:0021500492:5:4"
+        },
+        {
+          "shot_id": "shotchart:0021500492:16",
+          "player": "Nicolas Batum",
+          "made": false,
+          "period": 1,
+          "game_clock_s": 620,
+          "continuity": "continuous",
+          "segment_id": "sportvu:0021500492:16:11"
+        },
+        {
+          "shot_id": "shotchart:0021500492:47",
+          "player": "Marvin Williams",
+          "made": true,
+          "period": 1,
+          "game_clock_s": 429,
+          "continuity": "partial",
+          "segment_id": "sportvu:0021500492:47:39"
+        },
+        {
+          "shot_id": "shotchart:0021500492:162",
+          "player": "Frank Kaminsky",
+          "made": false,
+          "period": 2,
+          "game_clock_s": 511,
+          "continuity": "partial",
+          "segment_id": "sportvu:0021500492:162:135"
+        },
+        {
+          "shot_id": "shotchart:0021500492:9",
+          "player": "Nicolas Batum",
+          "tracking_join": {
+            "status": "unmatched",
+            "method": "source_event_id_and_clock",
+            "reason": "Event clock outside window",
+            "segment_id": null,
+            "clock_delta_s": 2.7200000000000273,
+            "timing_confidence": "unavailable",
+            "window_continuity": null
+          }
+        }
+      ],
+      "diagnostics": {
+        "counts": {
+          "raw_moments": 211445,
+          "duplicate_moments": 131482,
+          "outside_court": 7303,
+          "outside_court_margin": 1885,
+          "ball_count_not_one": 260,
+          "stopped_clock_steps": 22341,
+          "game_clock_increase_steps": 78,
+          "missing_shot_clock": 5912,
+          "timestamp_conflict_keys": 0,
+          "timestamp_conflict_frames": 0
+        },
+        "entity_count_distribution": {
+          "11": 79703,
+          "10": 260
+        },
+        "cadence_ms": {
+          "40": 136898,
+          "39": 37073,
+          "41": 36537,
+          "42": 244,
+          "49": 6,
+          "32": 4,
+          "19439": 1,
+          "9400": 2,
+          "18959": 1,
+          "45": 3,
+          "35": 3,
+          "7919": 1,
+          "14199": 1,
+          "38": 96,
+          "22039": 1,
+          "5480": 1,
+          "21438": 1,
+          "7719": 2,
+          "12040": 1,
+          "8040": 1,
+          "22878": 1,
+          "3480": 4,
+          "6079": 1,
+          "13280": 1,
+          "10719": 3,
+          "57": 5,
+          "24": 3,
+          "22119": 1,
+          "18119": 4,
+          "43": 5,
+          "37": 8,
+          "10439": 1,
+          "17999": 3,
+          "16520": 1,
+          "7639": 1,
+          "5799": 2,
+          "48": 2,
+          "31": 4,
+          "51": 4,
+          "28": 6,
+          "6159": 3,
+          "22239": 1,
+          "11839": 2,
+          "8561": 2,
+          "30799": 1,
+          "8360": 2,
+          "52": 2,
+          "17080": 1,
+          "23": 4,
+          "20959": 4,
+          "46": 1,
+          "33": 3,
+          "29640": 5,
+          "8641": 5,
+          "60": 1,
+          "20": 1,
+          "12359": 3,
+          "24479": 3,
+          "6399": 1,
+          "42198": 2,
+          "13079": 4,
+          "15800": 3,
+          "11238": 1,
+          "12480": 2,
+          "9639": 1,
+          "14200": 3,
+          "35639": 1,
+          "13520": 2,
+          "6199": 2,
+          "13439": 2,
+          "13081": 1,
+          "18679": 4,
+          "10879": 1,
+          "17720": 2,
+          "11559": 2,
+          "47": 2,
+          "10959": 1,
+          "35998": 4,
+          "56": 2,
+          "7401": 2,
+          "10119": 2,
+          "9679": 2
+        },
+        "examples": {
+          "outside_court": [
+            "0021500492:1:1451695263283:0",
+            "0021500492:1:1451695263323:0",
+            "0021500492:1:1451695263363:0",
+            "0021500492:1:1451695263403:0",
+            "0021500492:1:1451695263443:0"
+          ],
+          "outside_court_margin": [
+            "0021500492:1:1451695304761:0",
+            "0021500492:1:1451695304801:0",
+            "0021500492:1:1451695304841:0",
+            "0021500492:1:1451695304881:0",
+            "0021500492:1:1451695304921:0"
+          ],
+          "ball_count_not_one": [
+            "0021500492:1:1451695350400:0",
+            "0021500492:1:1451695350440:0",
+            "0021500492:1:1451695350480:0",
+            "0021500492:1:1451695350520:0",
+            "0021500492:1:1451695497794:0"
+          ],
+          "missing_shot_clock": [
+            "0021500492:1:1451695459596:0",
+            "0021500492:1:1451695459636:0",
+            "0021500492:1:1451695459676:0",
+            "0021500492:1:1451695459716:0",
+            "0021500492:1:1451695459756:0"
+          ]
+        },
+        "duplicate_source_event_ids": {}
+      },
+      "coordinate_checks": {
+        "method": "shooter nearest position within +/-1 game-clock second of event",
+        "direction_applied": false,
+        "shot_distance_check": {
+          "shots": 176,
+          "median_absolute_error_ft": 0.6015,
+          "within_2ft": 176
+        },
+        "groups": [
+          {
+            "team_id": "1610612761",
+            "period": 1,
+            "shots": 20,
+            "median_min_distance_ft": {
+              "left:sign-1": 6.9829,
+              "left:sign+1": 13.9991,
+              "right:sign-1": 50.4343,
+              "right:sign+1": 47.8519
+            },
+            "best_candidate": "left:sign-1"
+          },
+          {
+            "team_id": "1610612761",
+            "period": 2,
+            "shots": 16,
+            "median_min_distance_ft": {
+              "left:sign-1": 8.8856,
+              "left:sign+1": 29.4733,
+              "right:sign-1": 40.0709,
+              "right:sign+1": 30.4731
+            },
+            "best_candidate": "left:sign-1"
+          },
+          {
+            "team_id": "1610612761",
+            "period": 3,
+            "shots": 29,
+            "median_min_distance_ft": {
+              "left:sign-1": 57.2482,
+              "left:sign+1": 53.6296,
+              "right:sign-1": 6.0115,
+              "right:sign+1": 12.618
+            },
+            "best_candidate": "right:sign-1"
+          },
+          {
+            "team_id": "1610612761",
+            "period": 4,
+            "shots": 19,
+            "median_min_distance_ft": {
+              "left:sign-1": 59.6622,
+              "left:sign+1": 45.4159,
+              "right:sign-1": 4.0937,
+              "right:sign+1": 21.3615
+            },
+            "best_candidate": "right:sign-1"
+          },
+          {
+            "team_id": "1610612766",
+            "period": 1,
+            "shots": 22,
+            "median_min_distance_ft": {
+              "left:sign-1": 39.0868,
+              "left:sign+1": 23.5973,
+              "right:sign-1": 10.9969,
+              "right:sign+1": 20.7784
+            },
+            "best_candidate": "right:sign-1"
+          },
+          {
+            "team_id": "1610612766",
+            "period": 2,
+            "shots": 22,
+            "median_min_distance_ft": {
+              "left:sign-1": 35.8509,
+              "left:sign+1": 29.9653,
+              "right:sign-1": 8.9049,
+              "right:sign+1": 13.7404
+            },
+            "best_candidate": "right:sign-1"
+          },
+          {
+            "team_id": "1610612766",
+            "period": 3,
+            "shots": 16,
+            "median_min_distance_ft": {
+              "left:sign-1": 8.3015,
+              "left:sign+1": 18.1246,
+              "right:sign-1": 41.1229,
+              "right:sign+1": 33.8974
+            },
+            "best_candidate": "left:sign-1"
+          },
+          {
+            "team_id": "1610612766",
+            "period": 4,
+            "shots": 19,
+            "median_min_distance_ft": {
+              "left:sign-1": 8.7157,
+              "left:sign+1": 16.9559,
+              "right:sign-1": 35.9403,
+              "right:sign+1": 28.148
+            },
+            "best_candidate": "left:sign-1"
+          }
+        ]
+      }
+    },
+    {
+      "game_id": "0021500504",
+      "game_date": "2016-01-02",
+      "home_team": "GSW",
+      "away_team": "DEN",
+      "home_team_id": "1610612744",
+      "away_team_id": "1610612743",
+      "source_event_windows": 505,
+      "unique_frames": 94857,
+      "continuous_windows": 301,
+      "partial_windows": 204,
+      "empty_windows": 7,
+      "periods": [
+        {
+          "period": 1,
+          "unique_frames": 21338,
+          "clock_min_s": 0.02,
+          "clock_max_s": 720.0
+        },
+        {
+          "period": 2,
+          "unique_frames": 22497,
+          "clock_min_s": 0.03,
+          "clock_max_s": 720.0
+        },
+        {
+          "period": 3,
+          "unique_frames": 21060,
+          "clock_min_s": 0.0,
+          "clock_max_s": 720.0
+        },
+        {
+          "period": 4,
+          "unique_frames": 20490,
+          "clock_min_s": 0.0,
+          "clock_max_s": 720.0
+        },
+        {
+          "period": 5,
+          "unique_frames": 9472,
+          "clock_min_s": 0.03,
+          "clock_max_s": 300.0
+        }
+      ],
+      "shots": 191,
+      "play_by_play_events": 503,
+      "joins": {
+        "shot_to_event": {
+          "matched": 191
+        },
+        "shot_to_tracking": {
+          "unmatched": 120,
+          "matched": 71
+        }
+      },
+      "tracking_source_id": "sportvu-den-gsw",
+      "findings": [
+        {
+          "code": "player_count_not_ten",
+          "count": 7,
+          "severity": "warning",
+          "description": "Observed frame has other than ten players."
+        },
+        {
+          "code": "team_count_not_five",
+          "count": 7,
+          "severity": "warning",
+          "description": "Observed frame does not have five players from each team."
+        },
+        {
+          "code": "ball_count_not_one",
+          "count": 577,
+          "severity": "warning",
+          "description": "Observed frame does not have exactly one ball."
+        },
+        {
+          "code": "outside_court",
+          "count": 9791,
+          "severity": "warning",
+          "description": "At least one entity is outside court lines; may include ordinary play."
+        },
+        {
+          "code": "outside_court_margin",
+          "count": 2548,
+          "severity": "warning",
+          "description": "At least one entity is over two feet beyond court lines."
+        },
+        {
+          "code": "timestamp_conflict_keys",
+          "count": 5,
+          "severity": "warning",
+          "description": "Different observations share period and source timestamp."
+        },
+        {
+          "code": "missing_shot_clock",
+          "count": 8397,
+          "severity": "warning",
+          "description": "Source shot clock is unavailable."
+        }
+      ],
+      "shot_results": {
+        "missed": 104,
+        "made": 87
+      },
+      "examples": [
+        {
+          "shot_id": "shotchart:0021500504:68",
+          "player": "Danilo Gallinari",
+          "made": true,
+          "period": 1,
+          "game_clock_s": 253,
+          "continuity": "continuous",
+          "segment_id": "sportvu:0021500504:68:65"
+        },
+        {
+          "shot_id": "shotchart:0021500504:8",
+          "player": "Gary Harris",
+          "made": false,
+          "period": 1,
+          "game_clock_s": 627,
+          "continuity": "continuous",
+          "segment_id": "sportvu:0021500504:8:7"
+        },
+        {
+          "shot_id": "shotchart:0021500504:136",
+          "player": "Darrell Arthur",
+          "made": true,
+          "period": 2,
+          "game_clock_s": 699,
+          "continuity": "partial",
+          "segment_id": "sportvu:0021500504:136:123"
+        },
+        {
+          "shot_id": "shotchart:0021500504:20",
+          "player": "Danilo Gallinari",
+          "made": false,
+          "period": 1,
+          "game_clock_s": 546,
+          "continuity": "partial",
+          "segment_id": "sportvu:0021500504:20:18"
+        },
+        {
+          "shot_id": "shotchart:0021500504:3",
+          "player": "Danilo Gallinari",
+          "tracking_join": {
+            "status": "unmatched",
+            "method": "source_event_id_and_clock",
+            "reason": "Event clock outside window",
+            "segment_id": null,
+            "clock_delta_s": 3.32000000000005,
+            "timing_confidence": "unavailable",
+            "window_continuity": null
+          }
+        }
+      ],
+      "diagnostics": {
+        "counts": {
+          "raw_moments": 241861,
+          "stopped_clock_steps": 38591,
+          "duplicate_moments": 147004,
+          "missing_shot_clock": 8397,
+          "outside_court": 9791,
+          "outside_court_margin": 2548,
+          "ball_count_not_one": 577,
+          "game_clock_increase_steps": 31,
+          "player_count_not_ten": 7,
+          "team_count_not_five": 7,
+          "nonincreasing_timestamp_steps": 7,
+          "timestamp_conflict_keys": 5,
+          "timestamp_conflict_frames": 10
+        },
+        "entity_count_distribution": {
+          "11": 94273,
+          "10": 579,
+          "1": 5
+        },
+        "cadence_ms": {
+          "40": 141607,
+          "41": 49469,
+          "39": 49858,
+          "42": 204,
+          "6360": 2,
+          "4000": 3,
+          "38": 58,
+          "9200": 4,
+          "6880": 1,
+          "4079": 1,
+          "4640": 2,
+          "17359": 5,
+          "17601": 3,
+          "18681": 2,
+          "21680": 3,
+          "13401": 3,
+          "44": 6,
+          "36": 4,
+          "9760": 4,
+          "720": 1,
+          "7999": 1,
+          "10439": 2,
+          "43": 3,
+          "6081": 3,
+          "26720": 4,
+          "17281": 3,
+          "6200": 3,
+          "8000": 1,
+          "11521": 5,
+          "18638": 3,
+          "18320": 5,
+          "2999": 1,
+          "2319": 3,
+          "8839": 3,
+          "16399": 3,
+          "9400": 4,
+          "9039": 2,
+          "8520": 3,
+          "10400": 1,
+          "11000": 2,
+          "1120": 7,
+          "0": 7,
+          "37": 2,
+          "62": 4,
+          "18": 4,
+          "16199": 4,
+          "600": 1,
+          "680": 1,
+          "560": 1,
+          "12400": 3,
+          "4200": 3,
+          "10199": 1,
+          "6721": 3,
+          "14600": 1,
+          "18160": 4,
+          "5599": 1,
+          "4360": 11,
+          "10679": 2,
+          "4280": 1,
+          "13720": 1,
+          "8399": 2,
+          "13521": 1,
+          "12280": 3
+        },
+        "examples": {
+          "missing_shot_clock": [
+            "0021500504:1:1451792463901:0",
+            "0021500504:1:1451792463941:0",
+            "0021500504:1:1451792463981:0",
+            "0021500504:1:1451792464021:0",
+            "0021500504:1:1451792464061:0"
+          ],
+          "outside_court": [
+            "0021500504:1:1451792479779:0",
+            "0021500504:1:1451792479819:0",
+            "0021500504:1:1451792479859:0",
+            "0021500504:1:1451792479899:0",
+            "0021500504:1:1451792479939:0"
+          ],
+          "outside_court_margin": [
+            "0021500504:1:1451792778497:0",
+            "0021500504:1:1451792778537:0",
+            "0021500504:1:1451792778578:0",
+            "0021500504:1:1451792778617:0",
+            "0021500504:1:1451792778658:0"
+          ],
+          "ball_count_not_one": [
+            "0021500504:1:1451793064494:0",
+            "0021500504:1:1451793064534:0",
+            "0021500504:1:1451793064574:0",
+            "0021500504:1:1451793064614:0",
+            "0021500504:1:1451793469650:0"
+          ],
+          "player_count_not_ten": [
+            "0021500504:2:1451795523225:0",
+            "0021500504:2:1451795789543:0",
+            "0021500504:3:1451797765001:0",
+            "0021500504:3:1451797765041:0",
+            "0021500504:3:1451797798721:0"
+          ],
+          "team_count_not_five": [
+            "0021500504:2:1451795523225:0",
+            "0021500504:2:1451795789543:0",
+            "0021500504:3:1451797765001:0",
+            "0021500504:3:1451797765041:0",
+            "0021500504:3:1451797798721:0"
+          ]
+        },
+        "duplicate_source_event_ids": {}
+      },
+      "coordinate_checks": {
+        "method": "shooter nearest position within +/-1 game-clock second of event",
+        "direction_applied": false,
+        "shot_distance_check": {
+          "shots": 191,
+          "median_absolute_error_ft": 0.5005,
+          "within_2ft": 191
+        },
+        "groups": [
+          {
+            "team_id": "1610612743",
+            "period": 1,
+            "shots": 10,
+            "median_min_distance_ft": {
+              "left:sign-1": 40.8413,
+              "left:sign+1": 41.0783,
+              "right:sign-1": 4.7807,
+              "right:sign+1": 9.6576
+            },
+            "best_candidate": "right:sign-1"
+          },
+          {
+            "team_id": "1610612743",
+            "period": 2,
+            "shots": 12,
+            "median_min_distance_ft": {
+              "left:sign-1": 65.5088,
+              "left:sign+1": 59.7595,
+              "right:sign-1": 3.5292,
+              "right:sign+1": 15.8713
+            },
+            "best_candidate": "right:sign-1"
+          },
+          {
+            "team_id": "1610612743",
+            "period": 3,
+            "shots": 8,
+            "median_min_distance_ft": {
+              "left:sign-1": 6.3272,
+              "left:sign+1": 10.7254,
+              "right:sign-1": 76.9695,
+              "right:sign+1": 76.281
+            },
+            "best_candidate": "left:sign-1"
+          },
+          {
+            "team_id": "1610612743",
+            "period": 4,
+            "shots": 11,
+            "median_min_distance_ft": {
+              "left:sign-1": 3.8767,
+              "left:sign+1": 10.2215,
+              "right:sign-1": 74.654,
+              "right:sign+1": 73.4511
+            },
+            "best_candidate": "left:sign-1"
+          },
+          {
+            "team_id": "1610612743",
+            "period": 5,
+            "shots": 3,
+            "median_min_distance_ft": {
+              "left:sign-1": 3.6579,
+              "left:sign+1": 11.7978,
+              "right:sign-1": 44.8328,
+              "right:sign+1": 43.0434
+            },
+            "best_candidate": "left:sign-1"
+          },
+          {
+            "team_id": "1610612744",
+            "period": 1,
+            "shots": 5,
+            "median_min_distance_ft": {
+              "left:sign-1": 3.8244,
+              "left:sign+1": 19.6531,
+              "right:sign-1": 34.2671,
+              "right:sign+1": 26.5466
+            },
+            "best_candidate": "left:sign-1"
+          },
+          {
+            "team_id": "1610612744",
+            "period": 2,
+            "shots": 7,
+            "median_min_distance_ft": {
+              "left:sign-1": 4.7225,
+              "left:sign+1": 28.867,
+              "right:sign-1": 59.3685,
+              "right:sign+1": 50.8267
+            },
+            "best_candidate": "left:sign-1"
+          },
+          {
+            "team_id": "1610612744",
+            "period": 3,
+            "shots": 6,
+            "median_min_distance_ft": {
+              "left:sign-1": 73.2563,
+              "left:sign+1": 73.2004,
+              "right:sign-1": 5.9067,
+              "right:sign+1": 8.3759
+            },
+            "best_candidate": "right:sign-1"
+          },
+          {
+            "team_id": "1610612744",
+            "period": 4,
+            "shots": 8,
+            "median_min_distance_ft": {
+              "left:sign-1": 61.5087,
+              "left:sign+1": 52.7756,
+              "right:sign-1": 2.6097,
+              "right:sign+1": 17.9774
+            },
+            "best_candidate": "right:sign-1"
+          },
+          {
+            "team_id": "1610612744",
+            "period": 5,
+            "shots": 1,
+            "median_min_distance_ft": {
+              "left:sign-1": 66.2927,
+              "left:sign+1": 53.3547,
+              "right:sign-1": 5.2933,
+              "right:sign+1": 39.6854
+            },
+            "best_candidate": "right:sign-1"
+          }
+        ]
+      }
+    }
+  ],
+  "parquet_files": [
+    {
+      "filename": "games.parquet",
+      "sha256": "19be53adae49274398f016fb62f471c828d35b3f1c84e542f8e821d40c19ad49",
+      "rows": 2
+    },
+    {
+      "filename": "shots.parquet",
+      "sha256": "6ccc1876e1d51045c8f8d8de0bda1daf2ae5b3dac2b9f321fbbebbf47d804e7d",
+      "rows": 367
+    },
+    {
+      "filename": "events.parquet",
+      "sha256": "eaaffc088c268218fb6bef796a5fe1c27fd634fa4f8d49bb614705e39aa16503",
+      "rows": 951
+    },
+    {
+      "filename": "segments.parquet",
+      "sha256": "7906d6de93278755d06fc50fbe877403713938eae5b89781c50ce28856f917e7",
+      "rows": 957
+    },
+    {
+      "filename": "event_frames.parquet",
+      "sha256": "3f95005e566ce3a23ee166ccbde337645df0581bdbf358e5ec4b9424bacb1127",
+      "rows": 453306
+    },
+    {
+      "filename": "frames.parquet",
+      "sha256": "d51465bebe91f3194e40c7df9f03193a67c84b507fd39978dc05f310f8a1c418",
+      "rows": 174820
+    }
+  ],
+  "local_runtime_observation": {
+    "elapsed_s": 32.346,
+    "peak_rss_bytes": 2015805440,
+    "cached": false,
+    "source_fingerprint": "26eed7665e97b79d3e8aaa5738e49a771bb8556bb745e8f7e235f6d984052761",
+    "pipeline_fingerprint": "53a8a8fbc02c836153616e8f31ef0cc5e96c7fc05f6dad37dffe0a74c8111553",
+    "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+    "note": "Single uncached local run; not a cross-machine performance guarantee."
+  }
+}

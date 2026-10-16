@@ -1,0 +1,18 @@
+{
+  "origin": "http://127.0.0.1:5178",
+  "environment": {
+    "node": "v24.18.0",
+    "browser": "156.0.8078.4",
+    "platform": "darwin"
+  },
+  "checks": [
+    "Real Curry 2015-16 vs 2024-25 totals, baseline metric, region selection and linked distribution",
+    "Real Cody Zeller event 5 opens the audited replay with 10 observed players; returning preserves atlas filters",
+    "An absent player-season displays zero attempts without retaining old bins",
+    "Actual pagination and 11 outside-view attempts retain full cohort frequency denominator",
+    "390px layout has no document overflow; comparison maps stack and controls remain usable"
+  ],
+  "pageErrors": [],
+  "initialAtlasMs": 238,
+  "passed": true
+}

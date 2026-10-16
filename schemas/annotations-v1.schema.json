@@ -1,0 +1,240 @@
+{
+  "$defs": {
+    "Annotation": {
+      "additionalProperties": false,
+      "properties": {
+        "annotation_id": {
+          "minLength": 1,
+          "title": "Annotation Id",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "catch",
+            "release",
+            "screen",
+            "cut",
+            "relocation",
+            "uncertain"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "label": {
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        },
+        "confidence": {
+          "enum": [
+            "uncertain",
+            "supported",
+            "validated"
+          ],
+          "title": "Confidence",
+          "type": "string"
+        },
+        "basis": {
+          "enum": [
+            "tracking_review",
+            "video_review",
+            "source_annotation",
+            "synthetic_fixture"
+          ],
+          "title": "Basis",
+          "type": "string"
+        },
+        "start_frame_id": {
+          "title": "Start Frame Id",
+          "type": "string"
+        },
+        "anchor_frame_id": {
+          "title": "Anchor Frame Id",
+          "type": "string"
+        },
+        "end_frame_id": {
+          "title": "End Frame Id",
+          "type": "string"
+        },
+        "reviewer": {
+          "minLength": 1,
+          "title": "Reviewer",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "minLength": 1,
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "notes": {
+          "minLength": 1,
+          "title": "Notes",
+          "type": "string"
+        },
+        "evidence_uri": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Evidence Uri"
+        }
+      },
+      "required": [
+        "annotation_id",
+        "kind",
+        "label",
+        "confidence",
+        "basis",
+        "start_frame_id",
+        "anchor_frame_id",
+        "end_frame_id",
+        "reviewer",
+        "reviewed_at",
+        "notes"
+      ],
+      "title": "Annotation",
+      "type": "object"
+    },
+    "Sequence": {
+      "additionalProperties": false,
+      "properties": {
+        "sequence_id": {
+          "minLength": 1,
+          "title": "Sequence Id",
+          "type": "string"
+        },
+        "title": {
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "game_id": {
+          "pattern": "^\\d{10}$",
+          "title": "Game Id",
+          "type": "string"
+        },
+        "segment_id": {
+          "title": "Segment Id",
+          "type": "string"
+        },
+        "player_id": {
+          "title": "Player Id",
+          "type": "string"
+        },
+        "start_frame_id": {
+          "title": "Start Frame Id",
+          "type": "string"
+        },
+        "end_frame_id": {
+          "title": "End Frame Id",
+          "type": "string"
+        },
+        "default_anchor_id": {
+          "title": "Default Anchor Id",
+          "type": "string"
+        },
+        "split": {
+          "enum": [
+            "development",
+            "held_out"
+          ],
+          "title": "Split",
+          "type": "string"
+        },
+        "annotation_coverage": {
+          "default": "partial",
+          "enum": [
+            "partial",
+            "exhaustive_catches"
+          ],
+          "title": "Annotation Coverage",
+          "type": "string"
+        },
+        "annotations": {
+          "items": {
+            "$ref": "#/$defs/Annotation"
+          },
+          "minItems": 1,
+          "title": "Annotations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "sequence_id",
+        "title",
+        "game_id",
+        "segment_id",
+        "player_id",
+        "start_frame_id",
+        "end_frame_id",
+        "default_anchor_id",
+        "split",
+        "annotations"
+      ],
+      "title": "Sequence",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "basketball-annotations-v1",
+      "default": "basketball-annotations-v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "collection_id": {
+      "title": "Collection Id",
+      "type": "string"
+    },
+    "revision": {
+      "minimum": 1,
+      "title": "Revision",
+      "type": "integer"
+    },
+    "dataset_kind": {
+      "enum": [
+        "historical",
+        "synthetic"
+      ],
+      "title": "Dataset Kind",
+      "type": "string"
+    },
+    "source_fingerprint": {
+      "title": "Source Fingerprint",
+      "type": "string"
+    },
+    "pipeline_version": {
+      "title": "Pipeline Version",
+      "type": "string"
+    },
+    "description": {
+      "title": "Description",
+      "type": "string"
+    },
+    "sequences": {
+      "items": {
+        "$ref": "#/$defs/Sequence"
+      },
+      "minItems": 1,
+      "title": "Sequences",
+      "type": "array"
+    }
+  },
+  "required": [
+    "collection_id",
+    "revision",
+    "dataset_kind",
+    "source_fingerprint",
+    "pipeline_version",
+    "description",
+    "sequences"
+  ],
+  "title": "AnnotationSet",
+  "type": "object"
+}

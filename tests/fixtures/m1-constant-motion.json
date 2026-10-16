@@ -1,0 +1,765 @@
+{
+  "description": "Generated analytic fixture. Five home players and one opponent move at (3,4) ft/s.",
+  "replay": {
+    "schema_version": "basketball-replay-v1",
+    "game_id": "0000000001",
+    "segment_id": "sportvu:0000000001:5:0",
+    "source_event_id": "5",
+    "segment_kind": "source_event_window",
+    "continuity": "continuous",
+    "ordering_policy": "timestamp_with_source_indices",
+    "quality_findings": [],
+    "frames": [
+      {
+        "frame_id": "generated-0",
+        "period": 1,
+        "source_timestamp_ms": 1000000,
+        "elapsed_s": 0.0,
+        "game_clock_s": 700.0,
+        "shot_clock_s": 20.0,
+        "break_before": false,
+        "timestamp_conflict": false,
+        "quality_flags": [],
+        "source_moment_indices": [
+          0
+        ],
+        "entities": [
+          {
+            "entity_id": "1",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 8.25,
+            "y_ft": 29.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "2",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 6.25,
+            "y_ft": 29.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "3",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 10.25,
+            "y_ft": 29.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "4",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 8.25,
+            "y_ft": 27.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "5",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 8.25,
+            "y_ft": 31.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "6",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 11.25,
+            "y_ft": 33.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "7",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 70.0,
+            "y_ft": 10.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "8",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 72.0,
+            "y_ft": 20.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "9",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 75.0,
+            "y_ft": 30.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "10",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 78.0,
+            "y_ft": 40.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "ball",
+            "team_id": null,
+            "kind": "ball",
+            "x_ft": 8.25,
+            "y_ft": 29.0,
+            "z_ft": 4.0
+          }
+        ]
+      },
+      {
+        "frame_id": "generated-1",
+        "period": 1,
+        "source_timestamp_ms": 1000040,
+        "elapsed_s": 0.04,
+        "game_clock_s": 699.96,
+        "shot_clock_s": 19.96,
+        "break_before": false,
+        "timestamp_conflict": false,
+        "quality_flags": [],
+        "source_moment_indices": [
+          1
+        ],
+        "entities": [
+          {
+            "entity_id": "1",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 8.37,
+            "y_ft": 29.16,
+            "z_ft": null
+          },
+          {
+            "entity_id": "2",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 6.37,
+            "y_ft": 29.16,
+            "z_ft": null
+          },
+          {
+            "entity_id": "3",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 10.37,
+            "y_ft": 29.16,
+            "z_ft": null
+          },
+          {
+            "entity_id": "4",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 8.37,
+            "y_ft": 27.16,
+            "z_ft": null
+          },
+          {
+            "entity_id": "5",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 8.37,
+            "y_ft": 31.16,
+            "z_ft": null
+          },
+          {
+            "entity_id": "6",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 11.37,
+            "y_ft": 33.16,
+            "z_ft": null
+          },
+          {
+            "entity_id": "7",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 70.0,
+            "y_ft": 10.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "8",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 72.0,
+            "y_ft": 20.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "9",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 75.0,
+            "y_ft": 30.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "10",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 78.0,
+            "y_ft": 40.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "ball",
+            "team_id": null,
+            "kind": "ball",
+            "x_ft": 8.37,
+            "y_ft": 29.16,
+            "z_ft": 4.0
+          }
+        ]
+      },
+      {
+        "frame_id": "generated-2",
+        "period": 1,
+        "source_timestamp_ms": 1000080,
+        "elapsed_s": 0.08,
+        "game_clock_s": 699.92,
+        "shot_clock_s": 19.92,
+        "break_before": false,
+        "timestamp_conflict": false,
+        "quality_flags": [],
+        "source_moment_indices": [
+          2
+        ],
+        "entities": [
+          {
+            "entity_id": "1",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 8.49,
+            "y_ft": 29.32,
+            "z_ft": null
+          },
+          {
+            "entity_id": "2",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 6.49,
+            "y_ft": 29.32,
+            "z_ft": null
+          },
+          {
+            "entity_id": "3",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 10.49,
+            "y_ft": 29.32,
+            "z_ft": null
+          },
+          {
+            "entity_id": "4",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 8.49,
+            "y_ft": 27.32,
+            "z_ft": null
+          },
+          {
+            "entity_id": "5",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 8.49,
+            "y_ft": 31.32,
+            "z_ft": null
+          },
+          {
+            "entity_id": "6",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 11.49,
+            "y_ft": 33.32,
+            "z_ft": null
+          },
+          {
+            "entity_id": "7",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 70.0,
+            "y_ft": 10.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "8",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 72.0,
+            "y_ft": 20.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "9",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 75.0,
+            "y_ft": 30.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "10",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 78.0,
+            "y_ft": 40.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "ball",
+            "team_id": null,
+            "kind": "ball",
+            "x_ft": 8.49,
+            "y_ft": 29.32,
+            "z_ft": 4.0
+          }
+        ]
+      },
+      {
+        "frame_id": "generated-3",
+        "period": 1,
+        "source_timestamp_ms": 1000120,
+        "elapsed_s": 0.12,
+        "game_clock_s": 699.88,
+        "shot_clock_s": 19.88,
+        "break_before": false,
+        "timestamp_conflict": false,
+        "quality_flags": [],
+        "source_moment_indices": [
+          3
+        ],
+        "entities": [
+          {
+            "entity_id": "1",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 8.61,
+            "y_ft": 29.48,
+            "z_ft": null
+          },
+          {
+            "entity_id": "2",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 6.61,
+            "y_ft": 29.48,
+            "z_ft": null
+          },
+          {
+            "entity_id": "3",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 10.61,
+            "y_ft": 29.48,
+            "z_ft": null
+          },
+          {
+            "entity_id": "4",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 8.61,
+            "y_ft": 27.48,
+            "z_ft": null
+          },
+          {
+            "entity_id": "5",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 8.61,
+            "y_ft": 31.48,
+            "z_ft": null
+          },
+          {
+            "entity_id": "6",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 11.61,
+            "y_ft": 33.48,
+            "z_ft": null
+          },
+          {
+            "entity_id": "7",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 70.0,
+            "y_ft": 10.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "8",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 72.0,
+            "y_ft": 20.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "9",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 75.0,
+            "y_ft": 30.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "10",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 78.0,
+            "y_ft": 40.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "ball",
+            "team_id": null,
+            "kind": "ball",
+            "x_ft": 8.61,
+            "y_ft": 29.48,
+            "z_ft": 4.0
+          }
+        ]
+      },
+      {
+        "frame_id": "generated-4",
+        "period": 1,
+        "source_timestamp_ms": 1000160,
+        "elapsed_s": 0.16,
+        "game_clock_s": 699.84,
+        "shot_clock_s": 19.84,
+        "break_before": false,
+        "timestamp_conflict": false,
+        "quality_flags": [],
+        "source_moment_indices": [
+          4
+        ],
+        "entities": [
+          {
+            "entity_id": "1",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 8.73,
+            "y_ft": 29.64,
+            "z_ft": null
+          },
+          {
+            "entity_id": "2",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 6.73,
+            "y_ft": 29.64,
+            "z_ft": null
+          },
+          {
+            "entity_id": "3",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 10.73,
+            "y_ft": 29.64,
+            "z_ft": null
+          },
+          {
+            "entity_id": "4",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 8.73,
+            "y_ft": 27.64,
+            "z_ft": null
+          },
+          {
+            "entity_id": "5",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 8.73,
+            "y_ft": 31.64,
+            "z_ft": null
+          },
+          {
+            "entity_id": "6",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 11.73,
+            "y_ft": 33.64,
+            "z_ft": null
+          },
+          {
+            "entity_id": "7",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 70.0,
+            "y_ft": 10.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "8",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 72.0,
+            "y_ft": 20.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "9",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 75.0,
+            "y_ft": 30.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "10",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 78.0,
+            "y_ft": 40.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "ball",
+            "team_id": null,
+            "kind": "ball",
+            "x_ft": 8.73,
+            "y_ft": 29.64,
+            "z_ft": 4.0
+          }
+        ]
+      },
+      {
+        "frame_id": "generated-5",
+        "period": 1,
+        "source_timestamp_ms": 1000200,
+        "elapsed_s": 0.2,
+        "game_clock_s": 699.8,
+        "shot_clock_s": 19.8,
+        "break_before": false,
+        "timestamp_conflict": false,
+        "quality_flags": [],
+        "source_moment_indices": [
+          5
+        ],
+        "entities": [
+          {
+            "entity_id": "1",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 8.85,
+            "y_ft": 29.8,
+            "z_ft": null
+          },
+          {
+            "entity_id": "2",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 6.85,
+            "y_ft": 29.8,
+            "z_ft": null
+          },
+          {
+            "entity_id": "3",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 10.85,
+            "y_ft": 29.8,
+            "z_ft": null
+          },
+          {
+            "entity_id": "4",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 8.85,
+            "y_ft": 27.8,
+            "z_ft": null
+          },
+          {
+            "entity_id": "5",
+            "team_id": "100",
+            "kind": "player",
+            "x_ft": 8.85,
+            "y_ft": 31.8,
+            "z_ft": null
+          },
+          {
+            "entity_id": "6",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 11.85,
+            "y_ft": 33.8,
+            "z_ft": null
+          },
+          {
+            "entity_id": "7",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 70.0,
+            "y_ft": 10.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "8",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 72.0,
+            "y_ft": 20.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "9",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 75.0,
+            "y_ft": 30.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "10",
+            "team_id": "200",
+            "kind": "player",
+            "x_ft": 78.0,
+            "y_ft": 40.0,
+            "z_ft": null
+          },
+          {
+            "entity_id": "ball",
+            "team_id": null,
+            "kind": "ball",
+            "x_ft": 8.85,
+            "y_ft": 29.8,
+            "z_ft": 4.0
+          }
+        ]
+      }
+    ],
+    "players": [
+      {
+        "player_id": "1",
+        "team_id": "100",
+        "name": "Generated Player 1",
+        "jersey": "1",
+        "position": "G"
+      },
+      {
+        "player_id": "2",
+        "team_id": "100",
+        "name": "Generated Player 2",
+        "jersey": "2",
+        "position": "G"
+      },
+      {
+        "player_id": "3",
+        "team_id": "100",
+        "name": "Generated Player 3",
+        "jersey": "3",
+        "position": "G"
+      },
+      {
+        "player_id": "4",
+        "team_id": "100",
+        "name": "Generated Player 4",
+        "jersey": "4",
+        "position": "G"
+      },
+      {
+        "player_id": "5",
+        "team_id": "100",
+        "name": "Generated Player 5",
+        "jersey": "5",
+        "position": "G"
+      },
+      {
+        "player_id": "6",
+        "team_id": "200",
+        "name": "Generated Player 6",
+        "jersey": "6",
+        "position": "G"
+      },
+      {
+        "player_id": "7",
+        "team_id": "200",
+        "name": "Generated Player 7",
+        "jersey": "7",
+        "position": "G"
+      },
+      {
+        "player_id": "8",
+        "team_id": "200",
+        "name": "Generated Player 8",
+        "jersey": "8",
+        "position": "G"
+      },
+      {
+        "player_id": "9",
+        "team_id": "200",
+        "name": "Generated Player 9",
+        "jersey": "9",
+        "position": "G"
+      },
+      {
+        "player_id": "10",
+        "team_id": "200",
+        "name": "Generated Player 10",
+        "jersey": "10",
+        "position": "G"
+      }
+    ],
+    "events": [
+      {
+        "game_id": "0000000001",
+        "source_game_id": "1",
+        "event_id": "nbastats:0000000001:5",
+        "source_event_id": "5",
+        "period": 1,
+        "game_clock_s": 700.0,
+        "event_type": 1,
+        "player_id": "1",
+        "team_id": "100",
+        "description": "Generated analytic event",
+        "score": "2 - 0"
+      }
+    ],
+    "provenance": {
+      "source_fingerprint": "generated-analytic-fixture",
+      "pipeline_version": "fixture-v1",
+      "sources": [],
+      "coordinate_system": "sportvu_source_court_feet",
+      "attacking_direction": "unavailable",
+      "time_basis": "source_timestamp_ms",
+      "nominal_hz": 25,
+      "release_timing": "unavailable",
+      "redistribution": "not_established"
+    }
+  },
+  "expected": {
+    "left_rim_distance_ft": [
+      5.0,
+      5.2,
+      5.4,
+      5.6,
+      5.8,
+      6.0
+    ],
+    "nearest_opponent_distance_ft": [
+      5.0,
+      5.0,
+      5.0,
+      5.0,
+      5.0,
+      5.0
+    ],
+    "speed_ft_s": [
+      null,
+      null,
+      null,
+      null,
+      5.0,
+      5.0
+    ],
+    "home_rms_ft": 1.7888543819998317,
+    "right_rim_distance_at_start_ft": 80.59931761497737
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "schema_version": "basketball-annotations-v1",
+  "collection_id": "historical-tracking-review",
+  "revision": 1,
+  "dataset_kind": "historical",
+  "source_fingerprint": "26eed7665e97b79d3e8aaa5738e49a771bb8556bb745e8f7e235f6d984052761",
+  "pipeline_version": "m0-v1",
+  "description": "Manual, agent-assisted coordinate review of historical SportVU windows. All labels are provisional and are not independent video or source catch annotations.",
+  "sequences": [
+    {
+      "sequence_id": "batum-corner",
+      "title": "Batum \u00b7 corner movement before ball arrival",
+      "game_id": "0021500492",
+      "segment_id": "sportvu:0021500492:16:11",
+      "player_id": "201587",
+      "start_frame_id": "0021500492:1:1451695379440:0",
+      "end_frame_id": "0021500492:1:1451695383719:0",
+      "default_anchor_id": "batum-catch",
+      "split": "development",
+      "annotation_coverage": "partial",
+      "annotations": [
+        {
+          "annotation_id": "batum-catch",
+          "kind": "catch",
+          "label": "Possible catch \u00b7 tracking review",
+          "confidence": "uncertain",
+          "basis": "tracking_review",
+          "start_frame_id": "0021500492:1:1451695381479:0",
+          "anchor_frame_id": "0021500492:1:1451695381639:0",
+          "end_frame_id": "0021500492:1:1451695381799:0",
+          "reviewer": "Codex manual coordinate review; not independently adjudicated",
+          "reviewed_at": "2026-10-15",
+          "notes": "At reference 3.601 s, planar ball distance is about 0.51 ft and ball height 3.27 ft; earlier frames place the ball away from Batum. Ball control and exact reception are not established. The interval is a reviewer-selected uncertainty range, not a confidence interval.",
+          "evidence_uri": null
+        },
+        {
+          "annotation_id": "batum-relocation",
+          "kind": "relocation",
+          "label": "Corner relocation \u00b7 provisional",
+          "confidence": "uncertain",
+          "basis": "tracking_review",
+          "start_frame_id": "0021500492:1:1451695379440:0",
+          "anchor_frame_id": "0021500492:1:1451695380439:0",
+          "end_frame_id": "0021500492:1:1451695381239:0",
+          "reviewer": "Codex manual coordinate review; not independently adjudicated",
+          "reviewed_at": "2026-10-15",
+          "notes": "Observed path changes from approximately (90.4,37.8) to (86.7,42.8) ft while the ball is elsewhere. Tactical intent and ball possession are not established.",
+          "evidence_uri": null
+        }
+      ]
+    },
+    {
+      "sequence_id": "harris-middle",
+      "title": "Harris \u00b7 sideline to middle before ball arrival",
+      "game_id": "0021500504",
+      "segment_id": "sportvu:0021500504:8:7",
+      "player_id": "203914",
+      "start_frame_id": "0021500504:1:1451792553820:0",
+      "end_frame_id": "0021500504:1:1451792557780:0",
+      "default_anchor_id": "harris-catch",
+      "split": "held_out",
+      "annotation_coverage": "partial",
+      "annotations": [
+        {
+          "annotation_id": "harris-catch",
+          "kind": "catch",
+          "label": "Possible catch \u00b7 tracking review",
+          "confidence": "uncertain",
+          "basis": "tracking_review",
+          "start_frame_id": "0021500504:1:1451792555860:0",
+          "anchor_frame_id": "0021500504:1:1451792556020:0",
+          "end_frame_id": "0021500504:1:1451792556179:0",
+          "reviewer": "Codex manual coordinate review; not independently adjudicated",
+          "reviewed_at": "2026-10-15",
+          "notes": "At reference 16.000 s, ball and player are about 1.5 ft apart in the court plane, ball height about 3.6 ft; the ball is farther away in preceding observations. This is not a validated catch or release.",
+          "evidence_uri": null
+        },
+        {
+          "annotation_id": "harris-cut",
+          "kind": "cut",
+          "label": "Sideline-to-middle cut \u00b7 provisional",
+          "confidence": "uncertain",
+          "basis": "tracking_review",
+          "start_frame_id": "0021500504:1:1451792553820:0",
+          "anchor_frame_id": "0021500504:1:1451792555219:0",
+          "end_frame_id": "0021500504:1:1451792555860:0",
+          "reviewer": "Codex manual coordinate review; not independently adjudicated",
+          "reviewed_at": "2026-10-15",
+          "notes": "Observed player path moves from approximately (84.4,1.9) toward (67.7,10.2) ft before the reference. Cut is a provisional description of the path, not a play-call or intent label.",
+          "evidence_uri": null
+        }
+      ]
+    },
+    {
+      "sequence_id": "williams-missing-ball",
+      "title": "Williams \u00b7 inspect a missing-ball observation",
+      "game_id": "0021500492",
+      "segment_id": "sportvu:0021500492:47:39",
+      "player_id": "101107",
+      "start_frame_id": "0021500492:1:1451695748027:0",
+      "end_frame_id": "0021500492:1:1451695751027:0",
+      "default_anchor_id": "williams-uncertain",
+      "split": "development",
+      "annotation_coverage": "partial",
+      "annotations": [
+        {
+          "annotation_id": "williams-uncertain",
+          "kind": "uncertain",
+          "label": "Ball unavailable \u00b7 observation reference",
+          "confidence": "uncertain",
+          "basis": "tracking_review",
+          "start_frame_id": "0021500492:1:1451695749227:0",
+          "anchor_frame_id": "0021500492:1:1451695749347:0",
+          "end_frame_id": "0021500492:1:1451695749467:0",
+          "reviewer": "Codex manual coordinate review; not independently adjudicated",
+          "reviewed_at": "2026-10-15",
+          "notes": "The reference frame has no recorded ball entity. It cannot support a catch or release label. Use this window to inspect missing-observation handling.",
+          "evidence_uri": null
+        }
+      ]
+    }
+  ]
+}

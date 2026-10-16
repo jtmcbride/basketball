@@ -1,0 +1,428 @@
+.movement-intro {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 28px;
+  margin: 20px 0 24px;
+}
+.movement-intro h2 {
+  font-family: "Avenir Next Condensed", "Arial Narrow", sans-serif;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.05;
+  margin: 7px 0;
+}
+.movement-intro > p {
+  max-width: 410px;
+  color: #536777;
+}
+.curation-notice {
+  font-size: 13px;
+  line-height: 1.7;
+  background: #e2eaf0;
+  border-left: 3px solid #6a8696;
+  padding: 14px 18px;
+  margin: 0 0 22px;
+}
+.sequence-selectors {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.sequence-selectors section {
+  display: grid;
+  gap: 12px;
+  padding: 16px 18px;
+  border: 1px solid #bacbd5;
+  border-radius: 6px;
+  background: #f7f9fa;
+}
+.movement-explorer label {
+  font-size: 12px;
+  font-weight: 700;
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+.movement-explorer select {
+  padding: 8px 7px;
+  background: #fff;
+  border: 1px solid #a6b6bf;
+  border-radius: 4px;
+  color: #203647;
+  font: inherit;
+  width: 100%;
+  min-width: 0;
+}
+.movement-comparison {
+  margin: 22px 0;
+}
+.movement-comparison:focus-visible {
+  outline: 2px solid #206483;
+  outline-offset: 5px;
+}
+.alignment-controls {
+  display: flex;
+  gap: 18px;
+  align-items: end;
+  flex-wrap: wrap;
+  padding: 15px 0;
+  border-top: 1px solid #b9cad3;
+}
+.alignment-controls label:has(input) {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-weight: 500;
+  padding-bottom: 8px;
+}
+.alignment-controls select {
+  width: 115px;
+}
+.comparison-transport {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 12px 0;
+}
+.comparison-transport button {
+  border: 1px solid #9aadb8;
+  background: #fff;
+  border-radius: 4px;
+  padding: 9px 14px;
+  color: #203647;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.comparison-transport .play-button {
+  background: #203647;
+  color: #fff;
+  min-width: 80px;
+}
+.comparison-transport button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.comparison-transport > label {
+  width: 80px;
+}
+.relative-clock {
+  margin-left: auto;
+  text-align: right;
+}
+.relative-clock strong {
+  display: block;
+  font-size: 29px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -1px;
+}
+.relative-clock span {
+  font-size: 11px;
+  color: #536777;
+}
+.comparison-slider {
+  width: 100%;
+  accent-color: #206483;
+  cursor: pointer;
+}
+.comparison-time-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: #536777;
+}
+.alignment-definition {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #536777;
+  margin: 16px 0 20px;
+  max-width: 1000px;
+}
+.movement-panes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.movement-pane {
+  background: #f7f9fa;
+  border: 1px solid #b9cad3;
+  border-radius: 6px;
+  padding: 18px;
+  min-width: 0;
+}
+.movement-pane-heading {
+  display: flex;
+  gap: 10px;
+  align-items: start;
+  margin: 0 0 16px;
+}
+.movement-pane-heading h3 {
+  font-size: 16px;
+  margin: 0 0 5px;
+}
+.movement-pane-heading span:not(.cohort-letter) {
+  font-size: 11px;
+  color: #536777;
+}
+.movement-pane-heading .cohort-letter {
+  flex: none;
+}
+.movement-focus-label {
+  margin-bottom: 14px;
+}
+.annotation-badge {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: baseline;
+  border-top: 1px solid #c7d5dd;
+  padding-top: 12px;
+  font-size: 12px;
+  flex-wrap: wrap;
+}
+.annotation-badge span {
+  font-size: 10px;
+  color: #7e553b;
+}
+.movement-sample {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  margin: 13px 0;
+}
+.movement-pane .replay-court {
+  width: 100%;
+  margin: 0;
+}
+.sample-offset,
+.sample-issues,
+.anchor-offset {
+  font-size: 11px;
+  line-height: 1.6;
+  margin: 8px 0;
+  color: #536777;
+}
+.sample-offset {
+  font-variant-numeric: tabular-nums;
+}
+.sample-issues {
+  min-height: 18px;
+}
+.anchor-offset {
+  border-top: 1px solid #d0dbe1;
+  padding-top: 10px;
+  margin-top: 12px;
+}
+.annotation-provenance {
+  font-size: 12px;
+  line-height: 1.65;
+  margin-top: 13px;
+}
+.annotation-provenance summary {
+  font-weight: 600;
+  cursor: pointer;
+}
+.annotation-provenance code,
+.movement-method code {
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
+.movement-charts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 24px 0 14px;
+}
+.movement-chart {
+  background: #e2eaf0;
+  padding: 14px;
+  margin: 0;
+  border-radius: 5px;
+  min-width: 0;
+}
+.movement-chart figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 12px;
+}
+.movement-chart figcaption > span {
+  font-size: 10px;
+  color: #536777;
+}
+.movement-values {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  margin: 9px 0;
+  font-variant-numeric: tabular-nums;
+}
+.movement-values i {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 4px;
+}
+.movement-chart svg {
+  display: block;
+  width: 100%;
+  cursor: crosshair;
+}
+.movement-method {
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 30px 0;
+}
+.movement-method summary {
+  font-weight: 600;
+  cursor: pointer;
+}
+.movement-explorer button:focus-visible,
+.movement-explorer select:focus-visible {
+  outline: 3px solid #206483;
+  outline-offset: 3px;
+}
+.movement-explorer .definition {
+  max-width: none;
+}
+.movement-comparison > .tracking-notice {
+  margin: 16px 0;
+}
+@media (max-width: 900px) {
+  .movement-charts {
+    grid-template-columns: 1fr;
+  }
+  .movement-chart {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    column-gap: 12px;
+  }
+  .movement-values {
+    grid-column: 1;
+    align-content: start;
+  }
+  .movement-chart figcaption {
+    align-content: start;
+  }
+  .movement-chart svg {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    max-height: 160px;
+  }
+  .movement-panes,
+  .sequence-selectors {
+    gap: 12px;
+  }
+  .movement-pane {
+    padding: 12px;
+  }
+  .movement-pane-heading h3 {
+    font-size: 14px;
+  }
+}
+@media (max-width: 600px) {
+  .movement-intro {
+    display: block;
+  }
+  .movement-intro > p {
+    margin-top: 12px;
+  }
+  .movement-panes,
+  .sequence-selectors {
+    grid-template-columns: 1fr;
+  }
+  .comparison-transport {
+    gap: 12px;
+  }
+  .comparison-transport .transport {
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+    gap: 5px;
+  }
+  .comparison-transport button {
+    padding: 8px 11px;
+  }
+  .comparison-transport .play-button {
+    min-width: 66px;
+  }
+  .relative-clock strong {
+    font-size: 26px;
+  }
+  .alignment-controls {
+    gap: 12px;
+  }
+  .alignment-controls label:has(input) {
+    flex-basis: 100%;
+    padding-bottom: 0;
+  }
+  .movement-chart {
+    grid-template-columns: 115px 1fr;
+    padding: 11px;
+  }
+  .movement-chart figcaption {
+    font-size: 11px;
+    display: block;
+  }
+  .movement-chart figcaption > span {
+    display: block;
+    margin-top: 4px;
+  }
+  .movement-values {
+    display: grid;
+    gap: 5px;
+    font-size: 11px;
+  }
+  .movement-chart svg {
+    min-width: 0;
+    min-height: 100px;
+  }
+  .movement-chart .chart-axis {
+    font-size: 13px;
+  }
+  .movement-pane-heading h3 {
+    font-size: 16px;
+  }
+  .mode-tabs {
+    flex-wrap: wrap;
+  }
+  .mode-tabs button {
+    min-width: 100px;
+  }
+  .curation-notice {
+    font-size: 12px;
+    padding: 12px;
+  }
+  .annotation-badge {
+    align-items: start;
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
+@media (max-width: 600px) {
+  .movement-chart {
+    display: block;
+  }
+  .movement-chart figcaption {
+    display: flex;
+  }
+  .movement-values {
+    display: flex;
+    gap: 20px;
+  }
+  .movement-chart svg {
+    min-height: 0;
+    max-height: 160px;
+  }
+  .movement-chart .chart-axis {
+    font-size: 12px;
+  }
+}

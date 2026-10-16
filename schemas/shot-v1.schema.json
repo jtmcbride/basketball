@@ -1,0 +1,240 @@
+{
+  "$defs": {
+    "EventJoin": {
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "matched",
+            "ambiguous",
+            "unmatched",
+            "unavailable"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "method": {
+          "title": "Method",
+          "type": "string"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Reason"
+        }
+      },
+      "required": [
+        "status",
+        "method",
+        "reason"
+      ],
+      "title": "EventJoin",
+      "type": "object"
+    },
+    "Join": {
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "matched",
+            "ambiguous",
+            "unmatched",
+            "unavailable"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "method": {
+          "title": "Method",
+          "type": "string"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "segment_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Segment Id"
+        },
+        "clock_delta_s": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Clock Delta S"
+        },
+        "timing_confidence": {
+          "default": "unavailable",
+          "enum": [
+            "event_clock_only",
+            "unavailable"
+          ],
+          "title": "Timing Confidence",
+          "type": "string"
+        },
+        "window_continuity": {
+          "anyOf": [
+            {
+              "enum": [
+                "continuous",
+                "partial"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Window Continuity"
+        }
+      },
+      "required": [
+        "status",
+        "method"
+      ],
+      "title": "Join",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "shot_id": {
+      "title": "Shot Id",
+      "type": "string"
+    },
+    "duplicate_source_key": {
+      "title": "Duplicate Source Key",
+      "type": "boolean"
+    },
+    "game_id": {
+      "pattern": "^\\d{10}$",
+      "title": "Game Id",
+      "type": "string"
+    },
+    "source_game_id": {
+      "title": "Source Game Id",
+      "type": "string"
+    },
+    "source_event_id": {
+      "title": "Source Event Id",
+      "type": "string"
+    },
+    "player_id": {
+      "title": "Player Id",
+      "type": "string"
+    },
+    "player_name": {
+      "title": "Player Name",
+      "type": "string"
+    },
+    "team_id": {
+      "title": "Team Id",
+      "type": "string"
+    },
+    "period": {
+      "minimum": 1,
+      "title": "Period",
+      "type": "integer"
+    },
+    "game_clock_s": {
+      "minimum": 0,
+      "title": "Game Clock S",
+      "type": "number"
+    },
+    "made": {
+      "title": "Made",
+      "type": "boolean"
+    },
+    "action_type": {
+      "title": "Action Type",
+      "type": "string"
+    },
+    "shot_value": {
+      "enum": [
+        2,
+        3
+      ],
+      "title": "Shot Value",
+      "type": "integer"
+    },
+    "loc_x": {
+      "title": "Loc X",
+      "type": "number"
+    },
+    "loc_y": {
+      "title": "Loc Y",
+      "type": "number"
+    },
+    "lateral_ft": {
+      "title": "Lateral Ft",
+      "type": "number"
+    },
+    "forward_ft": {
+      "title": "Forward Ft",
+      "type": "number"
+    },
+    "recorded_distance_ft": {
+      "minimum": 0,
+      "title": "Recorded Distance Ft",
+      "type": "number"
+    },
+    "event_join": {
+      "$ref": "#/$defs/EventJoin"
+    },
+    "tracking_join": {
+      "$ref": "#/$defs/Join"
+    }
+  },
+  "required": [
+    "shot_id",
+    "duplicate_source_key",
+    "game_id",
+    "source_game_id",
+    "source_event_id",
+    "player_id",
+    "player_name",
+    "team_id",
+    "period",
+    "game_clock_s",
+    "made",
+    "action_type",
+    "shot_value",
+    "loc_x",
+    "loc_y",
+    "lateral_ft",
+    "forward_ft",
+    "recorded_distance_ft",
+    "event_join",
+    "tracking_join"
+  ],
+  "title": "Shot",
+  "type": "object"
+}

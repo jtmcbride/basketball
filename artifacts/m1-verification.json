@@ -1,0 +1,103 @@
+{
+  "origin": "http://127.0.0.1:5178",
+  "browser": "156.0.8078.4",
+  "platform": "darwin 27.0.0 arm64",
+  "cpu": "Apple M1 Pro",
+  "viewport": {
+    "width": 1440,
+    "height": 1100
+  },
+  "source_fingerprint": "26eed7665e97b79d3e8aaa5738e49a771bb8556bb745e8f7e235f6d984052761",
+  "realWindowsCompared": 9,
+  "numerical": {
+    "compared": 243,
+    "availabilityCompared": 280,
+    "tolerance": 1e-8,
+    "maxErrors": {
+      "distance": 1.4210854715202004e-14,
+      "opponent": 3.552713678800501e-15,
+      "speed": 3.161915174132446e-13,
+      "spread": 3.552713678800501e-15
+    },
+    "preparation": [
+      {
+        "game_id": "0021500492",
+        "segment_id": "sportvu:0021500492:5:4",
+        "frames": 550,
+        "threeReferencesMs": 21.5
+      },
+      {
+        "game_id": "0021500492",
+        "segment_id": "sportvu:0021500492:16:11",
+        "frames": 600,
+        "threeReferencesMs": 15.400000035762787
+      },
+      {
+        "game_id": "0021500492",
+        "segment_id": "sportvu:0021500492:47:39",
+        "frames": 400,
+        "threeReferencesMs": 9.5
+      },
+      {
+        "game_id": "0021500492",
+        "segment_id": "sportvu:0021500492:162:135",
+        "frames": 389,
+        "threeReferencesMs": 13.199999988079071
+      },
+      {
+        "game_id": "0021500504",
+        "segment_id": "sportvu:0021500504:68:65",
+        "frames": 642,
+        "threeReferencesMs": 12.5
+      },
+      {
+        "game_id": "0021500504",
+        "segment_id": "sportvu:0021500504:8:7",
+        "frames": 450,
+        "threeReferencesMs": 8.800000011920929
+      },
+      {
+        "game_id": "0021500504",
+        "segment_id": "sportvu:0021500504:136:123",
+        "frames": 636,
+        "threeReferencesMs": 12.199999988079071
+      },
+      {
+        "game_id": "0021500504",
+        "segment_id": "sportvu:0021500504:20:18",
+        "frames": 901,
+        "threeReferencesMs": 18.299999952316284
+      },
+      {
+        "game_id": "0021500504",
+        "segment_id": "sportvu:0021500504:352:306",
+        "frames": 727,
+        "threeReferencesMs": 16.30000001192093
+      }
+    ]
+  },
+  "playback": {
+    "durationMs": 3009.6999999761583,
+    "animationCallbacks": 181,
+    "medianCallbackIntervalMs": 16.699999999999818,
+    "p95CallbackIntervalMs": 16.799999999999727,
+    "callbackIntervalsOver33_4ms": 0,
+    "observedFrameUpdates": 74,
+    "note": "One local headless Chromium production-preview run at 1x; callback cadence is not proof of presented GPU frames."
+  },
+  "missingBallExample": {
+    "game_id": "0021500492",
+    "source_event_id": "47",
+    "frameIndex": 333
+  },
+  "mobileNoHorizontalOverflow": true,
+  "unmatchedShotRetainsNoPositions": true,
+  "pageErrors": [],
+  "implementation": {
+    "src/replay/analysis.ts": "4970303194e241e3aa3486471cb378f3190a5872be9561cf28befbb73071168b",
+    "src/replay/timeline.ts": "0111cf185ddcbd179e54b73e9da90e962b89a7052c31d0ac7eae2bb10be2ada9",
+    "src/replay/usePlayback.ts": "19dbf84c8cc90d2b2159403999bdae7833c3343bd31ea62ce518b8a5a1c49707",
+    "src/replay/ReplayView.tsx": "684eb0e4c849f0b4b5b2f889407a1446d94c6a8d999e178ca658ac9db09aef22",
+    "package-lock.json": "ceaabc49bccb7cb98f2e405f758ca864a03f779a1e68427ec221c58958616d2d"
+  }
+}

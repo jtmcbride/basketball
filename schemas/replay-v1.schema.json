@@ -1,0 +1,409 @@
+{
+  "$defs": {
+    "Entity": {
+      "additionalProperties": false,
+      "properties": {
+        "entity_id": {
+          "title": "Entity Id",
+          "type": "string"
+        },
+        "team_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Team Id"
+        },
+        "kind": {
+          "enum": [
+            "player",
+            "ball"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "x_ft": {
+          "title": "X Ft",
+          "type": "number"
+        },
+        "y_ft": {
+          "title": "Y Ft",
+          "type": "number"
+        },
+        "z_ft": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Z Ft"
+        }
+      },
+      "required": [
+        "entity_id",
+        "team_id",
+        "kind",
+        "x_ft",
+        "y_ft",
+        "z_ft"
+      ],
+      "title": "Entity",
+      "type": "object"
+    },
+    "Finding": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "severity": {
+          "enum": [
+            "info",
+            "warning",
+            "error"
+          ],
+          "title": "Severity",
+          "type": "string"
+        },
+        "count": {
+          "minimum": 0,
+          "title": "Count",
+          "type": "integer"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "severity",
+        "count",
+        "description"
+      ],
+      "title": "Finding",
+      "type": "object"
+    },
+    "Frame": {
+      "additionalProperties": false,
+      "properties": {
+        "frame_id": {
+          "title": "Frame Id",
+          "type": "string"
+        },
+        "period": {
+          "minimum": 1,
+          "title": "Period",
+          "type": "integer"
+        },
+        "source_timestamp_ms": {
+          "title": "Source Timestamp Ms",
+          "type": "integer"
+        },
+        "elapsed_s": {
+          "minimum": 0,
+          "title": "Elapsed S",
+          "type": "number"
+        },
+        "game_clock_s": {
+          "minimum": 0,
+          "title": "Game Clock S",
+          "type": "number"
+        },
+        "shot_clock_s": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Shot Clock S"
+        },
+        "break_before": {
+          "title": "Break Before",
+          "type": "boolean"
+        },
+        "timestamp_conflict": {
+          "title": "Timestamp Conflict",
+          "type": "boolean"
+        },
+        "quality_flags": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Quality Flags",
+          "type": "array"
+        },
+        "source_moment_indices": {
+          "items": {
+            "type": "integer"
+          },
+          "minItems": 1,
+          "title": "Source Moment Indices",
+          "type": "array"
+        },
+        "entities": {
+          "items": {
+            "$ref": "#/$defs/Entity"
+          },
+          "title": "Entities",
+          "type": "array"
+        }
+      },
+      "required": [
+        "frame_id",
+        "period",
+        "source_timestamp_ms",
+        "elapsed_s",
+        "game_clock_s",
+        "shot_clock_s",
+        "break_before",
+        "timestamp_conflict",
+        "quality_flags",
+        "source_moment_indices",
+        "entities"
+      ],
+      "title": "Frame",
+      "type": "object"
+    },
+    "Provenance": {
+      "additionalProperties": false,
+      "properties": {
+        "source_fingerprint": {
+          "title": "Source Fingerprint",
+          "type": "string"
+        },
+        "pipeline_version": {
+          "title": "Pipeline Version",
+          "type": "string"
+        },
+        "sources": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Sources",
+          "type": "array"
+        },
+        "coordinate_system": {
+          "const": "sportvu_source_court_feet",
+          "default": "sportvu_source_court_feet",
+          "title": "Coordinate System",
+          "type": "string"
+        },
+        "attacking_direction": {
+          "const": "unavailable",
+          "default": "unavailable",
+          "title": "Attacking Direction",
+          "type": "string"
+        },
+        "time_basis": {
+          "const": "source_timestamp_ms",
+          "default": "source_timestamp_ms",
+          "title": "Time Basis",
+          "type": "string"
+        },
+        "nominal_hz": {
+          "default": 25,
+          "title": "Nominal Hz",
+          "type": "integer"
+        },
+        "release_timing": {
+          "const": "unavailable",
+          "default": "unavailable",
+          "title": "Release Timing",
+          "type": "string"
+        },
+        "redistribution": {
+          "const": "not_established",
+          "default": "not_established",
+          "title": "Redistribution",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_fingerprint",
+        "pipeline_version",
+        "sources"
+      ],
+      "title": "Provenance",
+      "type": "object"
+    },
+    "SourceEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "game_id": {
+          "pattern": "^\\d{10}$",
+          "title": "Game Id",
+          "type": "string"
+        },
+        "source_game_id": {
+          "title": "Source Game Id",
+          "type": "string"
+        },
+        "event_id": {
+          "title": "Event Id",
+          "type": "string"
+        },
+        "source_event_id": {
+          "title": "Source Event Id",
+          "type": "string"
+        },
+        "period": {
+          "minimum": 1,
+          "title": "Period",
+          "type": "integer"
+        },
+        "game_clock_s": {
+          "minimum": 0,
+          "title": "Game Clock S",
+          "type": "number"
+        },
+        "event_type": {
+          "title": "Event Type",
+          "type": "integer"
+        },
+        "player_id": {
+          "title": "Player Id",
+          "type": "string"
+        },
+        "team_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Team Id"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "score": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Score"
+        }
+      },
+      "required": [
+        "game_id",
+        "source_game_id",
+        "event_id",
+        "source_event_id",
+        "period",
+        "game_clock_s",
+        "event_type",
+        "player_id",
+        "team_id",
+        "description",
+        "score"
+      ],
+      "title": "SourceEvent",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "basketball-replay-v1",
+      "default": "basketball-replay-v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "game_id": {
+      "title": "Game Id",
+      "type": "string"
+    },
+    "segment_id": {
+      "title": "Segment Id",
+      "type": "string"
+    },
+    "source_event_id": {
+      "title": "Source Event Id",
+      "type": "string"
+    },
+    "segment_kind": {
+      "const": "source_event_window",
+      "default": "source_event_window",
+      "title": "Segment Kind",
+      "type": "string"
+    },
+    "continuity": {
+      "enum": [
+        "continuous",
+        "partial"
+      ],
+      "title": "Continuity",
+      "type": "string"
+    },
+    "ordering_policy": {
+      "const": "timestamp_with_source_indices",
+      "default": "timestamp_with_source_indices",
+      "title": "Ordering Policy",
+      "type": "string"
+    },
+    "quality_findings": {
+      "items": {
+        "$ref": "#/$defs/Finding"
+      },
+      "title": "Quality Findings",
+      "type": "array"
+    },
+    "frames": {
+      "items": {
+        "$ref": "#/$defs/Frame"
+      },
+      "title": "Frames",
+      "type": "array"
+    },
+    "players": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Players",
+      "type": "array"
+    },
+    "events": {
+      "items": {
+        "$ref": "#/$defs/SourceEvent"
+      },
+      "title": "Events",
+      "type": "array"
+    },
+    "provenance": {
+      "$ref": "#/$defs/Provenance"
+    }
+  },
+  "required": [
+    "game_id",
+    "segment_id",
+    "source_event_id",
+    "continuity",
+    "quality_findings",
+    "frames",
+    "players",
+    "provenance"
+  ],
+  "title": "ReplayBundle",
+  "type": "object"
+}

@@ -1,0 +1,81 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "game_id": {
+      "pattern": "^\\d{10}$",
+      "title": "Game Id",
+      "type": "string"
+    },
+    "source_game_id": {
+      "title": "Source Game Id",
+      "type": "string"
+    },
+    "event_id": {
+      "title": "Event Id",
+      "type": "string"
+    },
+    "source_event_id": {
+      "title": "Source Event Id",
+      "type": "string"
+    },
+    "period": {
+      "minimum": 1,
+      "title": "Period",
+      "type": "integer"
+    },
+    "game_clock_s": {
+      "minimum": 0,
+      "title": "Game Clock S",
+      "type": "number"
+    },
+    "event_type": {
+      "title": "Event Type",
+      "type": "integer"
+    },
+    "player_id": {
+      "title": "Player Id",
+      "type": "string"
+    },
+    "team_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Team Id"
+    },
+    "description": {
+      "title": "Description",
+      "type": "string"
+    },
+    "score": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Score"
+    }
+  },
+  "required": [
+    "game_id",
+    "source_game_id",
+    "event_id",
+    "source_event_id",
+    "period",
+    "game_clock_s",
+    "event_type",
+    "player_id",
+    "team_id",
+    "description",
+    "score"
+  ],
+  "title": "SourceEvent",
+  "type": "object"
+}

@@ -1,0 +1,19 @@
+{
+  "collection_id": "historical-tracking-review",
+  "revision": 1,
+  "source_fingerprint": "26eed7665e97b79d3e8aaa5738e49a771bb8556bb745e8f7e235f6d984052761",
+  "available_sequences": 3,
+  "unavailable_sequences": [],
+  "annotations_by_kind": {
+    "catch": 2,
+    "relocation": 1,
+    "cut": 1,
+    "uncertain": 1
+  },
+  "annotations_by_confidence": {
+    "uncertain": 5
+  },
+  "annotation_sha256": "a64e31c7aef95c25a95b4b97f522a985ac267648b23ccbb2fa63354dae0c6796",
+  "validation_code_sha256": "481c79f12970b002f897e76432eed8084464a913cb0261f897cbe2b08e56a3e7",
+  "automatic_labels_available": false
+}

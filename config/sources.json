@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": "sportvu-cha-tor",
+      "kind": "tracking",
+      "url": "https://raw.githubusercontent.com/linouk23/NBA-Player-Movements/f7d4cf2c7e607029abfd5715a0d4073bedae328e/data/2016.NBA.Raw.SportVU.Game.Logs/01.01.2016.CHA.at.TOR.7z",
+      "filename": "01.01.2016.CHA.at.TOR.7z",
+      "revision": "f7d4cf2c7e607029abfd5715a0d4073bedae328e",
+      "rights_note": "Public historical archive; underlying NBA data redistribution rights not established. Local audit only.",
+      "sha256": "48ab77ffdec6bd969cda460056faafed396aaa74f790c95a8dd0b5dc5c13ccf4"
+    },
+    {
+      "id": "sportvu-den-gsw",
+      "kind": "tracking",
+      "url": "https://raw.githubusercontent.com/linouk23/NBA-Player-Movements/f7d4cf2c7e607029abfd5715a0d4073bedae328e/data/2016.NBA.Raw.SportVU.Game.Logs/01.02.2016.DEN.at.GSW.7z",
+      "filename": "01.02.2016.DEN.at.GSW.7z",
+      "revision": "f7d4cf2c7e607029abfd5715a0d4073bedae328e",
+      "rights_note": "Public historical archive; underlying NBA data redistribution rights not established. Local audit only.",
+      "sha256": "73d4c45458f9f0af0eb3e896448e73782baa0de562136fdc4f7dad30d1450e87"
+    },
+    {
+      "id": "shots-2015",
+      "kind": "shots",
+      "url": "https://raw.githubusercontent.com/shufinskiy/nba_data/e829d4678be1e075f99e5d41a1c5f97089be446b/datasets/shotdetail_2015.tar.xz",
+      "filename": "shotdetail_2015.tar.xz",
+      "revision": "e829d4678be1e075f99e5d41a1c5f97089be446b",
+      "rights_note": "Repository code is Apache-2.0; underlying NBA data redistribution rights not established. Local audit only.",
+      "sha256": "ac48fad67cabf79f8a5a726aa55ea4a8c793a85eaa3835d38b46f2d0e37495a3"
+    },
+    {
+      "id": "pbp-2015",
+      "kind": "play_by_play",
+      "url": "https://raw.githubusercontent.com/shufinskiy/nba_data/e829d4678be1e075f99e5d41a1c5f97089be446b/datasets/nbastats_2015.tar.xz",
+      "filename": "nbastats_2015.tar.xz",
+      "revision": "e829d4678be1e075f99e5d41a1c5f97089be446b",
+      "rights_note": "Repository code is Apache-2.0; underlying NBA data redistribution rights not established. Local audit only.",
+      "sha256": "217087b27259e34ec9c82a596335a36ce6580e5f9129e186e6a1b4f0dc592ebf"
+    }
+  ]
+}
