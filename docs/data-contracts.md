@@ -2,7 +2,7 @@
 
 The Python boundary models live in `packages/bkbdata/src/bkbdata/contracts.py`.
 Run `make contract` to regenerate the JSON schemas in `schemas/`. CI checks for
-schema drift. The current versions are `basketball-audit-v1` and
+schema drift. The core versions are `basketball-audit-v1` and
 `basketball-replay-v1`; unknown replay versions are rejected.
 
 ## Storage entities
@@ -151,3 +151,74 @@ cannot share source observations with development clips. `GET /annotations`
 resolves frame indices and reports per-sequence availability without adding
 automatic labels. See [Milestone 3](milestone-3.md) for measurement, timing,
 curation and evaluation definitions.
+
+## Geometric path features (Milestone 4)
+
+`basketball-path-v1` is independent of replay and annotation versions. The model
+and index are in `packages/bkbdata/src/bkbdata/actions.py`. `make contract` exports
+`schemas/path-feature-v1.schema.json` and the executable definition's JSON copy,
+`config/path-similarity-v1.json`.
+
+A path contains a source fingerprint, content-addressed ID, game/window/player
+binding, source clocks, actual duration, raw observation count and exactly 21
+ordered source frame IDs, timestamps, sampling offsets and x/y positions in feet.
+The nominal interval is two seconds with 100 ms targets; each target selects the
+nearest observed frame within 20 ms, ties earlier. No interpolation or future
+observation is allowed. Every intervening selected-player observation must satisfy
+identity, court bounds and continuity rules.
+
+Retrieval compares either start-relative or original court coordinates using
+paired-position RMS feet. It preserves source axes and durations, excludes query
+footage across all players, and suppresses overlapping returned footage. No
+outcomes, annotations, ball/opponent geometry or inferred tactical labels enter
+the score. Player identity is only an explicit optional pool filter. Stopped-clock
+footage can qualify. See [Milestone 4](milestone-4.md) for the complete sampling,
+index, ranking, source binding and unavailable-state definitions.
+
+`GET /actions/options`, `GET /actions/features/{candidate_id}` and
+`GET /actions/search` serve the read-only index. Search requires exactly one
+curated `seed_id` or indexed `feature_id`, accepts one of the two declared
+profiles, and limits results to 1–30. Missing indexes return setup guidance;
+source/definition/implementation drift requires `make actions` before serving.
+
+## Reconstructed lineup context (Milestone 5)
+
+`basketball-lineups-v1` is separate from replay, annotation and geometric-path
+versions. `packages/bkbdata/src/bkbdata/lineups.py` defines a lineup-game bundle
+and stint boundary, exported to `schemas/lineups-v1.schema.json` and
+`config/lineups-v1.json`. The original replay catalog remains unchanged.
+
+Stints contain period/clock and source-row-order bounds, duration, availability
+reasons, two validated five-player groups, recorded score context and exact shot,
+substitution and provider-possession references. Unavailable stints must withhold
+quintets. Contracts check roster/team and game/period/shot ownership. Reconstruction
+uses the full cached play-by-play participant fields; official final gamebooks
+constrain starters, minutes, FGA, FGM and points. No tracking clock or nearest-player
+rule fills missing participants or substitutes for a substitution event.
+
+Provider possession coverage is checked separately. Missing field-goal coverage
+withholds total possession counts. Exploded description rows are deduplicated
+before linking records, and tied/crossing substitution boundaries remain
+unallocated. Recorded event-order score changes are not official individual
+plus-minus. See [Milestone 5](milestone-5.md) for exact definitions and measured
+discrepancies.
+
+`GET /lineups/options` reports index identity and game coverage;
+`GET /lineups/games/{game_id}` returns the source-bound bundle and validation.
+Both serve a read-only offline snapshot and reject stale source/implementation
+identity with `make lineups` guidance.
+
+## Evaluated location-only model (Milestone 5)
+
+`basketball-location-model-v1`, defined in `shot_model.py` and
+`config/location-model-v1.json`, uses fixed hexagon location counts with training
+mean shrinkage and held-out isotonic calibration. The local JSON artifact records
+fitted parameters, complete disjoint game IDs, dates, source/code fingerprints,
+available/excluded features, held-out losses, calibration bins, whole-game
+bootstrap intervals and the declared evaluation gate. Changing test outcomes must
+not change fitted rates or calibration parameters. No movement prediction is
+inferred from this model.
+
+`GET /models/location` reads the separately built artifact. Missing models do not
+block lineup inspection; missing lineups do not block model evaluation. Requests
+never train data. Source atlas or implementation drift requires `make shot-model`.

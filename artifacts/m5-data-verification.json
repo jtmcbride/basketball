@@ -1,0 +1,369 @@
+{
+  "source_fingerprint": "26eed7665e97b79d3e8aaa5738e49a771bb8556bb745e8f7e235f6d984052761",
+  "lineup_fingerprint": "e31b5f6767ee1d69b404358fc8e125c4e0c5e380606ad9c673e27d9b3c2d9688",
+  "games": [
+    {
+      "game_id": "0021500492",
+      "stints": 25,
+      "shots": 176,
+      "substitutions": 36,
+      "active_players": 19,
+      "game_clock_seconds": 2880,
+      "reconstructed_player_seconds": 28800.0,
+      "max_gamebook_minute_error_s": 0.0,
+      "final_score": [
+        94,
+        104
+      ],
+      "possession_validation": {
+        "source": "pbpstats archive",
+        "source_rows": 382,
+        "unique_records": 175,
+        "coverage": "incomplete",
+        "team_checks": [
+          {
+            "team_id": "1610612761",
+            "provider_fga": 90,
+            "gamebook_fga": 91,
+            "provider_fgm": 36,
+            "gamebook_fgm": 36,
+            "passed": false
+          },
+          {
+            "team_id": "1610612766",
+            "provider_fga": 85,
+            "gamebook_fga": 85,
+            "provider_fgm": 34,
+            "gamebook_fgm": 34,
+            "passed": true
+          }
+        ],
+        "reason": "Provider possession field-goal totals do not reconcile with the official gamebook. Total possession counts are unavailable.",
+        "allocation": "Only strict interior containment in one available stint; tied/crossing substitution boundaries remain unallocated. Linked record counts are not complete possessions."
+      },
+      "score_allocation_discrepancies": [
+        {
+          "player_id": "203798",
+          "event_order": -4,
+          "official": -6
+        },
+        {
+          "player_id": "101107",
+          "event_order": -4,
+          "official": -3
+        },
+        {
+          "player_id": "202689",
+          "event_order": -6,
+          "official": -4
+        },
+        {
+          "player_id": "203087",
+          "event_order": -3,
+          "official": -1
+        },
+        {
+          "player_id": "203148",
+          "event_order": -11,
+          "official": -13
+        },
+        {
+          "player_id": "201946",
+          "event_order": -2,
+          "official": -3
+        },
+        {
+          "player_id": "2449",
+          "event_order": 0,
+          "official": -1
+        },
+        {
+          "player_id": "201942",
+          "event_order": 1,
+          "official": 3
+        },
+        {
+          "player_id": "202335",
+          "event_order": 0,
+          "official": 1
+        },
+        {
+          "player_id": "202709",
+          "event_order": 5,
+          "official": 3
+        }
+      ]
+    },
+    {
+      "game_id": "0021500504",
+      "stints": 33,
+      "shots": 191,
+      "substitutions": 41,
+      "active_players": 19,
+      "game_clock_seconds": 3180,
+      "reconstructed_player_seconds": 31800.0,
+      "max_gamebook_minute_error_s": 1.0,
+      "final_score": [
+        108,
+        111
+      ],
+      "possession_validation": {
+        "source": "pbpstats archive",
+        "source_rows": 425,
+        "unique_records": 199,
+        "coverage": "incomplete",
+        "team_checks": [
+          {
+            "team_id": "1610612744",
+            "provider_fga": 84,
+            "gamebook_fga": 86,
+            "provider_fgm": 43,
+            "gamebook_fgm": 43,
+            "passed": false
+          },
+          {
+            "team_id": "1610612743",
+            "provider_fga": 105,
+            "gamebook_fga": 105,
+            "provider_fgm": 44,
+            "gamebook_fgm": 44,
+            "passed": true
+          }
+        ],
+        "reason": "Provider possession field-goal totals do not reconcile with the official gamebook. Total possession counts are unavailable.",
+        "allocation": "Only strict interior containment in one available stint; tied/crossing substitution boundaries remain unallocated. Linked record counts are not complete possessions."
+      },
+      "score_allocation_discrepancies": [
+        {
+          "player_id": "201568",
+          "event_order": -5,
+          "official": -2
+        },
+        {
+          "player_id": "202702",
+          "event_order": -10,
+          "official": -9
+        },
+        {
+          "player_id": "203999",
+          "event_order": -16,
+          "official": -18
+        },
+        {
+          "player_id": "2749",
+          "event_order": -6,
+          "official": -5
+        },
+        {
+          "player_id": "200751",
+          "event_order": 11,
+          "official": 10
+        },
+        {
+          "player_id": "2034",
+          "event_order": 1,
+          "official": 0
+        },
+        {
+          "player_id": "201589",
+          "event_order": 13,
+          "official": 12
+        },
+        {
+          "player_id": "101106",
+          "event_order": 15,
+          "official": 13
+        },
+        {
+          "player_id": "201939",
+          "event_order": 14,
+          "official": 12
+        },
+        {
+          "player_id": "2733",
+          "event_order": -13,
+          "official": -12
+        },
+        {
+          "player_id": "203546",
+          "event_order": -15,
+          "official": -13
+        },
+        {
+          "player_id": "201578",
+          "event_order": -7,
+          "official": -6
+        }
+      ]
+    }
+  ],
+  "model": {
+    "model_fingerprint": "f22902344b1a8c4a6ab8d98492d1de4d20ba0b0b540c35428af80baa5a8720e0",
+    "status": "held_out_gate_passed",
+    "split": {
+      "train": {
+        "games": 261,
+        "attempts": 43819,
+        "first_date": "20151027",
+        "last_date": "20151130"
+      },
+      "calibration": {
+        "games": 228,
+        "attempts": 38145,
+        "first_date": "20151201",
+        "last_date": "20151231"
+      },
+      "test": {
+        "games": 741,
+        "attempts": 125431,
+        "first_date": "20160101",
+        "last_date": "20160413"
+      }
+    },
+    "metrics": {
+      "n": 125431,
+      "games": 741,
+      "brier": 0.23422584950151043,
+      "baseline_brier": 0.24832600280585898,
+      "logloss": 0.6611822194652559,
+      "baseline_logloss": 0.6897990155416007,
+      "brier_interval": [
+        0.2334208270657608,
+        0.23496401705704456
+      ],
+      "brier_difference_interval": [
+        -0.014800039573597273,
+        -0.013411471439346904
+      ],
+      "ece": 0.0037253736019668272,
+      "bins": [
+        {
+          "bin": 0,
+          "n": 0,
+          "made": 0,
+          "predicted": null,
+          "observed": null,
+          "observed_interval": [
+            null,
+            null
+          ]
+        },
+        {
+          "bin": 1,
+          "n": 0,
+          "made": 0,
+          "predicted": null,
+          "observed": null,
+          "observed_interval": [
+            null,
+            null
+          ]
+        },
+        {
+          "bin": 2,
+          "n": 0,
+          "made": 0,
+          "predicted": null,
+          "observed": null,
+          "observed_interval": [
+            null,
+            null
+          ]
+        },
+        {
+          "bin": 3,
+          "n": 71016,
+          "made": 27160,
+          "predicted": 0.3784589806085123,
+          "observed": 0.38244902557170213,
+          "observed_interval": [
+            0.37812230280478676,
+            0.38661938249835087
+          ]
+        },
+        {
+          "bin": 4,
+          "n": 24058,
+          "made": 9995,
+          "predicted": 0.4133521566323759,
+          "observed": 0.4154543187297365,
+          "observed_interval": [
+            0.4093959020871493,
+            0.4216456415182342
+          ]
+        },
+        {
+          "bin": 5,
+          "n": 0,
+          "made": 0,
+          "predicted": null,
+          "observed": null,
+          "observed_interval": [
+            null,
+            null
+          ]
+        },
+        {
+          "bin": 6,
+          "n": 30357,
+          "made": 20130,
+          "predicted": 0.6587163920208152,
+          "observed": 0.6631090028658958,
+          "observed_interval": [
+            0.6570518170297525,
+            0.6690740418751651
+          ]
+        },
+        {
+          "bin": 7,
+          "n": 0,
+          "made": 0,
+          "predicted": null,
+          "observed": null,
+          "observed_interval": [
+            null,
+            null
+          ]
+        },
+        {
+          "bin": 8,
+          "n": 0,
+          "made": 0,
+          "predicted": null,
+          "observed": null,
+          "observed_interval": [
+            null,
+            null
+          ]
+        },
+        {
+          "bin": 9,
+          "n": 0,
+          "made": 0,
+          "predicted": null,
+          "observed": null,
+          "observed_interval": [
+            null,
+            null
+          ]
+        }
+      ],
+      "bootstrap_resamples": 200
+    },
+    "independent_sql": {
+      "n": 125431,
+      "brier": 0.23422584950154401,
+      "logloss": 0.6611822194653411,
+      "baseline_brier": 0.2483260028055916,
+      "tolerance": 1e-12
+    },
+    "limitations": [
+      "Location only; no defenders, fatigue, player identity or passing options",
+      "One historical season; temporal held-out results do not establish modern transfer",
+      "Bootstrap intervals describe held-out game variation, not an individual shot's uncertainty",
+      "No movement prediction overlay: two tracking games; no evaluated learned forecast"
+    ]
+  },
+  "cached_rebuilds_verified": true,
+  "all_checks_passed": true
+}

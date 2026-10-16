@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { ActionAtlas } from "./actions/ActionAtlas";
+import { LineupContext } from "./lineups/LineupContext";
 import { OffballExplorer } from "./offball/Explorer";
 import { Atlas } from "./atlas/Atlas";
 import { Court } from "./Court";
@@ -301,14 +303,26 @@ function GameInspection({
 }
 
 export default function App() {
-  const [mode, setMode] = useState<"atlas" | "tracking" | "movement">(
-    location.hash === "#movement"
-      ? "movement"
-      : location.hash === "#atlas"
-        ? "atlas"
-        : "tracking",
+  const [mode, setMode] = useState<
+    "atlas" | "tracking" | "movement" | "actions" | "lineups"
+  >(
+    location.hash === "#lineups"
+      ? "lineups"
+      : location.hash.split("?")[0] === "#actions"
+        ? "actions"
+        : location.hash === "#movement"
+          ? "movement"
+          : location.hash === "#atlas"
+            ? "atlas"
+            : "tracking",
   );
   const [requestedShot, setRequestedShot] = useState<string | null>(null);
+  const [actionsVisited, setActionsVisited] = useState(
+    location.hash.startsWith("#actions"),
+  );
+  const [lineupsVisited, setLineupsVisited] = useState(
+    location.hash === "#lineups",
+  );
   const [atlasVisited, setAtlasVisited] = useState(location.hash === "#atlas");
   const [audit, setAudit] = useState<Audit | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -325,13 +339,19 @@ export default function App() {
   useEffect(() => {
     const navigate = () => {
       const next =
-        location.hash === "#movement"
-          ? "movement"
-          : location.hash === "#atlas"
-            ? "atlas"
-            : "tracking";
+        location.hash === "#lineups"
+          ? "lineups"
+          : location.hash.split("?")[0] === "#actions"
+            ? "actions"
+            : location.hash === "#movement"
+              ? "movement"
+              : location.hash === "#atlas"
+                ? "atlas"
+                : "tracking";
       setMode(next);
       if (next === "atlas") setAtlasVisited(true);
+      if (next === "actions") setActionsVisited(true);
+      if (next === "lineups") setLineupsVisited(true);
       window.scrollTo({ top: 0 });
     };
     window.addEventListener("hashchange", navigate);
@@ -357,11 +377,15 @@ export default function App() {
           </h1>
         </div>
         <p>
-          {mode === "atlas"
-            ? "Explore four seasons of shot locations, compare players on the same scale, and open the recorded attempts behind each region."
-            : mode === "movement"
-              ? "Inspect annotated player movement, compare sequences at their reference frames, and follow separation and direction over recorded time."
-              : "Select a recorded attempt, replay its tracked window, and inspect player movement with synchronized distance and speed measurements."}
+          {mode === "lineups"
+            ? "Follow reconstructed rotations, inspect the attempts between substitutions, and examine a location-only model on held-out games."
+            : mode === "atlas"
+              ? "Explore four seasons of shot locations, compare players on the same scale, and open the recorded attempts behind each region."
+              : mode === "actions"
+                ? "Search recorded player paths, inspect geometric distances in feet, and replay the matched observations."
+                : mode === "movement"
+                  ? "Inspect annotated player movement, compare sequences at their reference frames, and follow separation and direction over recorded time."
+                  : "Select a recorded attempt, replay its tracked window, and inspect player movement with synchronized distance and speed measurements."}
         </p>
       </div>
       <nav className="mode-tabs" aria-label="Explore basketball data">
@@ -396,7 +420,47 @@ export default function App() {
         >
           Off-ball explorer
         </button>
+        <button
+          type="button"
+          aria-pressed={mode === "actions"}
+          onClick={() => {
+            setMode("actions");
+            setActionsVisited(true);
+            history.replaceState(null, "", "#actions");
+          }}
+        >
+          Action atlas
+        </button>
+        <button
+          type="button"
+          aria-pressed={mode === "lineups"}
+          onClick={() => {
+            setMode("lineups");
+            setLineupsVisited(true);
+            history.replaceState(null, "", "#lineups");
+          }}
+        >
+          Lineup context
+        </button>
       </nav>
+      {lineupsVisited && (
+        <div hidden={mode !== "lineups"}>
+          <LineupContext
+            onReplay={(id, shot) => {
+              setGameId(id);
+              setRequestedShot(shot);
+              setMode("tracking");
+              history.replaceState(null, "", "#tracking");
+              window.scrollTo({ top: 0 });
+            }}
+          />
+        </div>
+      )}
+      {actionsVisited && (
+        <div hidden={mode !== "actions"}>
+          <ActionAtlas audit={audit} active={mode === "actions"} />
+        </div>
+      )}
       {atlasVisited && (
         <div hidden={mode !== "atlas"}>
           <Atlas

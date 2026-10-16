@@ -1,0 +1,21 @@
+{
+  "origin": "http://127.0.0.1:5178",
+  "environment": {
+    "node": "v24.18.0",
+    "browser": "156.0.8078.4",
+    "cpu": "Apple M1 Pro"
+  },
+  "checks": [
+    "Both games: first, middle and final stint counts reconcile for both team filters; five-player identities render and empty shots clear",
+    "A real stint attempt opens its audited tracking replay; returning preserves lineup selection",
+    "Official gamebook constraints, partial possession coverage and rotation bars are inspectable",
+    "Location probability and ten held-out calibration bins agree with the verified model artifact",
+    "390px layout has no document overflow; timeline, stint and model screenshots captured"
+  ],
+  "pageErrors": [],
+  "sampleCountsChecked": 12,
+  "initialLoadMs": 335,
+  "lineupFingerprint": "e31b5f6767ee1d69b404358fc8e125c4e0c5e380606ad9c673e27d9b3c2d9688",
+  "modelFingerprint": "f22902344b1a8c4a6ab8d98492d1de4d20ba0b0b540c35428af80baa5a8720e0",
+  "passed": true
+}

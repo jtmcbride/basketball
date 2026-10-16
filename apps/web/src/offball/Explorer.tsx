@@ -724,6 +724,12 @@ function SequencePane({
         {offset.toFixed(3)} s from curated clip start. Timing interval{" "}
         {signedSeconds(low)} to {signedSeconds(high)}.
       </p>
+      <a
+        className="view-replay-link"
+        href={`#actions?seed=${encodeURIComponent(s.sequence.sequence_id)}&player=${encodeURIComponent(s.sequence.player_id)}&anchor=${encodeURIComponent(s.annotation.annotation_id)}`}
+      >
+        Find geometrically similar paths →
+      </a>
       <details className="annotation-provenance">
         <summary>Annotation provenance & confidence · {side}</summary>
         <p>

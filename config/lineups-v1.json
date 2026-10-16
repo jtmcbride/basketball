@@ -1,0 +1,15 @@
+{
+  "version": "basketball-lineups-v1",
+  "time": "Source row order within each period; game clocks determine duration, not tie order",
+  "starters": "First on-court involvement or outgoing substitution before first incoming sub",
+  "substitutions": "Contiguous same-clock substitutions applied together, outgoing then incoming",
+  "validation": "Five unique players/team, event roles, gamebook starters/minutes/FGA/FGM/PTS",
+  "rounding": "Minute tolerance: one second per stint boundary plus one gamebook rounding second",
+  "score": "Recorded away-home score in source event order; not official player plus-minus",
+  "possessions": "Deduplicated pbpstats records; incomplete FGA coverage withholds totals",
+  "not_inferred": [
+    "causal impact",
+    "defensive assignments",
+    "tracking release times"
+  ]
+}

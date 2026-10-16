@@ -1,0 +1,35 @@
+{
+  "version": "basketball-location-model-v1",
+  "season": "2015-16",
+  "features": [
+    "lateral_ft",
+    "forward_ft"
+  ],
+  "spatial_basis": "Fixed M2 2.5 ft hexagons; outside half-court excluded",
+  "train": "2015-10-27 through 2015-11-30",
+  "calibration": "2015-12-01 through 2015-12-31",
+  "test": "2016-01-01 through 2016-04-13",
+  "split_unit": "whole games grouped by game date",
+  "estimator": "Training cell (makes + 20 * training mean) / (attempts + 20)",
+  "calibration_method": "Weighted monotone isotonic regression on calibration games only",
+  "probability_clip": [
+    0.01,
+    0.99
+  ],
+  "baseline": "Training overall FG% constant",
+  "exclusions": [
+    "event-unmatched attempts",
+    "outside fixed half-court",
+    "other seasons"
+  ],
+  "uncertainty": "95% percentile intervals from 200 whole-test-game bootstrap resamples",
+  "bootstrap_seed": 20261015,
+  "gate": "At least 100 games/split, test ECE <= .025 and upper 95% Brier difference < 0",
+  "unavailable_features": [
+    "defenders",
+    "fatigue",
+    "passing options",
+    "lineup",
+    "player identity"
+  ]
+}

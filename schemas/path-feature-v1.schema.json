@@ -1,0 +1,138 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "feature_version": {
+      "const": "basketball-path-v1",
+      "default": "basketball-path-v1",
+      "title": "Feature Version",
+      "type": "string"
+    },
+    "candidate_id": {
+      "pattern": "^path:[a-f0-9]{24}$",
+      "title": "Candidate Id",
+      "type": "string"
+    },
+    "source_fingerprint": {
+      "title": "Source Fingerprint",
+      "type": "string"
+    },
+    "game_id": {
+      "title": "Game Id",
+      "type": "string"
+    },
+    "segment_id": {
+      "title": "Segment Id",
+      "type": "string"
+    },
+    "player_id": {
+      "title": "Player Id",
+      "type": "string"
+    },
+    "player_name": {
+      "title": "Player Name",
+      "type": "string"
+    },
+    "team_id": {
+      "title": "Team Id",
+      "type": "string"
+    },
+    "period": {
+      "title": "Period",
+      "type": "integer"
+    },
+    "start_clock_s": {
+      "title": "Start Clock S",
+      "type": "number"
+    },
+    "end_clock_s": {
+      "title": "End Clock S",
+      "type": "number"
+    },
+    "start_ms": {
+      "title": "Start Ms",
+      "type": "integer"
+    },
+    "end_ms": {
+      "title": "End Ms",
+      "type": "integer"
+    },
+    "actual_duration_ms": {
+      "title": "Actual Duration Ms",
+      "type": "integer"
+    },
+    "observed_frames": {
+      "maximum": 59,
+      "minimum": 45,
+      "title": "Observed Frames",
+      "type": "integer"
+    },
+    "frame_ids": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 21,
+      "minItems": 21,
+      "title": "Frame Ids",
+      "type": "array"
+    },
+    "timestamps_ms": {
+      "items": {
+        "type": "integer"
+      },
+      "maxItems": 21,
+      "minItems": 21,
+      "title": "Timestamps Ms",
+      "type": "array"
+    },
+    "offsets_ms": {
+      "items": {
+        "type": "integer"
+      },
+      "maxItems": 21,
+      "minItems": 21,
+      "title": "Offsets Ms",
+      "type": "array"
+    },
+    "x_ft": {
+      "items": {
+        "type": "number"
+      },
+      "maxItems": 21,
+      "minItems": 21,
+      "title": "X Ft",
+      "type": "array"
+    },
+    "y_ft": {
+      "items": {
+        "type": "number"
+      },
+      "maxItems": 21,
+      "minItems": 21,
+      "title": "Y Ft",
+      "type": "array"
+    }
+  },
+  "required": [
+    "candidate_id",
+    "source_fingerprint",
+    "game_id",
+    "segment_id",
+    "player_id",
+    "player_name",
+    "team_id",
+    "period",
+    "start_clock_s",
+    "end_clock_s",
+    "start_ms",
+    "end_ms",
+    "actual_duration_ms",
+    "observed_frames",
+    "frame_ids",
+    "timestamps_ms",
+    "offsets_ms",
+    "x_ft",
+    "y_ft"
+  ],
+  "title": "PathFeature",
+  "type": "object"
+}

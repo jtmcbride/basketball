@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": "pbp-2015",
+      "kind": "play_by_play",
+      "url": "https://raw.githubusercontent.com/shufinskiy/nba_data/e829d4678be1e075f99e5d41a1c5f97089be446b/datasets/nbastats_2015.tar.xz",
+      "filename": "nbastats_2015.tar.xz",
+      "revision": "e829d4678be1e075f99e5d41a1c5f97089be446b",
+      "rights_note": "Repository code is Apache-2.0; underlying NBA data redistribution rights not established. Local audit only.",
+      "sha256": "217087b27259e34ec9c82a596335a36ce6580e5f9129e186e6a1b4f0dc592ebf"
+    },
+    {
+      "id": "gamebook-0021500492",
+      "kind": "gamebook",
+      "game_id": "0021500492",
+      "url": "https://statsdmz.nba.com/pdfs/20160101/20160101_CHATOR_book.pdf",
+      "filename": "20160101_CHATOR_book.pdf",
+      "revision": "official-final-gamebook",
+      "rights_note": "NBA Properties gamebook; local validation only. Redistribution not established.",
+      "sha256": "261873d153f6e95865feb4eace2a461d496f8825029cded2b011460f99884109"
+    },
+    {
+      "id": "gamebook-0021500504",
+      "kind": "gamebook",
+      "game_id": "0021500504",
+      "url": "https://statsdmz.nba.com/pdfs/20160102/20160102_DENGSW_book.pdf",
+      "filename": "20160102_DENGSW_book.pdf",
+      "revision": "official-final-gamebook",
+      "rights_note": "NBA Properties gamebook; local validation only. Redistribution not established.",
+      "sha256": "4e1481ad90c298f3c86af2527c641b86c5bfe0f9f66e8de9d8e9dd205c1b477a"
+    },
+    {
+      "id": "possessions-2015",
+      "kind": "possessions",
+      "url": "https://raw.githubusercontent.com/shufinskiy/nba_data/e829d4678be1e075f99e5d41a1c5f97089be446b/datasets/pbpstats_2015.tar.xz",
+      "filename": "pbpstats_2015.tar.xz",
+      "revision": "e829d4678be1e075f99e5d41a1c5f97089be446b",
+      "rights_note": "Repository code is Apache-2.0; underlying NBA data redistribution rights not established. Local audit only.",
+      "sha256": "43470995870cdaea1eb727dcb03909c47bbf549e87abc2f286f32297b011a56c"
+    }
+  ]
+}

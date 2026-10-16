@@ -41,6 +41,7 @@ export const ReplayCourt = memo(function ReplayCourt({
   spread,
   focus = false,
   trailStart = 0,
+  interactive = true,
 }: {
   bundle: ReplayBundle;
   game: Game;
@@ -53,6 +54,7 @@ export const ReplayCourt = memo(function ReplayCourt({
   spread: boolean;
   focus?: boolean;
   trailStart?: number;
+  interactive?: boolean;
 }) {
   const woodId = useId();
   const snapshot = snapshots[index];
@@ -182,15 +184,22 @@ export const ReplayCourt = memo(function ReplayCourt({
             <g
               key={entity.entity_id}
               data-testid="tracked-player"
-              role="button"
-              tabIndex={0}
-              aria-label={`Select ${player?.name ?? entity.entity_id}`}
-              aria-pressed={entity.entity_id === selectedPlayer}
+              role={interactive ? "button" : undefined}
+              tabIndex={interactive ? 0 : undefined}
+              aria-label={`${interactive ? "Select " : ""}${player?.name ?? entity.entity_id}`}
+              aria-pressed={
+                interactive ? entity.entity_id === selectedPlayer : undefined
+              }
               opacity={focus && entity.entity_id !== selectedPlayer ? 0.3 : 1}
               className="player-marker"
-              onClick={() => onSelect(entity.entity_id)}
+              onClick={
+                interactive ? () => onSelect(entity.entity_id) : undefined
+              }
               onKeyDown={(event) => {
-                if (event.key === "Enter" || event.key === " ") {
+                if (
+                  interactive &&
+                  (event.key === "Enter" || event.key === " ")
+                ) {
                   event.preventDefault();
                   event.stopPropagation();
                   onSelect(entity.entity_id);

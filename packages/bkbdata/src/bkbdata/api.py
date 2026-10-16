@@ -3,23 +3,38 @@
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Literal
 
 from fastapi import FastAPI, HTTPException, Query
 
+from bkbdata.actions import Actions
 from bkbdata.annotations import annotation_index
 from bkbdata.atlas import Atlas
 from bkbdata.catalog import Catalog
 from bkbdata.contracts import AUDIT_VERSION, ReplayBundle
+from bkbdata.lineups import Lineups
+from bkbdata.shot_model import ShotModel
 
 
 def create_app(
     database: Path = Path("data/db/basketball.duckdb"),
     atlas_database: Path | None = None,
     annotations_path: Path = Path("annotations/curated-v1.json"),
+    actions_database: Path | None = None,
+    lineups_database: Path | None = None,
+    shot_model_path: Path | None = None,
 ) -> FastAPI:
     app = FastAPI(title="Basketball Motion Lab", version="0.1.0")
     catalog = Catalog(database)
     atlas = Atlas(atlas_database or database.with_name("atlas.duckdb"))
+    actions = Actions(
+        actions_database or database.with_name("actions.duckdb"), catalog, annotations_path
+    )
+    lineups = Lineups(lineups_database or database.with_name("lineups.duckdb"), database)
+    shot_model = ShotModel(
+        shot_model_path or database.parent.parent / "models/location-v1.json",
+        atlas_database or database.with_name("atlas.duckdb"),
+    )
 
     def read(action):
         try:
@@ -68,6 +83,50 @@ def create_app(
     @app.get("/annotations")
     def annotations():
         return read(lambda: annotation_index(annotations_path, catalog))
+
+    @app.get("/lineups/options")
+    def lineup_options():
+        return read(lineups.read)
+
+    @app.get("/lineups/games/{game_id}")
+    def lineup_game(game_id: str):
+        return read(lambda: lineups.read(game_id))
+
+    @app.get("/models/location")
+    def location_model():
+        return read(shot_model.read)
+
+    @app.get("/actions/options")
+    def action_options():
+        return read(actions.options)
+
+    @app.get("/actions/features/{candidate_id}")
+    def action_feature(candidate_id: str):
+        return read(lambda: actions.feature(candidate_id))
+
+    @app.get("/actions/search")
+    def action_search(
+        seed_id: str | None = None,
+        annotation_id: str | None = None,
+        player_id: str | None = None,
+        feature_id: str | None = None,
+        profile: Literal["start_relative", "court_location"] = "start_relative",
+        same_player: bool = False,
+        other_game: bool = False,
+        limit: int = Query(12, ge=1, le=30),
+    ):
+        return read(
+            lambda: actions.search(
+                seed_id,
+                annotation_id,
+                player_id,
+                feature_id,
+                profile,
+                same_player,
+                other_game,
+                limit,
+            )
+        )
 
     @app.get("/atlas/options")
     def atlas_options():

@@ -1,0 +1,1755 @@
+{
+  "description": "Generated tied-clock substitutions and model counts; no public trajectories",
+  "game": {
+    "game_id": "0000000001",
+    "game_date": "2000-01-01",
+    "away_team": "AWY",
+    "home_team": "HOM",
+    "away_team_id": "10",
+    "home_team_id": "20",
+    "players": [
+      {
+        "player_id": "101",
+        "name": "Generated 10 player 1",
+        "team_id": "10",
+        "jersey": "1",
+        "position": null
+      },
+      {
+        "player_id": "102",
+        "name": "Generated 10 player 2",
+        "team_id": "10",
+        "jersey": "2",
+        "position": null
+      },
+      {
+        "player_id": "103",
+        "name": "Generated 10 player 3",
+        "team_id": "10",
+        "jersey": "3",
+        "position": null
+      },
+      {
+        "player_id": "104",
+        "name": "Generated 10 player 4",
+        "team_id": "10",
+        "jersey": "4",
+        "position": null
+      },
+      {
+        "player_id": "105",
+        "name": "Generated 10 player 5",
+        "team_id": "10",
+        "jersey": "5",
+        "position": null
+      },
+      {
+        "player_id": "106",
+        "name": "Generated 10 player 6",
+        "team_id": "10",
+        "jersey": "6",
+        "position": null
+      },
+      {
+        "player_id": "201",
+        "name": "Generated 20 player 1",
+        "team_id": "20",
+        "jersey": "1",
+        "position": null
+      },
+      {
+        "player_id": "202",
+        "name": "Generated 20 player 2",
+        "team_id": "20",
+        "jersey": "2",
+        "position": null
+      },
+      {
+        "player_id": "203",
+        "name": "Generated 20 player 3",
+        "team_id": "20",
+        "jersey": "3",
+        "position": null
+      },
+      {
+        "player_id": "204",
+        "name": "Generated 20 player 4",
+        "team_id": "20",
+        "jersey": "4",
+        "position": null
+      },
+      {
+        "player_id": "205",
+        "name": "Generated 20 player 5",
+        "team_id": "20",
+        "jersey": "5",
+        "position": null
+      },
+      {
+        "player_id": "206",
+        "name": "Generated 20 player 6",
+        "team_id": "20",
+        "jersey": "6",
+        "position": null
+      }
+    ],
+    "shots": 3,
+    "unique_frames": 0,
+    "source_event_windows": 0,
+    "continuous_windows": 0,
+    "partial_windows": 0,
+    "empty_windows": 0,
+    "periods": [
+      {
+        "period": 1,
+        "unique_frames": 0,
+        "clock_min_s": 0,
+        "clock_max_s": 720
+      }
+    ],
+    "joins": {
+      "shot_to_event": {
+        "matched": 3
+      },
+      "shot_to_tracking": {
+        "matched": 0
+      }
+    },
+    "findings": [],
+    "examples": []
+  },
+  "events": [
+    {
+      "GAME_ID": "1",
+      "EVENTNUM": "0",
+      "EVENTMSGTYPE": "12",
+      "EVENTMSGACTIONTYPE": "1",
+      "PERIOD": "1",
+      "PCTIMESTRING": "12:00",
+      "PLAYER1_ID": "0",
+      "PLAYER1_TEAM_ID": "",
+      "PLAYER2_ID": "0",
+      "PLAYER2_TEAM_ID": "",
+      "PLAYER3_ID": "0",
+      "PLAYER3_TEAM_ID": "",
+      "HOMEDESCRIPTION": "",
+      "VISITORDESCRIPTION": "",
+      "SCORE": ""
+    },
+    {
+      "GAME_ID": "1",
+      "EVENTNUM": "1",
+      "EVENTMSGTYPE": "6",
+      "EVENTMSGACTIONTYPE": "1",
+      "PERIOD": "1",
+      "PCTIMESTRING": "11:59",
+      "PLAYER1_ID": "101",
+      "PLAYER1_TEAM_ID": "10",
+      "PLAYER2_ID": "201",
+      "PLAYER2_TEAM_ID": "20",
+      "PLAYER3_ID": "0",
+      "PLAYER3_TEAM_ID": "",
+      "HOMEDESCRIPTION": "",
+      "VISITORDESCRIPTION": "",
+      "SCORE": ""
+    },
+    {
+      "GAME_ID": "1",
+      "EVENTNUM": "2",
+      "EVENTMSGTYPE": "6",
+      "EVENTMSGACTIONTYPE": "1",
+      "PERIOD": "1",
+      "PCTIMESTRING": "11:58",
+      "PLAYER1_ID": "102",
+      "PLAYER1_TEAM_ID": "10",
+      "PLAYER2_ID": "202",
+      "PLAYER2_TEAM_ID": "20",
+      "PLAYER3_ID": "0",
+      "PLAYER3_TEAM_ID": "",
+      "HOMEDESCRIPTION": "",
+      "VISITORDESCRIPTION": "",
+      "SCORE": ""
+    },
+    {
+      "GAME_ID": "1",
+      "EVENTNUM": "3",
+      "EVENTMSGTYPE": "6",
+      "EVENTMSGACTIONTYPE": "1",
+      "PERIOD": "1",
+      "PCTIMESTRING": "11:57",
+      "PLAYER1_ID": "103",
+      "PLAYER1_TEAM_ID": "10",
+      "PLAYER2_ID": "203",
+      "PLAYER2_TEAM_ID": "20",
+      "PLAYER3_ID": "0",
+      "PLAYER3_TEAM_ID": "",
+      "HOMEDESCRIPTION": "",
+      "VISITORDESCRIPTION": "",
+      "SCORE": ""
+    },
+    {
+      "GAME_ID": "1",
+      "EVENTNUM": "4",
+      "EVENTMSGTYPE": "6",
+      "EVENTMSGACTIONTYPE": "1",
+      "PERIOD": "1",
+      "PCTIMESTRING": "11:56",
+      "PLAYER1_ID": "104",
+      "PLAYER1_TEAM_ID": "10",
+      "PLAYER2_ID": "204",
+      "PLAYER2_TEAM_ID": "20",
+      "PLAYER3_ID": "0",
+      "PLAYER3_TEAM_ID": "",
+      "HOMEDESCRIPTION": "",
+      "VISITORDESCRIPTION": "",
+      "SCORE": ""
+    },
+    {
+      "GAME_ID": "1",
+      "EVENTNUM": "5",
+      "EVENTMSGTYPE": "6",
+      "EVENTMSGACTIONTYPE": "1",
+      "PERIOD": "1",
+      "PCTIMESTRING": "11:55",
+      "PLAYER1_ID": "105",
+      "PLAYER1_TEAM_ID": "10",
+      "PLAYER2_ID": "205",
+      "PLAYER2_TEAM_ID": "20",
+      "PLAYER3_ID": "0",
+      "PLAYER3_TEAM_ID": "",
+      "HOMEDESCRIPTION": "",
+      "VISITORDESCRIPTION": "",
+      "SCORE": ""
+    },
+    {
+      "GAME_ID": "1",
+      "EVENTNUM": "6",
+      "EVENTMSGTYPE": "1",
+      "EVENTMSGACTIONTYPE": "1",
+      "PERIOD": "1",
+      "PCTIMESTRING": "10:00",
+      "PLAYER1_ID": "101",
+      "PLAYER1_TEAM_ID": "10",
+      "PLAYER2_ID": "0",
+      "PLAYER2_TEAM_ID": "",
+      "PLAYER3_ID": "0",
+      "PLAYER3_TEAM_ID": "",
+      "HOMEDESCRIPTION": "",
+      "VISITORDESCRIPTION": "Generated A make",
+      "SCORE": "2 - 0"
+    },
+    {
+      "GAME_ID": "1",
+      "EVENTNUM": "7",
+      "EVENTMSGTYPE": "8",
+      "EVENTMSGACTIONTYPE": "1",
+      "PERIOD": "1",
+      "PCTIMESTRING": "10:00",
+      "PLAYER1_ID": "101",
+      "PLAYER1_TEAM_ID": "10",
+      "PLAYER2_ID": "106",
+      "PLAYER2_TEAM_ID": "10",
+      "PLAYER3_ID": "0",
+      "PLAYER3_TEAM_ID": "",
+      "HOMEDESCRIPTION": "",
+      "VISITORDESCRIPTION": "",
+      "SCORE": ""
+    },
+    {
+      "GAME_ID": "1",
+      "EVENTNUM": "8",
+      "EVENTMSGTYPE": "8",
+      "EVENTMSGACTIONTYPE": "1",
+      "PERIOD": "1",
+      "PCTIMESTRING": "10:00",
+      "PLAYER1_ID": "201",
+      "PLAYER1_TEAM_ID": "20",
+      "PLAYER2_ID": "206",
+      "PLAYER2_TEAM_ID": "20",
+      "PLAYER3_ID": "0",
+      "PLAYER3_TEAM_ID": "",
+      "HOMEDESCRIPTION": "",
+      "VISITORDESCRIPTION": "",
+      "SCORE": ""
+    },
+    {
+      "GAME_ID": "1",
+      "EVENTNUM": "9",
+      "EVENTMSGTYPE": "2",
+      "EVENTMSGACTIONTYPE": "1",
+      "PERIOD": "1",
+      "PCTIMESTRING": "10:00",
+      "PLAYER1_ID": "106",
+      "PLAYER1_TEAM_ID": "10",
+      "PLAYER2_ID": "0",
+      "PLAYER2_TEAM_ID": "",
+      "PLAYER3_ID": "0",
+      "PLAYER3_TEAM_ID": "",
+      "HOMEDESCRIPTION": "",
+      "VISITORDESCRIPTION": "MISS Generated A6",
+      "SCORE": ""
+    },
+    {
+      "GAME_ID": "1",
+      "EVENTNUM": "10",
+      "EVENTMSGTYPE": "1",
+      "EVENTMSGACTIONTYPE": "1",
+      "PERIOD": "1",
+      "PCTIMESTRING": "9:59",
+      "PLAYER1_ID": "206",
+      "PLAYER1_TEAM_ID": "20",
+      "PLAYER2_ID": "0",
+      "PLAYER2_TEAM_ID": "",
+      "PLAYER3_ID": "0",
+      "PLAYER3_TEAM_ID": "",
+      "HOMEDESCRIPTION": "",
+      "VISITORDESCRIPTION": "Generated B make 3PT",
+      "SCORE": "2 - 3"
+    },
+    {
+      "GAME_ID": "1",
+      "EVENTNUM": "11",
+      "EVENTMSGTYPE": "13",
+      "EVENTMSGACTIONTYPE": "1",
+      "PERIOD": "1",
+      "PCTIMESTRING": "0:00",
+      "PLAYER1_ID": "0",
+      "PLAYER1_TEAM_ID": "",
+      "PLAYER2_ID": "0",
+      "PLAYER2_TEAM_ID": "",
+      "PLAYER3_ID": "0",
+      "PLAYER3_TEAM_ID": "",
+      "HOMEDESCRIPTION": "",
+      "VISITORDESCRIPTION": "",
+      "SCORE": "2 - 3"
+    }
+  ],
+  "box": [
+    {
+      "player_id": "101",
+      "name": "Generated 10 player 1",
+      "team_id": "10",
+      "starter": true,
+      "seconds": 120,
+      "fga": 1,
+      "fgm": 1,
+      "points": 2,
+      "official_plus_minus": 0
+    },
+    {
+      "player_id": "102",
+      "name": "Generated 10 player 2",
+      "team_id": "10",
+      "starter": true,
+      "seconds": 720,
+      "fga": 0,
+      "fgm": 0,
+      "points": 0,
+      "official_plus_minus": 0
+    },
+    {
+      "player_id": "103",
+      "name": "Generated 10 player 3",
+      "team_id": "10",
+      "starter": true,
+      "seconds": 720,
+      "fga": 0,
+      "fgm": 0,
+      "points": 0,
+      "official_plus_minus": 0
+    },
+    {
+      "player_id": "104",
+      "name": "Generated 10 player 4",
+      "team_id": "10",
+      "starter": true,
+      "seconds": 720,
+      "fga": 0,
+      "fgm": 0,
+      "points": 0,
+      "official_plus_minus": 0
+    },
+    {
+      "player_id": "105",
+      "name": "Generated 10 player 5",
+      "team_id": "10",
+      "starter": true,
+      "seconds": 720,
+      "fga": 0,
+      "fgm": 0,
+      "points": 0,
+      "official_plus_minus": 0
+    },
+    {
+      "player_id": "106",
+      "name": "Generated 10 player 6",
+      "team_id": "10",
+      "starter": false,
+      "seconds": 600,
+      "fga": 1,
+      "fgm": 0,
+      "points": 0,
+      "official_plus_minus": 0
+    },
+    {
+      "player_id": "201",
+      "name": "Generated 20 player 1",
+      "team_id": "20",
+      "starter": true,
+      "seconds": 120,
+      "fga": 0,
+      "fgm": 0,
+      "points": 0,
+      "official_plus_minus": 0
+    },
+    {
+      "player_id": "202",
+      "name": "Generated 20 player 2",
+      "team_id": "20",
+      "starter": true,
+      "seconds": 720,
+      "fga": 0,
+      "fgm": 0,
+      "points": 0,
+      "official_plus_minus": 0
+    },
+    {
+      "player_id": "203",
+      "name": "Generated 20 player 3",
+      "team_id": "20",
+      "starter": true,
+      "seconds": 720,
+      "fga": 0,
+      "fgm": 0,
+      "points": 0,
+      "official_plus_minus": 0
+    },
+    {
+      "player_id": "204",
+      "name": "Generated 20 player 4",
+      "team_id": "20",
+      "starter": true,
+      "seconds": 720,
+      "fga": 0,
+      "fgm": 0,
+      "points": 0,
+      "official_plus_minus": 0
+    },
+    {
+      "player_id": "205",
+      "name": "Generated 20 player 5",
+      "team_id": "20",
+      "starter": true,
+      "seconds": 720,
+      "fga": 0,
+      "fgm": 0,
+      "points": 0,
+      "official_plus_minus": 0
+    },
+    {
+      "player_id": "206",
+      "name": "Generated 20 player 6",
+      "team_id": "20",
+      "starter": false,
+      "seconds": 600,
+      "fga": 1,
+      "fgm": 1,
+      "points": 3,
+      "official_plus_minus": 0
+    }
+  ],
+  "shots": [
+    {
+      "shot_id": "shotchart:0000000001:6",
+      "game_id": "0000000001",
+      "source_event_id": "6",
+      "player_id": "101",
+      "player_name": "Generated 10 player 1",
+      "team_id": "10",
+      "period": 1,
+      "game_clock_s": 600,
+      "made": true,
+      "action_type": "Generated jump shot",
+      "lateral_ft": 2,
+      "forward_ft": 8,
+      "shot_value": 2,
+      "recorded_distance_ft": 10,
+      "event_join": {
+        "status": "matched",
+        "reason": null
+      },
+      "tracking_join": {
+        "status": "unavailable",
+        "reason": "Generated fixture: no tracking",
+        "segment_id": null,
+        "clock_delta_s": null,
+        "timing_confidence": "unavailable",
+        "window_continuity": null
+      }
+    },
+    {
+      "shot_id": "shotchart:0000000001:9",
+      "game_id": "0000000001",
+      "source_event_id": "9",
+      "player_id": "106",
+      "player_name": "Generated 10 player 6",
+      "team_id": "10",
+      "period": 1,
+      "game_clock_s": 600,
+      "made": false,
+      "action_type": "Generated jump shot",
+      "lateral_ft": -8,
+      "forward_ft": 12,
+      "shot_value": 2,
+      "recorded_distance_ft": 10,
+      "event_join": {
+        "status": "matched",
+        "reason": null
+      },
+      "tracking_join": {
+        "status": "unavailable",
+        "reason": "Generated fixture: no tracking",
+        "segment_id": null,
+        "clock_delta_s": null,
+        "timing_confidence": "unavailable",
+        "window_continuity": null
+      }
+    },
+    {
+      "shot_id": "shotchart:0000000001:10",
+      "game_id": "0000000001",
+      "source_event_id": "10",
+      "player_id": "206",
+      "player_name": "Generated 20 player 6",
+      "team_id": "20",
+      "period": 1,
+      "game_clock_s": 599,
+      "made": true,
+      "action_type": "Generated jump shot",
+      "lateral_ft": 18,
+      "forward_ft": 20,
+      "shot_value": 3,
+      "recorded_distance_ft": 10,
+      "event_join": {
+        "status": "matched",
+        "reason": null
+      },
+      "tracking_join": {
+        "status": "unavailable",
+        "reason": "Generated fixture: no tracking",
+        "segment_id": null,
+        "clock_delta_s": null,
+        "timing_confidence": "unavailable",
+        "window_continuity": null
+      }
+    }
+  ],
+  "possession_rows": [
+    {
+      "GAMEID": "1",
+      "OPPONENT": "HOM",
+      "PERIOD": "1",
+      "STARTTIME": "10:01",
+      "ENDTIME": "10:00",
+      "FG2A": "1",
+      "FG2M": "1",
+      "FG3A": "0",
+      "FG3M": "0",
+      "STARTTYPE": "Generated start",
+      "EVENTS": "Generated A make",
+      "DESCRIPTION": "A",
+      "URL": ""
+    }
+  ],
+  "bundle": {
+    "schema_version": "basketball-lineups-v1",
+    "game": {
+      "game_id": "0000000001",
+      "game_date": "2000-01-01",
+      "away_team": "AWY",
+      "home_team": "HOM",
+      "away_team_id": "10",
+      "home_team_id": "20",
+      "players": [
+        {
+          "player_id": "101",
+          "name": "Generated 10 player 1",
+          "team_id": "10",
+          "jersey": "1",
+          "position": null
+        },
+        {
+          "player_id": "102",
+          "name": "Generated 10 player 2",
+          "team_id": "10",
+          "jersey": "2",
+          "position": null
+        },
+        {
+          "player_id": "103",
+          "name": "Generated 10 player 3",
+          "team_id": "10",
+          "jersey": "3",
+          "position": null
+        },
+        {
+          "player_id": "104",
+          "name": "Generated 10 player 4",
+          "team_id": "10",
+          "jersey": "4",
+          "position": null
+        },
+        {
+          "player_id": "105",
+          "name": "Generated 10 player 5",
+          "team_id": "10",
+          "jersey": "5",
+          "position": null
+        },
+        {
+          "player_id": "106",
+          "name": "Generated 10 player 6",
+          "team_id": "10",
+          "jersey": "6",
+          "position": null
+        },
+        {
+          "player_id": "201",
+          "name": "Generated 20 player 1",
+          "team_id": "20",
+          "jersey": "1",
+          "position": null
+        },
+        {
+          "player_id": "202",
+          "name": "Generated 20 player 2",
+          "team_id": "20",
+          "jersey": "2",
+          "position": null
+        },
+        {
+          "player_id": "203",
+          "name": "Generated 20 player 3",
+          "team_id": "20",
+          "jersey": "3",
+          "position": null
+        },
+        {
+          "player_id": "204",
+          "name": "Generated 20 player 4",
+          "team_id": "20",
+          "jersey": "4",
+          "position": null
+        },
+        {
+          "player_id": "205",
+          "name": "Generated 20 player 5",
+          "team_id": "20",
+          "jersey": "5",
+          "position": null
+        },
+        {
+          "player_id": "206",
+          "name": "Generated 20 player 6",
+          "team_id": "20",
+          "jersey": "6",
+          "position": null
+        }
+      ],
+      "shots": 3,
+      "unique_frames": 0,
+      "source_event_windows": 0,
+      "continuous_windows": 0,
+      "partial_windows": 0,
+      "empty_windows": 0,
+      "periods": [
+        {
+          "period": 1,
+          "unique_frames": 0,
+          "clock_min_s": 0,
+          "clock_max_s": 720
+        }
+      ],
+      "joins": {
+        "shot_to_event": {
+          "matched": 3
+        },
+        "shot_to_tracking": {
+          "matched": 0
+        }
+      },
+      "findings": [],
+      "examples": []
+    },
+    "stints": [
+      {
+        "stint_id": "stint:0000000001:1:0",
+        "period": 1,
+        "start_clock_s": 720.0,
+        "end_clock_s": 600.0,
+        "duration_s": 120.0,
+        "start_order": 0,
+        "end_order": 7,
+        "status": "available",
+        "reasons": [],
+        "lineups": {
+          "10": [
+            "101",
+            "102",
+            "103",
+            "104",
+            "105"
+          ],
+          "20": [
+            "201",
+            "202",
+            "203",
+            "204",
+            "205"
+          ]
+        },
+        "score_start": [
+          0,
+          0
+        ],
+        "score_end": [
+          2,
+          0
+        ],
+        "shot_ids": [
+          "shotchart:0000000001:6"
+        ],
+        "substitution_ids": [],
+        "possession_ids": [
+          "possession:5a395ccb7601f46adc12040f"
+        ],
+        "possession_count": null
+      },
+      {
+        "stint_id": "stint:0000000001:1:9",
+        "period": 1,
+        "start_clock_s": 600.0,
+        "end_clock_s": 0.0,
+        "duration_s": 600.0,
+        "start_order": 9,
+        "end_order": 12,
+        "status": "available",
+        "reasons": [],
+        "lineups": {
+          "10": [
+            "102",
+            "103",
+            "104",
+            "105",
+            "106"
+          ],
+          "20": [
+            "202",
+            "203",
+            "204",
+            "205",
+            "206"
+          ]
+        },
+        "score_start": [
+          2,
+          0
+        ],
+        "score_end": [
+          2,
+          3
+        ],
+        "shot_ids": [
+          "shotchart:0000000001:9",
+          "shotchart:0000000001:10"
+        ],
+        "substitution_ids": [
+          "nbastats:0000000001:7",
+          "nbastats:0000000001:8"
+        ],
+        "possession_ids": [
+          "possession:5a395ccb7601f46adc12040f"
+        ],
+        "possession_count": null
+      }
+    ],
+    "substitutions": [
+      {
+        "event_id": "nbastats:0000000001:7",
+        "order": 7,
+        "period": 1,
+        "game_clock_s": 600.0,
+        "team_id": "10",
+        "outgoing": "101",
+        "incoming": "106"
+      },
+      {
+        "event_id": "nbastats:0000000001:8",
+        "order": 8,
+        "period": 1,
+        "game_clock_s": 600.0,
+        "team_id": "20",
+        "outgoing": "201",
+        "incoming": "206"
+      }
+    ],
+    "shots": [
+      {
+        "shot_id": "shotchart:0000000001:6",
+        "game_id": "0000000001",
+        "source_event_id": "6",
+        "player_id": "101",
+        "player_name": "Generated 10 player 1",
+        "team_id": "10",
+        "period": 1,
+        "game_clock_s": 600,
+        "made": true,
+        "action_type": "Generated jump shot",
+        "lateral_ft": 2,
+        "forward_ft": 8,
+        "shot_value": 2,
+        "recorded_distance_ft": 10,
+        "event_join": {
+          "status": "matched",
+          "reason": null
+        },
+        "tracking_join": {
+          "status": "unavailable",
+          "reason": "Generated fixture: no tracking",
+          "segment_id": null,
+          "clock_delta_s": null,
+          "timing_confidence": "unavailable",
+          "window_continuity": null
+        }
+      },
+      {
+        "shot_id": "shotchart:0000000001:9",
+        "game_id": "0000000001",
+        "source_event_id": "9",
+        "player_id": "106",
+        "player_name": "Generated 10 player 6",
+        "team_id": "10",
+        "period": 1,
+        "game_clock_s": 600,
+        "made": false,
+        "action_type": "Generated jump shot",
+        "lateral_ft": -8,
+        "forward_ft": 12,
+        "shot_value": 2,
+        "recorded_distance_ft": 10,
+        "event_join": {
+          "status": "matched",
+          "reason": null
+        },
+        "tracking_join": {
+          "status": "unavailable",
+          "reason": "Generated fixture: no tracking",
+          "segment_id": null,
+          "clock_delta_s": null,
+          "timing_confidence": "unavailable",
+          "window_continuity": null
+        }
+      },
+      {
+        "shot_id": "shotchart:0000000001:10",
+        "game_id": "0000000001",
+        "source_event_id": "10",
+        "player_id": "206",
+        "player_name": "Generated 20 player 6",
+        "team_id": "20",
+        "period": 1,
+        "game_clock_s": 599,
+        "made": true,
+        "action_type": "Generated jump shot",
+        "lateral_ft": 18,
+        "forward_ft": 20,
+        "shot_value": 3,
+        "recorded_distance_ft": 10,
+        "event_join": {
+          "status": "matched",
+          "reason": null
+        },
+        "tracking_join": {
+          "status": "unavailable",
+          "reason": "Generated fixture: no tracking",
+          "segment_id": null,
+          "clock_delta_s": null,
+          "timing_confidence": "unavailable",
+          "window_continuity": null
+        }
+      }
+    ],
+    "possessions": [
+      {
+        "possession_id": "possession:5a395ccb7601f46adc12040f",
+        "team_id": "10",
+        "period": 1,
+        "start_clock_s": 601.0,
+        "end_clock_s": 600.0,
+        "fga": 1,
+        "fgm": 1,
+        "start_type": "Generated start",
+        "description": "Generated A make",
+        "stint_id": null,
+        "overlapping_stints": [
+          "stint:0000000001:1:0",
+          "stint:0000000001:1:9"
+        ]
+      }
+    ],
+    "margin": [
+      {
+        "period": 1,
+        "game_clock_s": 600.0,
+        "order": 6,
+        "away": 2,
+        "home": 0,
+        "event_id": "6"
+      },
+      {
+        "period": 1,
+        "game_clock_s": 599.0,
+        "order": 10,
+        "away": 2,
+        "home": 3,
+        "event_id": "10"
+      },
+      {
+        "period": 1,
+        "game_clock_s": 0.0,
+        "order": 11,
+        "away": 2,
+        "home": 3,
+        "event_id": "11"
+      }
+    ],
+    "validation": {
+      "minute_checks": [
+        {
+          "player_id": "101",
+          "name": "Generated 10 player 1",
+          "reconstructed_s": 120.0,
+          "gamebook_s": 120,
+          "delta_s": 0.0,
+          "tolerance_s": 3,
+          "passed": true,
+          "event_order_score_change": 2,
+          "official_plus_minus": 0
+        },
+        {
+          "player_id": "102",
+          "name": "Generated 10 player 2",
+          "reconstructed_s": 720.0,
+          "gamebook_s": 720,
+          "delta_s": 0.0,
+          "tolerance_s": 5,
+          "passed": true,
+          "event_order_score_change": -1,
+          "official_plus_minus": 0
+        },
+        {
+          "player_id": "103",
+          "name": "Generated 10 player 3",
+          "reconstructed_s": 720.0,
+          "gamebook_s": 720,
+          "delta_s": 0.0,
+          "tolerance_s": 5,
+          "passed": true,
+          "event_order_score_change": -1,
+          "official_plus_minus": 0
+        },
+        {
+          "player_id": "104",
+          "name": "Generated 10 player 4",
+          "reconstructed_s": 720.0,
+          "gamebook_s": 720,
+          "delta_s": 0.0,
+          "tolerance_s": 5,
+          "passed": true,
+          "event_order_score_change": -1,
+          "official_plus_minus": 0
+        },
+        {
+          "player_id": "105",
+          "name": "Generated 10 player 5",
+          "reconstructed_s": 720.0,
+          "gamebook_s": 720,
+          "delta_s": 0.0,
+          "tolerance_s": 5,
+          "passed": true,
+          "event_order_score_change": -1,
+          "official_plus_minus": 0
+        },
+        {
+          "player_id": "106",
+          "name": "Generated 10 player 6",
+          "reconstructed_s": 600.0,
+          "gamebook_s": 600,
+          "delta_s": 0.0,
+          "tolerance_s": 3,
+          "passed": true,
+          "event_order_score_change": -3,
+          "official_plus_minus": 0
+        },
+        {
+          "player_id": "201",
+          "name": "Generated 20 player 1",
+          "reconstructed_s": 120.0,
+          "gamebook_s": 120,
+          "delta_s": 0.0,
+          "tolerance_s": 3,
+          "passed": true,
+          "event_order_score_change": -2,
+          "official_plus_minus": 0
+        },
+        {
+          "player_id": "202",
+          "name": "Generated 20 player 2",
+          "reconstructed_s": 720.0,
+          "gamebook_s": 720,
+          "delta_s": 0.0,
+          "tolerance_s": 5,
+          "passed": true,
+          "event_order_score_change": 1,
+          "official_plus_minus": 0
+        },
+        {
+          "player_id": "203",
+          "name": "Generated 20 player 3",
+          "reconstructed_s": 720.0,
+          "gamebook_s": 720,
+          "delta_s": 0.0,
+          "tolerance_s": 5,
+          "passed": true,
+          "event_order_score_change": 1,
+          "official_plus_minus": 0
+        },
+        {
+          "player_id": "204",
+          "name": "Generated 20 player 4",
+          "reconstructed_s": 720.0,
+          "gamebook_s": 720,
+          "delta_s": 0.0,
+          "tolerance_s": 5,
+          "passed": true,
+          "event_order_score_change": 1,
+          "official_plus_minus": 0
+        },
+        {
+          "player_id": "205",
+          "name": "Generated 20 player 5",
+          "reconstructed_s": 720.0,
+          "gamebook_s": 720,
+          "delta_s": 0.0,
+          "tolerance_s": 5,
+          "passed": true,
+          "event_order_score_change": 1,
+          "official_plus_minus": 0
+        },
+        {
+          "player_id": "206",
+          "name": "Generated 20 player 6",
+          "reconstructed_s": 600.0,
+          "gamebook_s": 600,
+          "delta_s": 0.0,
+          "tolerance_s": 3,
+          "passed": true,
+          "event_order_score_change": 3,
+          "official_plus_minus": 0
+        }
+      ],
+      "stat_checks": [
+        {
+          "player_id": "101",
+          "observed": {
+            "fga": 1,
+            "fgm": 1,
+            "points": 2
+          },
+          "gamebook": {
+            "fga": 1,
+            "fgm": 1,
+            "points": 2
+          },
+          "passed": true
+        },
+        {
+          "player_id": "102",
+          "observed": {
+            "fga": 0,
+            "fgm": 0,
+            "points": 0
+          },
+          "gamebook": {
+            "fga": 0,
+            "fgm": 0,
+            "points": 0
+          },
+          "passed": true
+        },
+        {
+          "player_id": "103",
+          "observed": {
+            "fga": 0,
+            "fgm": 0,
+            "points": 0
+          },
+          "gamebook": {
+            "fga": 0,
+            "fgm": 0,
+            "points": 0
+          },
+          "passed": true
+        },
+        {
+          "player_id": "104",
+          "observed": {
+            "fga": 0,
+            "fgm": 0,
+            "points": 0
+          },
+          "gamebook": {
+            "fga": 0,
+            "fgm": 0,
+            "points": 0
+          },
+          "passed": true
+        },
+        {
+          "player_id": "105",
+          "observed": {
+            "fga": 0,
+            "fgm": 0,
+            "points": 0
+          },
+          "gamebook": {
+            "fga": 0,
+            "fgm": 0,
+            "points": 0
+          },
+          "passed": true
+        },
+        {
+          "player_id": "106",
+          "observed": {
+            "fga": 1,
+            "fgm": 0,
+            "points": 0
+          },
+          "gamebook": {
+            "fga": 1,
+            "fgm": 0,
+            "points": 0
+          },
+          "passed": true
+        },
+        {
+          "player_id": "201",
+          "observed": {
+            "fga": 0,
+            "fgm": 0,
+            "points": 0
+          },
+          "gamebook": {
+            "fga": 0,
+            "fgm": 0,
+            "points": 0
+          },
+          "passed": true
+        },
+        {
+          "player_id": "202",
+          "observed": {
+            "fga": 0,
+            "fgm": 0,
+            "points": 0
+          },
+          "gamebook": {
+            "fga": 0,
+            "fgm": 0,
+            "points": 0
+          },
+          "passed": true
+        },
+        {
+          "player_id": "203",
+          "observed": {
+            "fga": 0,
+            "fgm": 0,
+            "points": 0
+          },
+          "gamebook": {
+            "fga": 0,
+            "fgm": 0,
+            "points": 0
+          },
+          "passed": true
+        },
+        {
+          "player_id": "204",
+          "observed": {
+            "fga": 0,
+            "fgm": 0,
+            "points": 0
+          },
+          "gamebook": {
+            "fga": 0,
+            "fgm": 0,
+            "points": 0
+          },
+          "passed": true
+        },
+        {
+          "player_id": "205",
+          "observed": {
+            "fga": 0,
+            "fgm": 0,
+            "points": 0
+          },
+          "gamebook": {
+            "fga": 0,
+            "fgm": 0,
+            "points": 0
+          },
+          "passed": true
+        },
+        {
+          "player_id": "206",
+          "observed": {
+            "fga": 1,
+            "fgm": 1,
+            "points": 3
+          },
+          "gamebook": {
+            "fga": 1,
+            "fgm": 1,
+            "points": 3
+          },
+          "passed": true
+        }
+      ],
+      "final_score": [
+        2,
+        3
+      ],
+      "gamebook_score": [
+        2,
+        3
+      ],
+      "failures": [],
+      "unassigned_shots": [],
+      "score_allocation_note": "Recorded score changes follow source row order. They can differ from official player plus-minus around dead-ball substitutions; no impact rating is inferred.",
+      "possessions": {
+        "source": "pbpstats archive",
+        "source_rows": 1,
+        "unique_records": 1,
+        "coverage": "incomplete",
+        "team_checks": [
+          {
+            "team_id": "20",
+            "provider_fga": 0,
+            "gamebook_fga": 1,
+            "provider_fgm": 0,
+            "gamebook_fgm": 1,
+            "passed": false
+          },
+          {
+            "team_id": "10",
+            "provider_fga": 1,
+            "gamebook_fga": 2,
+            "provider_fgm": 1,
+            "gamebook_fgm": 1,
+            "passed": false
+          }
+        ],
+        "reason": "Provider possession field-goal totals do not reconcile with the official gamebook. Total possession counts are unavailable.",
+        "allocation": "Only strict interior containment in one available stint; tied/crossing substitution boundaries remain unallocated. Linked record counts are not complete possessions."
+      }
+    },
+    "box_players": [
+      {
+        "player_id": "101",
+        "name": "Generated 10 player 1",
+        "team_id": "10",
+        "starter": true,
+        "seconds": 120,
+        "fga": 1,
+        "fgm": 1,
+        "points": 2,
+        "official_plus_minus": 0
+      },
+      {
+        "player_id": "102",
+        "name": "Generated 10 player 2",
+        "team_id": "10",
+        "starter": true,
+        "seconds": 720,
+        "fga": 0,
+        "fgm": 0,
+        "points": 0,
+        "official_plus_minus": 0
+      },
+      {
+        "player_id": "103",
+        "name": "Generated 10 player 3",
+        "team_id": "10",
+        "starter": true,
+        "seconds": 720,
+        "fga": 0,
+        "fgm": 0,
+        "points": 0,
+        "official_plus_minus": 0
+      },
+      {
+        "player_id": "104",
+        "name": "Generated 10 player 4",
+        "team_id": "10",
+        "starter": true,
+        "seconds": 720,
+        "fga": 0,
+        "fgm": 0,
+        "points": 0,
+        "official_plus_minus": 0
+      },
+      {
+        "player_id": "105",
+        "name": "Generated 10 player 5",
+        "team_id": "10",
+        "starter": true,
+        "seconds": 720,
+        "fga": 0,
+        "fgm": 0,
+        "points": 0,
+        "official_plus_minus": 0
+      },
+      {
+        "player_id": "106",
+        "name": "Generated 10 player 6",
+        "team_id": "10",
+        "starter": false,
+        "seconds": 600,
+        "fga": 1,
+        "fgm": 0,
+        "points": 0,
+        "official_plus_minus": 0
+      },
+      {
+        "player_id": "201",
+        "name": "Generated 20 player 1",
+        "team_id": "20",
+        "starter": true,
+        "seconds": 120,
+        "fga": 0,
+        "fgm": 0,
+        "points": 0,
+        "official_plus_minus": 0
+      },
+      {
+        "player_id": "202",
+        "name": "Generated 20 player 2",
+        "team_id": "20",
+        "starter": true,
+        "seconds": 720,
+        "fga": 0,
+        "fgm": 0,
+        "points": 0,
+        "official_plus_minus": 0
+      },
+      {
+        "player_id": "203",
+        "name": "Generated 20 player 3",
+        "team_id": "20",
+        "starter": true,
+        "seconds": 720,
+        "fga": 0,
+        "fgm": 0,
+        "points": 0,
+        "official_plus_minus": 0
+      },
+      {
+        "player_id": "204",
+        "name": "Generated 20 player 4",
+        "team_id": "20",
+        "starter": true,
+        "seconds": 720,
+        "fga": 0,
+        "fgm": 0,
+        "points": 0,
+        "official_plus_minus": 0
+      },
+      {
+        "player_id": "205",
+        "name": "Generated 20 player 5",
+        "team_id": "20",
+        "starter": true,
+        "seconds": 720,
+        "fga": 0,
+        "fgm": 0,
+        "points": 0,
+        "official_plus_minus": 0
+      },
+      {
+        "player_id": "206",
+        "name": "Generated 20 player 6",
+        "team_id": "20",
+        "starter": false,
+        "seconds": 600,
+        "fga": 1,
+        "fgm": 1,
+        "points": 3,
+        "official_plus_minus": 0
+      }
+    ]
+  },
+  "options": {
+    "schema_version": "basketball-lineups-v1",
+    "source_fingerprint": "generated-lineups",
+    "index_fingerprint": "generated-index",
+    "definition": {
+      "version": "basketball-lineups-v1",
+      "time": "Source row order within each period; game clocks determine duration, not tie order",
+      "starters": "First on-court involvement or outgoing substitution before first incoming sub",
+      "substitutions": "Contiguous same-clock substitutions applied together, outgoing then incoming",
+      "validation": "Five unique players/team, event roles, gamebook starters/minutes/FGA/FGM/PTS",
+      "rounding": "Minute tolerance: one second per stint boundary plus one gamebook rounding second",
+      "score": "Recorded away-home score in source event order; not official player plus-minus",
+      "possessions": "Deduplicated pbpstats records; incomplete FGA coverage withholds totals",
+      "not_inferred": [
+        "causal impact",
+        "defensive assignments",
+        "tracking release times"
+      ]
+    },
+    "input_identity": {
+      "sources": []
+    },
+    "games": [
+      {
+        "game_id": "0000000001",
+        "game_date": "2000-01-01",
+        "home_team": "HOM",
+        "away_team": "AWY",
+        "stints": 2,
+        "available": 2,
+        "shots": 3,
+        "possession_coverage": "incomplete"
+      }
+    ]
+  },
+  "model_rows": [
+    {
+      "game_id": "fit-game",
+      "game_date": "20151101",
+      "cell": "0:0",
+      "n": 100,
+      "made": 70,
+      "cx": 0,
+      "cy": 0
+    },
+    {
+      "game_id": "fit-game",
+      "game_date": "20151101",
+      "cell": "2:2",
+      "n": 100,
+      "made": 35,
+      "cx": 12.99,
+      "cy": 7.5
+    },
+    {
+      "game_id": "calibration-game",
+      "game_date": "20151215",
+      "cell": "0:0",
+      "n": 100,
+      "made": 69,
+      "cx": 0,
+      "cy": 0
+    },
+    {
+      "game_id": "calibration-game",
+      "game_date": "20151215",
+      "cell": "2:2",
+      "n": 100,
+      "made": 36,
+      "cx": 12.99,
+      "cy": 7.5
+    },
+    {
+      "game_id": "test-game",
+      "game_date": "20160101",
+      "cell": "0:0",
+      "n": 100,
+      "made": 68,
+      "cx": 0,
+      "cy": 0
+    },
+    {
+      "game_id": "test-game",
+      "game_date": "20160101",
+      "cell": "2:2",
+      "n": 100,
+      "made": 37,
+      "cx": 12.99,
+      "cy": 7.5
+    }
+  ],
+  "model": {
+    "schema_version": "basketball-location-model-v1",
+    "definition": {
+      "version": "basketball-location-model-v1",
+      "season": "2015-16",
+      "features": [
+        "lateral_ft",
+        "forward_ft"
+      ],
+      "spatial_basis": "Fixed M2 2.5 ft hexagons; outside half-court excluded",
+      "train": "2015-10-27 through 2015-11-30",
+      "calibration": "2015-12-01 through 2015-12-31",
+      "test": "2016-01-01 through 2016-04-13",
+      "split_unit": "whole games grouped by game date",
+      "estimator": "Training cell (makes + 20 * training mean) / (attempts + 20)",
+      "calibration_method": "Weighted monotone isotonic regression on calibration games only",
+      "probability_clip": [
+        0.01,
+        0.99
+      ],
+      "baseline": "Training overall FG% constant",
+      "exclusions": [
+        "event-unmatched attempts",
+        "outside fixed half-court",
+        "other seasons"
+      ],
+      "uncertainty": "95% percentile intervals from 200 whole-test-game bootstrap resamples",
+      "bootstrap_seed": 20261015,
+      "gate": "At least 100 games/split, test ECE <= .025 and upper 95% Brier difference < 0",
+      "unavailable_features": [
+        "defenders",
+        "fatigue",
+        "passing options",
+        "lineup",
+        "player identity"
+      ]
+    },
+    "provenance": {
+      "model_fingerprint": "generated-model",
+      "atlas_source_fingerprint": "generated-atlas",
+      "source_attempts": 600,
+      "event_unmatched": 0,
+      "outside": 0
+    },
+    "split": {
+      "train": {
+        "games": [
+          "fit-game"
+        ],
+        "first_date": "20151101",
+        "last_date": "20151101",
+        "attempts": 200
+      },
+      "calibration": {
+        "games": [
+          "calibration-game"
+        ],
+        "first_date": "20151215",
+        "last_date": "20151215",
+        "attempts": 200
+      },
+      "test": {
+        "games": [
+          "test-game"
+        ],
+        "first_date": "20160101",
+        "last_date": "20160101",
+        "attempts": 200
+      }
+    },
+    "training_mean": 0.525,
+    "isotonic_blocks": [
+      {
+        "low": 0.37916666666666665,
+        "high": 0.37916666666666665,
+        "made": 36,
+        "n": 100,
+        "p": 0.36
+      },
+      {
+        "low": 0.6708333333333333,
+        "high": 0.6708333333333333,
+        "made": 69,
+        "n": 100,
+        "p": 0.69
+      }
+    ],
+    "status": "evaluation_only",
+    "metrics": {
+      "n": 200,
+      "games": 1,
+      "brier": 0.22545,
+      "baseline_brier": 0.249375,
+      "logloss": 0.6431368468347227,
+      "baseline_logloss": 0.6918966592050799,
+      "brier_interval": [
+        0.22545,
+        0.22545
+      ],
+      "brier_difference_interval": [
+        -0.023924999999999984,
+        -0.023924999999999984
+      ],
+      "ece": 0.009999999999999953,
+      "bins": [
+        {
+          "bin": 0,
+          "n": 0,
+          "made": 0,
+          "predicted": null,
+          "observed": null,
+          "observed_interval": [
+            null,
+            null
+          ]
+        },
+        {
+          "bin": 1,
+          "n": 0,
+          "made": 0,
+          "predicted": null,
+          "observed": null,
+          "observed_interval": [
+            null,
+            null
+          ]
+        },
+        {
+          "bin": 2,
+          "n": 0,
+          "made": 0,
+          "predicted": null,
+          "observed": null,
+          "observed_interval": [
+            null,
+            null
+          ]
+        },
+        {
+          "bin": 3,
+          "n": 100,
+          "made": 37,
+          "predicted": 0.36,
+          "observed": 0.37,
+          "observed_interval": [
+            0.37,
+            0.37
+          ]
+        },
+        {
+          "bin": 4,
+          "n": 0,
+          "made": 0,
+          "predicted": null,
+          "observed": null,
+          "observed_interval": [
+            null,
+            null
+          ]
+        },
+        {
+          "bin": 5,
+          "n": 0,
+          "made": 0,
+          "predicted": null,
+          "observed": null,
+          "observed_interval": [
+            null,
+            null
+          ]
+        },
+        {
+          "bin": 6,
+          "n": 100,
+          "made": 68,
+          "predicted": 0.69,
+          "observed": 0.68,
+          "observed_interval": [
+            0.68,
+            0.68
+          ]
+        },
+        {
+          "bin": 7,
+          "n": 0,
+          "made": 0,
+          "predicted": null,
+          "observed": null,
+          "observed_interval": [
+            null,
+            null
+          ]
+        },
+        {
+          "bin": 8,
+          "n": 0,
+          "made": 0,
+          "predicted": null,
+          "observed": null,
+          "observed_interval": [
+            null,
+            null
+          ]
+        },
+        {
+          "bin": 9,
+          "n": 0,
+          "made": 0,
+          "predicted": null,
+          "observed": null,
+          "observed_interval": [
+            null,
+            null
+          ]
+        }
+      ],
+      "bootstrap_resamples": 200
+    },
+    "cells": [
+      {
+        "cell": "0:0",
+        "cx": 0,
+        "cy": 0,
+        "probability": 0.69,
+        "raw_probability": 0.6708333333333333,
+        "train_made": 70,
+        "train_n": 100,
+        "calibration_n": 100,
+        "test_n": 100,
+        "fallback": false
+      },
+      {
+        "cell": "2:2",
+        "cx": 12.99,
+        "cy": 7.5,
+        "probability": 0.36,
+        "raw_probability": 0.37916666666666665,
+        "train_made": 35,
+        "train_n": 100,
+        "calibration_n": 100,
+        "test_n": 100,
+        "fallback": false
+      }
+    ],
+    "limitations": [
+      "Location only; no defenders, fatigue, player identity or passing options",
+      "One historical season; temporal held-out results do not establish modern transfer",
+      "Bootstrap intervals describe held-out game variation, not an individual shot's uncertainty",
+      "No movement prediction overlay: two tracking games; no evaluated learned forecast"
+    ]
+  },
+  "truth": {
+    "stint_durations_s": [
+      120,
+      600
+    ],
+    "before_sub_shot": "shotchart:0000000001:6",
+    "after_sub_shot": "shotchart:0000000001:9",
+    "total_player_seconds": 7200
+  }
+}

@@ -1,6 +1,6 @@
 # Basketball Motion Lab — Implementation Plan
 
-Status: Milestones 0–3 implemented and locally verified on 2026-10-15. Milestones 4–5 remain planned. See `docs/data-audit.md`, `docs/milestone-1.md`, `docs/milestone-2.md`, and `docs/milestone-3.md` for measured evidence and unresolved source-window timing limits; CI is configured but has not run on GitHub.
+Status: Milestones 0–5 implemented and locally verified. See `docs/data-audit.md` and `docs/milestone-1.md` through `docs/milestone-5.md` for measured evidence and source limits. Complete possession counts remain unavailable where coverage does not reconcile; learned movement forecasting remains deferred. CI is configured but has not run on GitHub.
 
 Created: 2026-10-15.
 
@@ -10,11 +10,13 @@ Build a local-first basketball visualization app that connects a shot atlas to a
 
 > Select a shot on the court, inspect the movement that preceded it, and compare it with similar attempts.
 
-Combine the baseball project's spatial comparisons and reliability-aware heatmaps with the football project's replay, linked measurements, and explicit data provenance. Use one application with three connected views:
+Combine the baseball project's spatial comparisons and reliability-aware heatmaps with the football project's replay, linked measurements, and explicit data provenance. Use one application with five connected views:
 
 - **Shot Atlas:** broad historical shot analysis, with newer seasons added when their source coverage is verified.
 - **Tracking lab:** observed player and ball movement in the historical games with audited tracking coverage.
 - **Off-ball explorer:** curated movement sequences, focused-player measurements, and time-aligned comparisons with explicit annotation uncertainty.
+- **Action atlas:** single-player geometric path retrieval, source-court thumbnails, inspectable distances and paired replay.
+- **Lineup context:** reconstructed rotations, linked stint samples, score context and a temporally evaluated location-only shot model.
 
 Tracking availability is a property of each game and event. A shot without tracking remains useful in the atlas and reports why replay is unavailable.
 
@@ -173,6 +175,8 @@ Acceptance:
 
 ## Milestone 4 — Geometric action atlas
 
+Implemented: 31,631 source-bound single-player paths across two audited games, two coordinate profiles, distinct-footage retrieval, miniature courts, 21-pair score inspection and synchronized source replay. Every indexed path reconciles with raw observations; independent exhaustive ranking and browser calculations agree. Multi-player matching remains deferred. See `docs/milestone-4.md`.
+
 Tasks:
 
 - Build miniature-court thumbnails for curated or consistently segmented movement sequences.
@@ -188,6 +192,8 @@ Acceptance:
 - Retrieval is described as geometric similarity, not proof of an identical play call or assignment.
 
 ## Milestone 5 — Lineup context and evaluated models
+
+Implemented: 58 gamebook-checked stints across both tracking games, all 367 attempts linked by event order, substitutions, recorded score margin, player rotations, A/B shot samples and replay handoff. Partial provider possession records are inspectable; complete counts are withheld because field-goal coverage does not reconcile. A location-only model uses 261 training, 228 calibration and 741 test games, passes its declared historical gate and exposes calibration/counts/game-bootstrap intervals. Learned movement prediction remains deferred. See `docs/milestone-5.md`.
 
 Tasks:
 
@@ -221,10 +227,10 @@ An optional oblique ball view can follow later if ball height and timing pass va
 - **Performance:** measure ingest time/memory, query latency, bundle size, and playback on a stated dataset and machine before optimizing.
 - **Public release:** separately verify redistribution basis, deployed routes, asset loading, and hosted browser behavior. Passing local tests does not establish a live release.
 
-## Immediate implementation sequence
+## Follow-up sequence
 
-1. Begin Milestone 2 with verified shot-source coverage, cached season ingestion, and frequency/efficiency comparisons.
-2. Preserve the Milestone 1 replay contract, measurement definitions, and explicit availability states as the atlas expands.
-3. Investigate the source event-window/clock mismatch before claiming release alignment or expanding replay joins; keep action recognition and automatic tactical labels in their later milestones.
+1. Resolve provider possession coverage and dead-ball ordering against additional evidence before exposing complete possession counts or official lineup plus-minus.
+2. Expand independent game coverage and temporal evaluation before modern-season model transfer, multi-player retrieval or learned movement forecasts.
+3. Preserve replay/annotation/path/lineup contracts and availability states. Treat public redistribution, GitHub CI and hosted verification as separate release gates.
 
 The first milestone succeeds when a real shot leads to a trustworthy, inspectable movement sequence—not merely when a court animation runs.

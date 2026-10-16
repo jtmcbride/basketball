@@ -18,7 +18,7 @@ jobs:
           cache-dependency-path: apps/web/package-lock.json
       - run: make setup
       - run: make lint test web-build
-      - run: make contract && git diff --exit-code -- schemas
+      - run: make contract && git diff --exit-code -- schemas config/path-similarity-v1.json config/lineups-v1.json config/location-model-v1.json
       - run: make fixtures && git diff --exit-code -- tests/fixtures
       - run: npx playwright install --with-deps chromium
         working-directory: apps/web

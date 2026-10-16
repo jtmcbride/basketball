@@ -1,4 +1,5 @@
-import type { Shot } from './types';
+import { useId } from "react";
+import type { Shot } from "./types";
 
 const courtLines = (
   <g className="court-lines" fill="none" strokeWidth="0.13">
@@ -12,31 +13,75 @@ const courtLines = (
   </g>
 );
 
-export function Court({ shots, selected, onSelect }: {
+export function Court({
+  shots,
+  selected,
+  onSelect,
+}: {
   shots: Shot[];
   selected: string | null;
   onSelect: (shotId: string) => void;
 }) {
-  const plotted = shots.filter((shot) => shot.forward_ft + 5.25 <= 47 && shot.forward_ft + 5.25 >= 0
-    && Math.abs(shot.lateral_ft) <= 25);
-  return <svg viewBox="-1 -1 52 49" className="court" role="img"
-    aria-label={`Basket-relative shot chart with ${plotted.length} plotted attempts from ${shots.length} attempts. Use the attempt selector below to inspect a shot.`}>
-    <defs>
-      <pattern id="wood" width="5" height="47" patternUnits="userSpaceOnUse">
-        <rect width="5" height="47" fill="#cfb58d" />
-        <path d="M 0 0 V 47 M 2.5 0 V 47" stroke="#c4a67b" strokeWidth="0.06" />
-      </pattern>
-    </defs>
-    <rect width="50" height="47" fill="url(#wood)" />
-    <rect x="17" width="16" height="19" fill="#203647" opacity="0.08" />
-    {courtLines}
-    {plotted.map((shot) => <g key={shot.shot_id}
-        className={`shot ${shot.made ? 'made' : 'missed'} ${shot.shot_id === selected ? 'selected' : ''}`}
-        onClick={() => onSelect(shot.shot_id)}>
-        <circle cx={25 + shot.lateral_ft} cy={5.25 + shot.forward_ft} r="0.48" />
-        {!shot.made && <path d={`M ${24.7 + shot.lateral_ft} ${4.95 + shot.forward_ft} l .6 .6 m 0 -.6 l -.6 .6`} />}
-        <circle className="shot-hit" cx={25 + shot.lateral_ft} cy={5.25 + shot.forward_ft} r="1" />
-        <title>{shot.player_name} · {shot.made ? 'Made' : 'Missed'} · {shot.action_type}</title>
-      </g>)}
-  </svg>;
+  const woodId = useId();
+  const plotted = shots.filter(
+    (shot) =>
+      shot.forward_ft + 5.25 <= 47 &&
+      shot.forward_ft + 5.25 >= 0 &&
+      Math.abs(shot.lateral_ft) <= 25,
+  );
+  return (
+    <svg
+      viewBox="-1 -1 52 49"
+      className="court"
+      role="img"
+      aria-label={`Basket-relative shot chart with ${plotted.length} plotted attempts from ${shots.length} attempts. Use the attempt selector below to inspect a shot.`}
+    >
+      <defs>
+        <pattern
+          id={woodId}
+          width="5"
+          height="47"
+          patternUnits="userSpaceOnUse"
+        >
+          <rect width="5" height="47" fill="#cfb58d" />
+          <path
+            d="M 0 0 V 47 M 2.5 0 V 47"
+            stroke="#c4a67b"
+            strokeWidth="0.06"
+          />
+        </pattern>
+      </defs>
+      <rect width="50" height="47" fill={`url(#${woodId})`} />
+      <rect x="17" width="16" height="19" fill="#203647" opacity="0.08" />
+      {courtLines}
+      {plotted.map((shot) => (
+        <g
+          key={shot.shot_id}
+          className={`shot ${shot.made ? "made" : "missed"} ${shot.shot_id === selected ? "selected" : ""}`}
+          onClick={() => onSelect(shot.shot_id)}
+        >
+          <circle
+            cx={25 + shot.lateral_ft}
+            cy={5.25 + shot.forward_ft}
+            r="0.48"
+          />
+          {!shot.made && (
+            <path
+              d={`M ${24.7 + shot.lateral_ft} ${4.95 + shot.forward_ft} l .6 .6 m 0 -.6 l -.6 .6`}
+            />
+          )}
+          <circle
+            className="shot-hit"
+            cx={25 + shot.lateral_ft}
+            cy={5.25 + shot.forward_ft}
+            r="1"
+          />
+          <title>
+            {shot.player_name} · {shot.made ? "Made" : "Missed"} ·{" "}
+            {shot.action_type}
+          </title>
+        </g>
+      ))}
+    </svg>
+  );
 }

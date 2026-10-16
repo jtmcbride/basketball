@@ -1,7 +1,7 @@
 # Basketball Motion Lab
 
 A local-first NBA shot atlas and historical tracking explorer. Select an attempt,
-replay its observed player/ball movement, and inspect synchronized geometry. See
+replay its observed player/ball movement, and search similar player paths. See
 [PLAN.md](PLAN.md) for the implementation sequence.
 
 ## Development
@@ -14,6 +14,10 @@ make fetch       # explicit network download; immutable local cache
 make audit       # offline ingest, validation, Parquet/catalog, audit report
 make atlas-fetch # cache four pinned season shot/PBP archive pairs
 make atlas       # offline historical atlas with per-season coverage reports
+make actions     # offline geometric path index from audited tracking
+make lineup-fetch # pinned official gamebooks and possession archive
+make lineups     # offline rotations and independent box-score constraints
+make shot-model  # fit/calibrate/evaluate a historical location-only baseline
 make api         # read-only API at http://127.0.0.1:8007
 make dev         # shot atlas and replay at http://127.0.0.1:5177
 ```
@@ -29,6 +33,50 @@ make web-build
 make lint
 npm --prefix apps/web run test:browser
 ```
+
+## Lineup context and evaluated model (Milestone 5)
+
+Open `http://127.0.0.1:5177/#lineups` or choose **Lineup context**. Follow **58
+reconstructed stints**, compare both five-player groups and their shot samples,
+inspect substitutions and recorded score margin, and open linked tracking replay.
+All 367 audited attempts are assigned by event order. Gamebook minutes, starters,
+field goals and points constrain reconstruction; unresolved groups stay unavailable.
+
+The separate location-only model uses 261 training, 228 calibration and 741 test
+games from 2015–16. Inspect calibrated location probabilities, held-out counts,
+calibration error and whole-game bootstrap intervals. Test Brier score is 0.2342
+versus 0.2483 for a constant-rate baseline. No defenders, fatigue, player identity
+or passing options enter the model.
+
+Provider possession coverage does not reconcile with the official boxes, so total
+possession counts remain unavailable while partial records remain inspectable.
+Lineup samples are descriptive; recorded score changes are not causal impact or
+official player plus-minus. Learned movement forecasts remain deferred.
+
+Build with `make lineup-fetch`, `make lineups` and `make shot-model`. The lineup
+build requires Poppler's `pdftotext` (`brew install poppler` on macOS). Read the
+[Milestone 5 definitions and evidence](docs/milestone-5.md), reproduce source and
+model checks with `uv run python scripts/verify_lineups.py`, and check the real
+browser workflow with `npm --prefix apps/web run verify:lineups`.
+
+## Geometric action atlas (Milestone 4)
+
+Open `http://127.0.0.1:5177/#actions` or choose **Action atlas**. Search **31,631
+single-player paths** from the two audited tracking games. Compare shape with
+starts aligned or retain original court location, inspect miniature source courts
+and all 21 scored sample pairs, then replay the query and match together. Reuse a
+match as the next query or enter from an off-ball annotation reference.
+
+The versioned feature uses two seconds of observed movement, actual timestamps,
+strict continuity checks and RMS distance in feet. Overlapping footage is
+suppressed; same-player and other-game filters are available. Geometric similarity
+does not establish an identical action, play call or assignment. Multi-player
+matching remains deferred.
+
+Run `make actions` after `make audit`. Read the
+[Milestone 4 definition and verification](docs/milestone-4.md), reproduce source
+checks with `uv run python scripts/verify_actions.py`, and run the real-data
+browser workflow with `npm --prefix apps/web run verify:actions`.
 
 ## Off-ball movement explorer (Milestone 3)
 

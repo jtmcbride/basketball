@@ -15,7 +15,9 @@
     "test:browser": "playwright test",
     "verify:real": "node scripts/verify-real.mjs",
     "verify:atlas": "node scripts/verify-atlas.mjs",
-    "verify:movement": "node scripts/verify-movement.mjs"
+    "verify:movement": "node scripts/verify-movement.mjs",
+    "verify:actions": "node scripts/verify-actions.mjs",
+    "verify:lineups": "node scripts/verify-lineups.mjs"
   },
   "dependencies": {
     "react": "^19.2.0",

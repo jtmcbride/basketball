@@ -1,0 +1,216 @@
+{
+  "$defs": {
+    "LineupStint": {
+      "additionalProperties": false,
+      "properties": {
+        "stint_id": {
+          "title": "Stint Id",
+          "type": "string"
+        },
+        "period": {
+          "minimum": 1,
+          "title": "Period",
+          "type": "integer"
+        },
+        "start_clock_s": {
+          "minimum": 0,
+          "title": "Start Clock S",
+          "type": "number"
+        },
+        "end_clock_s": {
+          "minimum": 0,
+          "title": "End Clock S",
+          "type": "number"
+        },
+        "duration_s": {
+          "minimum": 0,
+          "title": "Duration S",
+          "type": "number"
+        },
+        "start_order": {
+          "minimum": 0,
+          "title": "Start Order",
+          "type": "integer"
+        },
+        "end_order": {
+          "minimum": 0,
+          "title": "End Order",
+          "type": "integer"
+        },
+        "status": {
+          "enum": [
+            "available",
+            "unavailable"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Reasons",
+          "type": "array"
+        },
+        "lineups": {
+          "additionalProperties": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": "Lineups",
+          "type": "object"
+        },
+        "score_start": {
+          "items": {
+            "type": "integer"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "title": "Score Start",
+          "type": "array"
+        },
+        "score_end": {
+          "items": {
+            "type": "integer"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "title": "Score End",
+          "type": "array"
+        },
+        "shot_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Shot Ids",
+          "type": "array"
+        },
+        "substitution_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Substitution Ids",
+          "type": "array"
+        },
+        "possession_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Possession Ids",
+          "type": "array"
+        },
+        "possession_count": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Possession Count"
+        }
+      },
+      "required": [
+        "stint_id",
+        "period",
+        "start_clock_s",
+        "end_clock_s",
+        "duration_s",
+        "start_order",
+        "end_order",
+        "status",
+        "reasons",
+        "lineups",
+        "score_start",
+        "score_end",
+        "shot_ids",
+        "substitution_ids"
+      ],
+      "title": "LineupStint",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "basketball-lineups-v1",
+      "default": "basketball-lineups-v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "game": {
+      "additionalProperties": true,
+      "title": "Game",
+      "type": "object"
+    },
+    "stints": {
+      "items": {
+        "$ref": "#/$defs/LineupStint"
+      },
+      "title": "Stints",
+      "type": "array"
+    },
+    "substitutions": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Substitutions",
+      "type": "array"
+    },
+    "shots": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Shots",
+      "type": "array"
+    },
+    "possessions": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Possessions",
+      "type": "array"
+    },
+    "margin": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Margin",
+      "type": "array"
+    },
+    "validation": {
+      "additionalProperties": true,
+      "title": "Validation",
+      "type": "object"
+    },
+    "box_players": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Box Players",
+      "type": "array"
+    }
+  },
+  "required": [
+    "game",
+    "stints",
+    "substitutions",
+    "shots",
+    "possessions",
+    "margin",
+    "validation",
+    "box_players"
+  ],
+  "title": "LineupGame",
+  "type": "object"
+}

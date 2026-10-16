@@ -1,0 +1,154 @@
+{
+  "feature_version": "basketball-path-v1",
+  "source_fingerprint": "26eed7665e97b79d3e8aaa5738e49a771bb8556bb745e8f7e235f6d984052761",
+  "index_fingerprint": "ab2f211a48d8562a62962aab5097d891d41cd16833f1f344de3ea4b0e07fa859",
+  "definition_hash": "53b7355b3361c105912dd15d2308b490743a12625e59a9d7c8d6e6749b626920",
+  "indexed_paths": 31631,
+  "raw_sample_pairs_verified": 664251,
+  "raw_history_observations_verified": 1613181,
+  "ranking_cases": [
+    {
+      "seed": "batum-corner",
+      "profile": "start_relative",
+      "filters": {},
+      "eligible": 31611,
+      "matches": 8,
+      "max_score_error_ft": 2.220446049250313e-16,
+      "rank_ids_agree": true
+    },
+    {
+      "seed": "batum-corner",
+      "profile": "start_relative",
+      "filters": {
+        "other_game": true
+      },
+      "eligible": 17381,
+      "matches": 8,
+      "max_score_error_ft": 1.1102230246251565e-16,
+      "rank_ids_agree": true
+    },
+    {
+      "seed": "batum-corner",
+      "profile": "start_relative",
+      "filters": {
+        "same_player": true
+      },
+      "eligible": 1227,
+      "matches": 8,
+      "max_score_error_ft": 2.220446049250313e-16,
+      "rank_ids_agree": true
+    },
+    {
+      "seed": "batum-corner",
+      "profile": "court_location",
+      "filters": {},
+      "eligible": 31611,
+      "matches": 8,
+      "max_score_error_ft": 4.440892098500626e-16,
+      "rank_ids_agree": true
+    },
+    {
+      "seed": "batum-corner",
+      "profile": "court_location",
+      "filters": {
+        "other_game": true
+      },
+      "eligible": 17381,
+      "matches": 8,
+      "max_score_error_ft": 4.440892098500626e-16,
+      "rank_ids_agree": true
+    },
+    {
+      "seed": "batum-corner",
+      "profile": "court_location",
+      "filters": {
+        "same_player": true
+      },
+      "eligible": 1227,
+      "matches": 8,
+      "max_score_error_ft": 8.881784197001252e-16,
+      "rank_ids_agree": true
+    },
+    {
+      "seed": "harris-middle",
+      "profile": "start_relative",
+      "filters": {},
+      "eligible": 31601,
+      "matches": 8,
+      "max_score_error_ft": 2.220446049250313e-16,
+      "rank_ids_agree": true
+    },
+    {
+      "seed": "harris-middle",
+      "profile": "start_relative",
+      "filters": {
+        "other_game": true
+      },
+      "eligible": 14250,
+      "matches": 8,
+      "max_score_error_ft": 4.440892098500626e-16,
+      "rank_ids_agree": true
+    },
+    {
+      "seed": "harris-middle",
+      "profile": "start_relative",
+      "filters": {
+        "same_player": true
+      },
+      "eligible": 1306,
+      "matches": 8,
+      "max_score_error_ft": 4.440892098500626e-16,
+      "rank_ids_agree": true
+    },
+    {
+      "seed": "harris-middle",
+      "profile": "court_location",
+      "filters": {},
+      "eligible": 31601,
+      "matches": 8,
+      "max_score_error_ft": 4.440892098500626e-16,
+      "rank_ids_agree": true
+    },
+    {
+      "seed": "harris-middle",
+      "profile": "court_location",
+      "filters": {
+        "other_game": true
+      },
+      "eligible": 14250,
+      "matches": 8,
+      "max_score_error_ft": 4.440892098500626e-16,
+      "rank_ids_agree": true
+    },
+    {
+      "seed": "harris-middle",
+      "profile": "court_location",
+      "filters": {
+        "same_player": true
+      },
+      "eligible": 1306,
+      "matches": 8,
+      "max_score_error_ft": 0.0,
+      "rank_ids_agree": true
+    }
+  ],
+  "cached_rebuild_verified": true,
+  "query_latency_ms": {
+    "min": 121.14337499951944,
+    "median": 143.75891649979167,
+    "max": 329.50508303474635
+  },
+  "build_seconds": 15.202,
+  "build_environment": {
+    "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "peak_rss_bytes": 1096220672
+  },
+  "database_bytes": 20983808,
+  "parquet_bytes": 15173305,
+  "limitations": [
+    "Two historical games only",
+    "Descriptive geometry; no tactical retrieval ground truth or play-call labels",
+    "Timings are one local run, not universal bounds"
+  ]
+}

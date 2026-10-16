@@ -1,0 +1,33 @@
+{
+  "origin": "http://127.0.0.1:5178",
+  "environment": {
+    "node": "v24.18.0",
+    "browser": "156.0.8078.4",
+    "platform": "darwin",
+    "cpu": "Apple M1 Pro"
+  },
+  "checks": [
+    "Both coordinate profiles change real ranking; 21 paired samples reproduce the selected API score",
+    "Source stepping and query-from-match work; insufficient curated history clears prior geometry and replay",
+    "Leaving the action atlas pauses its replay and returning preserves the query state",
+    "The Harris annotation link opens the matching player/reference in the action atlas",
+    "390px source thumbnails, overlay and observed replays have no document overflow"
+  ],
+  "pageErrors": [],
+  "numerical": {
+    "scoreComparisons": 32,
+    "maxErrorFt": 4.440892098500626e-16,
+    "toleranceFt": 1e-8,
+    "sourceBindings": 12
+  },
+  "initialAtlasMs": 834,
+  "indexFingerprint": "ab2f211a48d8562a62962aab5097d891d41cd16833f1f344de3ea4b0e07fa859",
+  "sourceFingerprint": "26eed7665e97b79d3e8aaa5738e49a771bb8556bb745e8f7e235f6d984052761",
+  "files": {
+    "src/actions/model.ts": "667a5f6dc21ec93bfe0e1f5bf8650e54db609df6b2d87b34147c1b9f4bcd6618",
+    "src/actions/PathReplay.tsx": "a04e805a8b4e00b706261e70f72b0f1ca85673861bce5628104a6a12e6e8658f",
+    "../../config/path-similarity-v1.json": "ddc6ce7a56f1a7621678485961f6f1ca04c4acae540c63eb113bded8eb78e39c",
+    "package-lock.json": "ceaabc49bccb7cb98f2e405f758ca864a03f779a1e68427ec221c58958616d2d"
+  },
+  "passed": true
+}

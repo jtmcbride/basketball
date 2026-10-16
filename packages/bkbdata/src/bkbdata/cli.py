@@ -7,11 +7,14 @@ import json
 from pathlib import Path
 
 from bkbdata.acquire import fetch_sources
+from bkbdata.actions import build_actions
 from bkbdata.annotations import annotation_index
 from bkbdata.atlas import build_atlas
 from bkbdata.audit import build_audit
 from bkbdata.catalog import Catalog
 from bkbdata.contracts import ReplayBundle
+from bkbdata.lineups import build_lineups
+from bkbdata.shot_model import build_shot_model
 
 
 def main() -> None:
@@ -31,6 +34,20 @@ def main() -> None:
     atlas.add_argument("--raw", type=Path, default=Path("data/raw"))
     atlas.add_argument("--database", type=Path, default=Path("data/db/atlas.duckdb"))
     atlas.add_argument("--lake", type=Path, default=Path("data/lake/atlas"))
+    actions = sub.add_parser("actions", help="Build the offline geometric path index")
+    actions.add_argument("--source-database", type=Path, default=Path("data/db/basketball.duckdb"))
+    actions.add_argument("--database", type=Path, default=Path("data/db/actions.duckdb"))
+    actions.add_argument("--lake", type=Path, default=Path("data/lake/actions"))
+    lineups = sub.add_parser("lineups", help="Reconstruct and validate historical lineup context")
+    lineups.add_argument("--source-database", type=Path, default=Path("data/db/basketball.duckdb"))
+    lineups.add_argument("--config", type=Path, default=Path("config/lineup-sources.json"))
+    lineups.add_argument("--raw", type=Path, default=Path("data/raw"))
+    lineups.add_argument("--database", type=Path, default=Path("data/db/lineups.duckdb"))
+    model = sub.add_parser(
+        "shot-model", help="Fit and evaluate the location-only temporal baseline"
+    )
+    model.add_argument("--atlas-database", type=Path, default=Path("data/db/atlas.duckdb"))
+    model.add_argument("--output", type=Path, default=Path("data/models/location-v1.json"))
     for command in ("health", "games", "export", "serve", "annotations"):
         child = sub.add_parser(command)
         child.add_argument("--database", type=Path, default=Path("data/db/basketball.duckdb"))
@@ -49,6 +66,12 @@ def main() -> None:
     try:
         if args.command == "fetch":
             result = fetch_sources(args.config, args.raw)
+        elif args.command == "actions":
+            result = build_actions(args.source_database, args.database, args.lake)
+        elif args.command == "lineups":
+            result = build_lineups(args.source_database, args.config, args.raw, args.database)
+        elif args.command == "shot-model":
+            result = build_shot_model(args.atlas_database, args.output)
         elif args.command == "atlas":
             result = build_atlas(args.config, args.raw, args.database, args.lake)
         elif args.command == "audit":

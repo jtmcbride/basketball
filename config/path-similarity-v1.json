@@ -1,0 +1,29 @@
+{
+  "version": "basketball-path-v1",
+  "duration_ms": 2000,
+  "sampling_interval_ms": 100,
+  "sample_count": 21,
+  "sampling": "Nearest recorded observation, ties choose earlier, maximum 20 ms error; no interpolation",
+  "time_basis": "source_timestamp_ms; sample targets run backward from the declared observed endpoint",
+  "coordinates": "SportVU source court feet; no rotation, reflection, direction normalization or scale change",
+  "profiles": {
+    "start_relative": "Subtract each path's first sampled x/y; preserve source-axis orientation",
+    "court_location": "Retain original source-court x/y coordinates"
+  },
+  "metric": "sqrt(mean((query_x-candidate_x)^2+(query_y-candidate_y)^2)), in feet",
+  "duration_treatment": "Fixed nominal 2 s, actual endpoint span within 20 ms; no temporal rescaling or warping",
+  "candidates": "Observed endpoints nearest an absolute 2 s timestamp grid within source event windows; deduplicate identical sampled player paths across overlaps",
+  "quality": "All intervening selected-player observations must be unique, roster/team-consistent, finite and within court; no timing/period/clock breaks or timestamp conflicts",
+  "query": "Ends at selected annotation reference or indexed path endpoint; only observations at/before that endpoint; curated queries stay within curated clip bounds",
+  "retrieval_exclusions": "Exclude all-player candidate intervals overlapping query footage in the same game, then suppress overlapping returned footage; stable ID breaks score ties",
+  "not_features": [
+    "shot outcome",
+    "future observations",
+    "ball",
+    "opponents",
+    "player identity",
+    "annotations",
+    "play call",
+    "assignments"
+  ]
+}
