@@ -1,0 +1,185 @@
+#cloud-config
+# Oracle Linux 9 (OCI) bootstrap for Basketball Motion Lab.
+#
+# Paste into "Advanced options -> Management -> cloud-init script" when creating
+# the instance. Edit /etc/basketball/deploy.env below first (REPO_URL, DOMAIN,
+# GIT_TOKEN if the repo is private). See deploy/oci/README.md.
+#
+# Layout on the box:
+#   /opt/basketball/app          git checkout (owned by the `basketball` user)
+#   /opt/basketball/app/data     duckdb catalogs + models -- NOT in git; push with
+#                                deploy/oci/push-data.sh or set DATA_TARBALL_URL
+#   basketball-api.service       uvicorn on 127.0.0.1:8007
+#   caddy.service                :80/:443 -> static UI + /api/* -> uvicorn
+#   /usr/local/sbin/basketball-deploy   re-run any time: pull, build, restart
+
+write_files:
+  - path: /etc/basketball/deploy.env
+    permissions: "0600"
+    content: |
+      # --- edit these -----------------------------------------------------------
+      REPO_URL=https://github.com/jtmcbride/basketball.git
+      BRANCH=main
+      # Fine-grained, read-only (Contents: read) token. Leave empty for a public
+      # repo. NOTE: user-data is readable from the instance metadata endpoint, so
+      # anything on the box can read it -- scope it to this one repo.
+      GIT_TOKEN=
+      # A DNS name pointing at the instance's public IP gets automatic HTTPS from
+      # Caddy. Leave empty to serve plain HTTP on the bare IP.
+      DOMAIN=
+      # Optional: a URL (e.g. an OCI Object Storage pre-authenticated request) to
+      # a .tar.gz containing db/ models/ (as produced by push-data.sh --tar).
+      DATA_TARBALL_URL=
+      # Each worker opens its own read-only DuckDB connections.
+      API_WORKERS=2
+      CADDY_VERSION=2.10.2
+
+  - path: /etc/systemd/system/basketball-api.service
+    content: |
+      [Unit]
+      Description=Basketball Motion Lab API (uvicorn)
+      After=network-online.target
+      Wants=network-online.target
+
+      [Service]
+      User=basketball
+      Group=basketball
+      # create_app() defaults to data/db/basketball.duckdb, annotations/... --
+      # relative to the checkout.
+      WorkingDirectory=/opt/basketball/app
+      EnvironmentFile=/etc/basketball/api.env
+      ExecStart=/opt/basketball/app/.venv/bin/uvicorn bkbdata.api:create_app --factory \
+        --host 127.0.0.1 --port 8007 --workers ${API_WORKERS} \
+        --proxy-headers --forwarded-allow-ips 127.0.0.1
+      Restart=on-failure
+      RestartSec=5
+      NoNewPrivileges=true
+      PrivateTmp=true
+      ProtectSystem=full
+
+      [Install]
+      WantedBy=multi-user.target
+
+  - path: /etc/systemd/system/caddy.service
+    content: |
+      [Unit]
+      Description=Caddy
+      After=network-online.target
+      Wants=network-online.target
+
+      [Service]
+      User=caddy
+      Group=caddy
+      ExecStart=/usr/local/bin/caddy run --environ --config /etc/caddy/Caddyfile
+      ExecReload=/usr/local/bin/caddy reload --config /etc/caddy/Caddyfile --force
+      Environment=XDG_DATA_HOME=/var/lib/caddy XDG_CONFIG_HOME=/etc/caddy
+      AmbientCapabilities=CAP_NET_BIND_SERVICE
+      CapabilityBoundingSet=CAP_NET_BIND_SERVICE
+      Restart=on-failure
+      LimitNOFILE=1048576
+
+      [Install]
+      WantedBy=multi-user.target
+
+  - path: /usr/local/sbin/basketball-deploy
+    permissions: "0755"
+    content: |
+      #!/usr/bin/env bash
+      # Pull, install, build, restart. Safe to re-run.
+      set -euo pipefail
+      source /etc/basketball/deploy.env
+      APP=/opt/basketball/app
+      as_bk() { sudo -u basketball -H env PATH=/usr/local/bin:/usr/bin:/bin "$@"; }
+
+      if [ -n "${GIT_TOKEN:-}" ]; then
+        as_bk git config --global credential.helper store
+        host=$(echo "$REPO_URL" | sed -E 's#https://([^/]+)/.*#\1#')
+        echo "https://x-access-token:${GIT_TOKEN}@${host}" | as_bk tee /opt/basketball/.git-credentials >/dev/null
+        chmod 600 /opt/basketball/.git-credentials
+      fi
+
+      if [ -d "$APP/.git" ]; then
+        (cd "$APP" && as_bk git fetch origin "$BRANCH" && as_bk git checkout "$BRANCH" && as_bk git reset --hard "origin/$BRANCH")
+      else
+        as_bk git clone --branch "$BRANCH" "$REPO_URL" "$APP"
+      fi
+
+      echo "API_WORKERS=${API_WORKERS:-2}" > /etc/basketball/api.env
+      as_bk mkdir -p "$APP/data/db" "$APP/data/models"
+
+      (cd "$APP" && as_bk uv sync --frozen --no-dev --python 3.13)
+      # The UI already fetches same-origin /api/*; Caddy strips the prefix.
+      (cd "$APP/apps/web" && as_bk env PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm ci --no-audit --no-fund \
+        && as_bk npm run build)
+
+      if [ -n "${DATA_TARBALL_URL:-}" ] && [ ! -f "$APP/data/db/basketball.duckdb" ]; then
+        curl -fL --retry 3 "$DATA_TARBALL_URL" | as_bk tar -xz -C "$APP/data"
+      fi
+      if [ ! -f "$APP/data/db/basketball.duckdb" ]; then
+        echo "basketball-deploy: no data in $APP/data/db yet -- push it (see deploy/oci/README.md)"
+      fi
+
+      restorecon -R /opt/basketball >/dev/null 2>&1 || true
+      systemctl restart basketball-api
+      systemctl reload caddy || systemctl restart caddy
+      echo "basketball-deploy: done"
+
+runcmd:
+  - |
+    set -euxo pipefail
+    source /etc/basketball/deploy.env
+
+    # Small shapes (E2.1.Micro = 1 GB) can't run `npm run build` / `uv sync` without swap.
+    if [ "$(awk '/MemTotal/ {print $2}' /proc/meminfo)" -lt 4000000 ] && [ ! -f /swapfile ]; then
+      fallocate -l 4G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile
+      echo '/swapfile none swap sw 0 0' >> /etc/fstab
+    fi
+
+    dnf install -y git tar rsync curl policycoreutils-python-utils
+    # Vite 8 needs Node >= 20.19 (.nvmrc says 24). Prefer the nodejs:24 module
+    # stream, fall back to nodejs:22 on older OL9 AppStream snapshots.
+    dnf module reset -y nodejs || true
+    dnf module enable -y nodejs:24 || dnf module enable -y nodejs:22
+    dnf install -y nodejs npm
+
+    # uv also provisions Python 3.13 (OL9 ships 3.9).
+    curl -LsSf https://astral.sh/uv/install.sh | env UV_INSTALL_DIR=/usr/local/bin UV_NO_MODIFY_PATH=1 sh
+
+    case "$(uname -m)" in aarch64) arch=arm64 ;; x86_64) arch=amd64 ;; *) echo "unsupported arch"; exit 1 ;; esac
+    curl -fsSL "https://github.com/caddyserver/caddy/releases/download/v${CADDY_VERSION}/caddy_${CADDY_VERSION}_linux_${arch}.tar.gz" \
+      | tar -xz -C /usr/local/bin caddy
+    chmod 755 /usr/local/bin/caddy
+    restorecon -v /usr/local/bin/caddy /usr/local/bin/uv /usr/local/bin/uvx || true
+
+    id basketball >/dev/null 2>&1 || useradd --system --create-home --home-dir /opt/basketball --shell /bin/bash basketball
+    chmod 755 /opt/basketball
+    id caddy >/dev/null 2>&1 || useradd --system --home-dir /var/lib/caddy --shell /sbin/nologin caddy
+    mkdir -p /etc/caddy /var/lib/caddy && chown caddy:caddy /var/lib/caddy
+
+    site="${DOMAIN:-:80}"
+    cat > /etc/caddy/Caddyfile <<CADDY
+    ${site} {
+        encode zstd gzip
+        handle_path /api/* {
+            reverse_proxy 127.0.0.1:8007
+        }
+        handle {
+            root * /opt/basketball/app/apps/web/dist
+            try_files {path} /index.html
+            file_server
+        }
+    }
+    CADDY
+    chown -R caddy:caddy /etc/caddy
+
+    # OCI's OL images ship firewalld with only ssh open. (The VCN security list
+    # must ALSO allow ingress 80/443 -- that part lives in the OCI console.)
+    firewall-cmd --permanent --add-service=http --add-service=https || firewall-offline-cmd --add-service=http --add-service=https
+    firewall-cmd --reload || true
+
+    systemctl daemon-reload
+    systemctl enable basketball-api caddy
+    systemctl start caddy
+    /usr/local/sbin/basketball-deploy
+
+final_message: "basketball bootstrap finished after $UPTIME s -- check `journalctl -u basketball-api` and /var/log/cloud-init-output.log"
