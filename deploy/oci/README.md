@@ -27,15 +27,19 @@ Boot takes ~5–10 minutes. Follow it with
 
 ## 2. Ship the data
 
-The DuckDB catalogs and model are not in git. Build them locally (`make audit`,
-`make atlas`, `make actions`, `make lineups`, `make shot-model`), then push:
+The DuckDB catalogs, model and arcs export are not in git. Build them locally
+(`make audit`, `make atlas`, `make actions`, `make lineups`, `make shot-model`,
+`make arcs`, `make assists`), then push:
 
 ```sh
 deploy/oci/push-data.sh opc@<public-ip>
 ```
 
-This rsyncs `data/{db,models}` and restarts the API. `data/raw`, `data/lake`,
-`data/exports` and `data/inspection` stay local — the API never reads them.
+This rsyncs `data/{db,models}` and `data/exports/arcs-v1.json`, then restarts the
+API. The arcs export records the SHA-256 of `basketball.duckdb` and refuses to
+load against any other catalog, so it always travels with `db/`; the script
+stops if it is missing. `data/raw`, `data/lake`, `data/inspection` and the rest
+of `data/exports` stay local — the API never reads them.
 
 Alternatively, `deploy/oci/push-data.sh --tar data.tar.gz`, upload it to an
 Object Storage bucket, create a pre-authenticated request, and set
@@ -44,9 +48,15 @@ Object Storage bucket, create a pre-authenticated request, and set
 ## 3. Updating
 
 ```sh
-ssh opc@<ip> sudo basketball-deploy          # pull main, uv sync, npm build, restart
-deploy/oci/push-data.sh opc@<ip>             # after a local rebuild
+ssh opc@<ip> sudo /usr/local/sbin/basketball-deploy   # pull main, uv sync, npm build, restart
+deploy/oci/push-data.sh opc@<ip>                      # after a local rebuild
 ```
+
+Use the full path: `sudo`'s `secure_path` on Oracle Linux omits
+`/usr/local/sbin`, so a bare `sudo basketball-deploy` is "command not found".
+
+A commit that adds a new data file the API reads (as `assists.duckdb` and
+`arcs-v1.json` did) needs `push-data.sh` in the same go, or its view 404s.
 
 ## Notes
 

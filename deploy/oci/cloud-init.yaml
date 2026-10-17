@@ -12,6 +12,7 @@
 #   basketball-api.service       uvicorn on 127.0.0.1:8007
 #   caddy.service                :80/:443 -> static UI + /api/* -> uvicorn
 #   /usr/local/sbin/basketball-deploy   re-run any time: pull, build, restart
+#                                       (full path: sudo's PATH omits /usr/local/sbin)
 
 write_files:
   - path: /etc/basketball/deploy.env
