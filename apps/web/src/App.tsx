@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { ActionAtlas } from "./actions/ActionAtlas";
+import { ShotArcs } from "./arcs/ShotArcs";
+import { AssistMap } from "./assists/AssistMap";
 import { LineupContext } from "./lineups/LineupContext";
 import { OffballExplorer } from "./offball/Explorer";
 import { Atlas } from "./atlas/Atlas";
@@ -304,17 +306,27 @@ function GameInspection({
 
 export default function App() {
   const [mode, setMode] = useState<
-    "atlas" | "tracking" | "movement" | "actions" | "lineups"
+    | "atlas"
+    | "tracking"
+    | "movement"
+    | "actions"
+    | "lineups"
+    | "arcs"
+    | "assists"
   >(
-    location.hash === "#lineups"
-      ? "lineups"
-      : location.hash.split("?")[0] === "#actions"
-        ? "actions"
-        : location.hash === "#movement"
-          ? "movement"
-          : location.hash === "#atlas"
-            ? "atlas"
-            : "tracking",
+    location.hash === "#assists"
+      ? "assists"
+      : location.hash === "#arcs"
+        ? "arcs"
+        : location.hash === "#lineups"
+          ? "lineups"
+          : location.hash.split("?")[0] === "#actions"
+            ? "actions"
+            : location.hash === "#movement"
+              ? "movement"
+              : location.hash === "#atlas"
+                ? "atlas"
+                : "tracking",
   );
   const [requestedShot, setRequestedShot] = useState<string | null>(null);
   const [actionsVisited, setActionsVisited] = useState(
@@ -339,15 +351,19 @@ export default function App() {
   useEffect(() => {
     const navigate = () => {
       const next =
-        location.hash === "#lineups"
-          ? "lineups"
-          : location.hash.split("?")[0] === "#actions"
-            ? "actions"
-            : location.hash === "#movement"
-              ? "movement"
-              : location.hash === "#atlas"
-                ? "atlas"
-                : "tracking";
+        location.hash === "#assists"
+          ? "assists"
+          : location.hash === "#arcs"
+            ? "arcs"
+            : location.hash === "#lineups"
+              ? "lineups"
+              : location.hash.split("?")[0] === "#actions"
+                ? "actions"
+                : location.hash === "#movement"
+                  ? "movement"
+                  : location.hash === "#atlas"
+                    ? "atlas"
+                    : "tracking";
       setMode(next);
       if (next === "atlas") setAtlasVisited(true);
       if (next === "actions") setActionsVisited(true);
@@ -377,15 +393,19 @@ export default function App() {
           </h1>
         </div>
         <p>
-          {mode === "lineups"
-            ? "Follow reconstructed rotations, inspect the attempts between substitutions, and examine a location-only model on held-out games."
-            : mode === "atlas"
-              ? "Explore four seasons of shot locations, compare players on the same scale, and open the recorded attempts behind each region."
-              : mode === "actions"
-                ? "Search recorded player paths, inspect geometric distances in feet, and replay the matched observations."
-                : mode === "movement"
-                  ? "Inspect annotated player movement, compare sequences at their reference frames, and follow separation and direction over recorded time."
-                  : "Select a recorded attempt, replay its tracked window, and inspect player movement with synchronized distance and speed measurements."}
+          {mode === "assists"
+            ? "See who sets up whom: the assisted share of made shots by location, where a passer's assists are scored, and each team's passing pairs."
+            : mode === "arcs"
+              ? "Follow the recorded ball from a candidate release to the rim, compare peak height and entry angle, and check the height data against made shots."
+              : mode === "lineups"
+                ? "Follow reconstructed rotations, inspect the attempts between substitutions, and examine a location-only model on held-out games."
+                : mode === "atlas"
+                  ? "Explore four seasons of shot locations, compare players on the same scale, and open the recorded attempts behind each region."
+                  : mode === "actions"
+                    ? "Search recorded player paths, inspect geometric distances in feet, and replay the matched observations."
+                    : mode === "movement"
+                      ? "Inspect annotated player movement, compare sequences at their reference frames, and follow separation and direction over recorded time."
+                      : "Select a recorded attempt, replay its tracked window, and inspect player movement with synchronized distance and speed measurements."}
         </p>
       </div>
       <nav className="mode-tabs" aria-label="Explore basketball data">
@@ -442,7 +462,39 @@ export default function App() {
         >
           Lineup context
         </button>
+        <button
+          type="button"
+          aria-pressed={mode === "arcs"}
+          onClick={() => {
+            setMode("arcs");
+            history.replaceState(null, "", "#arcs");
+          }}
+        >
+          Shot arcs
+        </button>
+        <button
+          type="button"
+          aria-pressed={mode === "assists"}
+          onClick={() => {
+            setMode("assists");
+            history.replaceState(null, "", "#assists");
+          }}
+        >
+          Assist map
+        </button>
       </nav>
+      {mode === "assists" && <AssistMap />}
+      {mode === "arcs" && (
+        <ShotArcs
+          onReplay={(id, shot) => {
+            setGameId(id);
+            setRequestedShot(shot);
+            setMode("tracking");
+            history.replaceState(null, "", "#tracking");
+            window.scrollTo({ top: 0 });
+          }}
+        />
+      )}
       {lineupsVisited && (
         <div hidden={mode !== "lineups"}>
           <LineupContext

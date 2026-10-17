@@ -1,7 +1,7 @@
 export UV_CACHE_DIR ?= $(CURDIR)/.cache/uv
 export npm_config_cache ?= $(CURDIR)/.cache/npm
 
-.PHONY: setup fetch audit api dev test web-build lint contract fixtures atlas-fetch atlas actions lineup-fetch lineups shot-model
+.PHONY: setup fetch audit api dev test web-build lint contract fixtures atlas-fetch atlas actions lineup-fetch lineups shot-model arcs assists
 
 setup:
 	uv sync --locked
@@ -56,3 +56,9 @@ lineups:
 
 shot-model:
 	uv run basketball shot-model
+
+arcs:
+	uv run basketball arcs
+
+assists:
+	uv run basketball assists

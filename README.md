@@ -18,6 +18,8 @@ make actions     # offline geometric path index from audited tracking
 make lineup-fetch # pinned official gamebooks and possession archive
 make lineups     # offline rotations and independent box-score constraints
 make shot-model  # fit/calibrate/evaluate a historical location-only baseline
+make arcs        # recorded ball flights for matched tracking attempts (prototype)
+make assists     # recorded assists joined to atlas made shots (prototype)
 make api         # read-only API at http://127.0.0.1:8007
 make dev         # shot atlas and replay at http://127.0.0.1:5177
 ```
@@ -33,6 +35,29 @@ make web-build
 make lint
 npm --prefix apps/web run test:browser
 ```
+
+## Shot arcs and assist map (prototypes)
+
+Open `http://127.0.0.1:5177/#arcs` or choose **Shot arcs**. A side view draws the
+recorded SportVU ball from a candidate release to the rim for **136 of 234**
+matched attempts; the other 98 keep a stated reason (no rim arrival, dunk or tip
+without free flight, tracking break, or failed plausibility). The target rim is
+the one the ball reaches, so no attacking direction is inferred, and no curve is
+fitted. Ball height passes an independent check: all 43 made shots with an
+observed descent cross 10 ft within 1.5 ft of the rim centre (median 0.33 ft,
+against 1.74 ft for misses). Peak height, release height and flight time are
+recorded; entry angle is derived. The candidate release is not a verified release.
+
+Open `#assists` or choose **Assist map**. Play-by-play `PLAYER2` agrees with the
+description's assist text on every made shot in all four seasons, and no assister
+is on the other team or is the shooter. Shares are of made field goals only, since
+assists exist only on makes. The map shows the assisted share by location, or
+where one passer's assists were scored (not where the pass began). A team matrix
+counts passer-to-shooter makes for the eight most involved players. Assisted plus
+unassisted makes reconcile with every season's event-matched atlas makes.
+
+Build with `make arcs` (after `make audit`) and `make assists` (after `make atlas`).
+Definitions live in `bkbdata/arcs.py` and `bkbdata/assists.py`, and each view shows them.
 
 ## Lineup context and evaluated model (Milestone 5)
 

@@ -1,0 +1,335 @@
+.assist-view {
+  padding-bottom: 20px;
+}
+.assist-view .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.assist-intro {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 28px;
+  margin: 20px 0 24px;
+}
+.assist-intro h2 {
+  font-family: "Avenir Next Condensed", "Arial Narrow", sans-serif;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.05;
+  margin: 7px 0;
+}
+.assist-intro > p {
+  max-width: 420px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 0;
+}
+.assist-coverage {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 13px 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+.assist-coverage strong {
+  color: var(--ink);
+}
+.assist-filters {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 22px 0;
+}
+.assist-filters select {
+  min-width: 170px;
+}
+.assist-segmented {
+  display: flex;
+}
+.assist-segmented button {
+  border: 1px solid #9fb3c0;
+  background: #f9fbfc;
+  padding: 9px 13px;
+  color: var(--ink);
+  font-size: 12px;
+}
+.assist-segmented button:first-child {
+  border-radius: 4px 0 0 4px;
+}
+.assist-segmented button:last-child {
+  border-radius: 0 4px 4px 0;
+  border-left: 0;
+}
+.assist-segmented button[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+.assist-segmented button:disabled {
+  color: #9aa8b1;
+  cursor: not-allowed;
+}
+.assist-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 24px;
+  align-items: start;
+}
+.assist-panel,
+.assist-matrix {
+  background: #fafcfd;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 20px;
+  min-width: 0;
+}
+.assist-panel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.assist-panel-heading h3 {
+  font-size: 15px;
+  margin: 0;
+}
+.assist-panel-heading > span {
+  font-size: 12px;
+  color: var(--muted);
+}
+.assist-map {
+  position: relative;
+  max-width: 620px;
+  margin: 0 auto;
+}
+.assist-map svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.assist-tooltip {
+  position: absolute;
+  transform: translate(12px, -110%);
+  pointer-events: none;
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  box-shadow: 0 4px 14px rgb(32 54 71 / 0.12);
+  padding: 8px 10px;
+  display: grid;
+  gap: 2px;
+  font-size: 11px;
+  color: var(--muted);
+  white-space: nowrap;
+  z-index: 2;
+}
+.assist-tooltip strong {
+  color: var(--ink);
+  font-size: 12px;
+}
+.assist-scale {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.assist-scale i {
+  width: 140px;
+  height: 10px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgb(224 234 236), rgb(32 100 131));
+}
+.assist-scale small {
+  margin-left: auto;
+}
+.assist-side {
+  display: grid;
+  gap: 10px;
+}
+.assist-tile {
+  background: #e7eef2;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 14px 16px;
+  display: grid;
+  gap: 3px;
+}
+.assist-tile span {
+  font-size: 12px;
+  color: var(--muted);
+}
+.assist-tile strong {
+  font-size: 26px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.5px;
+}
+.assist-tile small {
+  font-size: 11px;
+  color: var(--muted);
+}
+.assist-partners {
+  background: #fafcfd;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 14px 16px;
+}
+.assist-partners h4 {
+  font-size: 12px;
+  margin: 0 0 6px;
+}
+.assist-partners ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.assist-partners li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 12px;
+}
+.assist-partners li strong {
+  font-variant-numeric: tabular-nums;
+}
+.assist-partners p,
+.assist-note {
+  font-size: 11px;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.6;
+}
+.assist-matrix {
+  margin-top: 24px;
+}
+.assist-matrix-scroll {
+  position: relative;
+  overflow-x: auto;
+}
+.assist-matrix table {
+  border-collapse: separate;
+  border-spacing: 2px;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.assist-matrix th {
+  font-weight: 600;
+  white-space: nowrap;
+}
+.assist-matrix th button {
+  border: 0;
+  background: none;
+  padding: 4px 6px;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: underline transparent;
+}
+.assist-matrix th button:hover {
+  text-decoration-color: currentColor;
+}
+.assist-matrix thead th button {
+  writing-mode: sideways-lr;
+  padding: 6px 4px;
+  min-height: 70px;
+  text-align: left;
+}
+.assist-matrix tbody th {
+  text-align: right;
+}
+.assist-matrix th.selected button {
+  background: var(--ink);
+  color: #fff;
+  border-radius: 3px;
+}
+.assist-matrix td {
+  width: 46px;
+  min-width: 46px;
+  height: 34px;
+  text-align: center;
+  border-radius: 3px;
+  background: #f1f4f6;
+  color: var(--ink);
+}
+.assist-matrix td.dark {
+  color: #fff;
+}
+.assist-matrix td.self {
+  background: repeating-linear-gradient(
+    135deg,
+    #e3e9ed 0 3px,
+    transparent 3px 7px
+  );
+}
+.assist-definition {
+  margin: 10px 0;
+}
+.assist-definition div {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.assist-definition dt {
+  color: var(--ink);
+  font-weight: 600;
+}
+.assist-definition dd {
+  margin: 0;
+  line-height: 1.5;
+}
+@media (max-width: 1000px) {
+  .assist-main {
+    grid-template-columns: 1fr;
+  }
+  .assist-side {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .assist-partners,
+  .assist-note {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 720px) {
+  .assist-intro {
+    display: block;
+  }
+  .assist-intro > p {
+    margin-top: 12px;
+  }
+  .assist-filters label,
+  .assist-filters select,
+  .assist-segmented {
+    width: 100%;
+  }
+  .assist-segmented button {
+    flex: 1;
+  }
+  .assist-panel,
+  .assist-matrix {
+    padding: 14px;
+  }
+  .assist-tile strong {
+    font-size: 22px;
+  }
+  .assist-definition div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}

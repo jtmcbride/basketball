@@ -9,6 +9,8 @@ from pathlib import Path
 from bkbdata.acquire import fetch_sources
 from bkbdata.actions import build_actions
 from bkbdata.annotations import annotation_index
+from bkbdata.arcs import build_arcs
+from bkbdata.assists import build_assists
 from bkbdata.atlas import build_atlas
 from bkbdata.audit import build_audit
 from bkbdata.catalog import Catalog
@@ -43,6 +45,14 @@ def main() -> None:
     lineups.add_argument("--config", type=Path, default=Path("config/lineup-sources.json"))
     lineups.add_argument("--raw", type=Path, default=Path("data/raw"))
     lineups.add_argument("--database", type=Path, default=Path("data/db/lineups.duckdb"))
+    arcs = sub.add_parser("arcs", help="Locate recorded ball flights for matched attempts")
+    arcs.add_argument("--database", type=Path, default=Path("data/db/basketball.duckdb"))
+    arcs.add_argument("--output", type=Path, default=Path("data/exports/arcs-v1.json"))
+    assists = sub.add_parser("assists", help="Join recorded assists to atlas made shots")
+    assists.add_argument("--config", type=Path, default=Path("config/atlas-sources.json"))
+    assists.add_argument("--raw", type=Path, default=Path("data/raw"))
+    assists.add_argument("--atlas-database", type=Path, default=Path("data/db/atlas.duckdb"))
+    assists.add_argument("--database", type=Path, default=Path("data/db/assists.duckdb"))
     model = sub.add_parser(
         "shot-model", help="Fit and evaluate the location-only temporal baseline"
     )
@@ -70,6 +80,10 @@ def main() -> None:
             result = build_actions(args.source_database, args.database, args.lake)
         elif args.command == "lineups":
             result = build_lineups(args.source_database, args.config, args.raw, args.database)
+        elif args.command == "assists":
+            result = build_assists(args.config, args.raw, args.atlas_database, args.database)
+        elif args.command == "arcs":
+            result = build_arcs(args.database, args.output)
         elif args.command == "shot-model":
             result = build_shot_model(args.atlas_database, args.output)
         elif args.command == "atlas":

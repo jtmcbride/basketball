@@ -9,6 +9,8 @@ from fastapi import FastAPI, HTTPException, Query
 
 from bkbdata.actions import Actions
 from bkbdata.annotations import annotation_index
+from bkbdata.arcs import Arcs
+from bkbdata.assists import Assists
 from bkbdata.atlas import Atlas
 from bkbdata.catalog import Catalog
 from bkbdata.contracts import AUDIT_VERSION, ReplayBundle
@@ -23,6 +25,8 @@ def create_app(
     actions_database: Path | None = None,
     lineups_database: Path | None = None,
     shot_model_path: Path | None = None,
+    arcs_path: Path | None = None,
+    assists_database: Path | None = None,
 ) -> FastAPI:
     app = FastAPI(title="Basketball Motion Lab", version="0.1.0")
     catalog = Catalog(database)
@@ -35,6 +39,12 @@ def create_app(
         shot_model_path or database.parent.parent / "models/location-v1.json",
         atlas_database or database.with_name("atlas.duckdb"),
     )
+
+    assists = Assists(
+        assists_database or database.with_name("assists.duckdb"),
+        atlas_database or database.with_name("atlas.duckdb"),
+    )
+    arcs = Arcs(arcs_path or database.parent.parent / "exports/arcs-v1.json", database)
 
     def read(action):
         try:
@@ -95,6 +105,23 @@ def create_app(
     @app.get("/models/location")
     def location_model():
         return read(shot_model.read)
+
+    @app.get("/arcs")
+    def ball_flights():
+        return read(arcs.read)
+
+    @app.get("/assists/options")
+    def assist_options():
+        return read(assists.options)
+
+    @app.get("/assists/summary")
+    def assist_summary(
+        season: str,
+        team_id: str,
+        player_id: str | None = None,
+        role: Literal["shooter", "passer"] = "shooter",
+    ):
+        return read(lambda: assists.summary(season, team_id, player_id, role))
 
     @app.get("/actions/options")
     def action_options():
